@@ -5,7 +5,7 @@ understand patterns in chess games over the scale of millions of games.
 
 Supervisor: Chico Camargo
 
-## Project Descriptiojn
+## Project Description
 
 Chess is a very good game for data mining. Computational databases containing
 pre-calculated exhaustive analyses of chess endgame positions – known as endgame
