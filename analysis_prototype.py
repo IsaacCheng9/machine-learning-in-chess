@@ -4,6 +4,37 @@ import chess
 import chess.engine
 import chess.pgn
 
+
+def analyse_position(fen: str, depth_limit=20):
+    """
+    Analyse a FEN position using Stockfish.
+
+    Args:
+        fen: The FEN string of the position to analyse.
+        depth_limit: The depth limit for the Stockfish engine - larger values
+                     take longer to compute.
+
+    Returns:
+        A dictionary containing the evaluation info.
+    """
+    board = chess.Board(fen)
+    info = engine.analyse(board, chess.engine.Limit(depth=depth_limit))
+    return info
+
+
+def show_board_state(fen: str):
+    """
+    Show the board state for a given FEN string.
+
+    Args:
+        fen: The FEN string of the position to show.
+    """
+    board = chess.Board(fen)
+    print(
+        f"(Capitals indicates white pieces, lowercase indicates black pieces.)\n{board}"
+    )
+
+
 pgn = open("/Users/isaac/Downloads/lichess_db_standard_rated_2022-08.pgn")
 engine = chess.engine.SimpleEngine.popen_uci("/opt/homebrew/bin/stockfish")
 
@@ -18,13 +49,5 @@ for _ in range(1):
     print(fen)
     print()
 
-# Get the final position of the board using the FEN.
-board = chess.Board(fen)
-print("(Capitals indicates white pieces, lowercase indicates black pieces.)")
-print(board)
-print()
-# Evaluate the final board position using Stockfish, limiting the depth to
-# prevent the engine from taking too long.
-info = engine.analyse(board, chess.engine.Limit(depth=20))
-# Pretty print the evaluation info for ease of reading.
-pprint.pprint(info)
+show_board_state(fen)
+pprint.pprint(analyse_position((fen)))
