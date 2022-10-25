@@ -22,7 +22,7 @@ def analyse_position(fen: str, depth_limit=20):
     return info
 
 
-def show_board_state(fen: str):
+def show_board_state(fen: str) -> None:
     """
     Show the board state for a given FEN string.
 
@@ -31,7 +31,8 @@ def show_board_state(fen: str):
     """
     board = chess.Board(fen)
     print(
-        f"(Capitals indicates white pieces, lowercase indicates black pieces.)\n{board}"
+        "(Capitals indicates white pieces, lowercase indicates black pieces.)"
+        f"\n{board}\n"
     )
 
 
