@@ -1,4 +1,4 @@
-# Initial Findings (20/10/2022)
+# M4 – Initial Findings (20/10/2022)
 
 ## Agenda
 - Provide access to GitHub repository

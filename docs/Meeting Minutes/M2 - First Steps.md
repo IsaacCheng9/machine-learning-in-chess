@@ -1,4 +1,4 @@
-# First Steps (24/06/2022)
+# M2 – First Steps (24/06/2022)
 
 ## Tools
 - Use Lichess open database for standard chess

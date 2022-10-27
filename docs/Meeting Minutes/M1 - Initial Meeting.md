@@ -1,4 +1,4 @@
-# Initial Meeting (07/06/2022)
+# M1 – Initial Meeting (07/06/2022)
 
 ## Introduction
 -   Not to make an AI that plays chess, but study data on chess

@@ -1,4 +1,4 @@
-# Project Kickoff (07/10/2022)
+# M3 – Project Kickoff (07/10/2022)
 
 ## Timelines
 - First draft of literature review
