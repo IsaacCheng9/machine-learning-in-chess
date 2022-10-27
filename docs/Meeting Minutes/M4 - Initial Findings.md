@@ -24,7 +24,7 @@
 	- Best counters against particular openings
 	- Understanding social learning in chess
 		- More advanced players might be more affected by this, as they learn from books, videos, etc.
-		- Measure diversity in move set – games may get more homogenous as rating advances
+		- Measure diversity in move set – games may get more homogeneous as rating advances
 			- May be true up to a terminal level
 - Hard:
 	- Clustering similar chess matches
