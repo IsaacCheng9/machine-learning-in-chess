@@ -1,8 +1,9 @@
-import pprint
+from pprint import pprint
 
 import chess
 import chess.engine
 import chess.pgn
+from stockfish import Stockfish
 
 
 def analyse_position(fen: str, depth_limit=20):
@@ -15,11 +16,14 @@ def analyse_position(fen: str, depth_limit=20):
                      take longer to compute.
 
     Returns:
-        A dictionary containing the evaluation info.
+        A dictionary containing the evaluation info and details of the top five
+        moves.
     """
     board = chess.Board(fen)
+    stockfish.set_fen_position(fen)
     info = engine.analyse(board, chess.engine.Limit(depth=depth_limit))
-    return info
+    top_five_moves = stockfish.get_top_moves(5)
+    return info, top_five_moves
 
 
 def show_board_state(fen: str) -> None:
@@ -38,6 +42,7 @@ def show_board_state(fen: str) -> None:
 
 pgn = open("/Users/isaac/Downloads/lichess_db_standard_rated_2022-08.pgn")
 engine = chess.engine.SimpleEngine.popen_uci("/opt/homebrew/bin/stockfish")
+stockfish = Stockfish("/opt/homebrew/bin/stockfish")
 
 for _ in range(1):
     game = chess.pgn.read_game(pgn)
@@ -51,4 +56,7 @@ for _ in range(1):
     print()
 
 show_board_state(fen)
-pprint.pprint(analyse_position((fen)))
+info, top_five_moves = analyse_position(fen)
+pprint(info)
+print()
+pprint(top_five_moves)
