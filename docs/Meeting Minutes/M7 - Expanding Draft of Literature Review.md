@@ -14,6 +14,9 @@
 - Added Development section and finished a full draft.
 - Added some new subsections for Preliminary Research.
 ## Feedback
+- Online resources are fine to use, especially for figures
+- Any academic paper is suitable for use – peer-reviewed isn't necessary
+- Project specification section is good so far
 - Success criteria mostly in the evaluation
 	- Mention that we'll be evaluating them at a later point at the end of Development
 	- Examples of evaluation would be:
@@ -22,8 +25,7 @@
 		- Regression
 			- $R^2$ for linear
 		- Clustering
-			- See Google Drive lectures
-			- Silhouette score
+			- Silhouette score (see Google Drive lectures)
 - Topics for preliminary research
 	- Research on chess in general
 	- Research on cultural analytics
