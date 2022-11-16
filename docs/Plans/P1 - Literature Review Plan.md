@@ -6,6 +6,17 @@
 - Largest sections are usually preliminary research and design and development
 - Title doesn't have to be a question – may change the wording to read better at a later point if needed.
 
+## Next Steps
+- Fix citation for chessOpeningStats.
+	- Add 'date accessed' section.
+- Move chess opening stats figure to the bottom of the page (closer to the paragraph where it's mentioned)
+- Focus on adding more to the Preliminary Research section.
+- Complete the Evaluation subsection.
+- Complete the Conclusion section.
+- Complete the Abstract.
+- Consider renaming the project.
+- Complete a full draft of literature review.
+
 ## 1: Introduction – Background and Aim
 - Focus on motivation and general statements in the introduction
 - Economic importance
@@ -22,14 +33,27 @@
 ## 2: Preliminary Research
 - Focus on previous research in the field
 	- Academic research papers and how they're different to what we're proposing
+- Potential topics:
+	- Research on chess in general
+	- Research on cultural analytics
+	- About chess theory
+	- About chess databases
+	- About computational chess
 ### 2.1: Growth in the Popularity of Chess
 - [chessOpeningStats repository](https://github.com/Paul566/chessOpeningStats)
 	- Spike in number of games played daily caused by COVID-19 pandemic and release of 'The Queen's Gambit' series
 	- However, continuous growth observed over the last decade regardless
 	- Mention that no peer-reviewed academic research has been performed on this, and use it as motivation for this project
 	- May need to find more formal studies to back these statements?
-### 2.2: Chess Bots and Engines
+### 2.2: Chess Bots
+- History
+	- IBM Deep Blue
+	- Google AlphaZero
 - Training them using unsupervised learning
+### 2.3: Chess Engines
+- Stockfish's prevalence
+### 2.4: Piece Valuation
+- How pieces were provided values
 
 ## 3: Design and Development
 ### 3.1: Requirements
@@ -53,10 +77,11 @@
 	- `pandas` for dataframes
 	- `numpy` for mathematical analysis
 ### 3.3: Development
+- Create a Gantt chart
 - Sequence of things that need to be achieved
 	- How are we going to investigate the things we've outlined in the scope?
 	- Downloading the data (Lichess database, how we'll be storing the data), filtering the data, analysing the data, making data visualisations etc.
-- Name success criteria
+- Mention success criteria and how we'll go into it into further detail in Evaluation
 	- For example, evaluate results of prediction, evaluate results of clustering
 ### 3.4: Evaluation
 - How we'll be judging the success of the project
@@ -69,8 +94,11 @@
 		- Using external data, comparing internal data, etc.
 	- Classification
 		- e.g. how to measure the quality of the classifications
+		- Accuracy, precision, recall, F1
 	- Clustering
+		- Silhouette score (see Google Drive lectures)
 	- Regression
+		- $R^2$ for linear
 
 ## 4: Conclusion
 - Zoom back out to summarise what we've talked about
