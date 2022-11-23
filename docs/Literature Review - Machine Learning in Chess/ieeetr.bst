@@ -263,7 +263,8 @@ title
 }
 
 FUNCTION {format.title.p}
-{ title empty$
+{ 
+  title empty$
     { "" }
     { "``" title "t" change.case$ * ".''" * }
   if$

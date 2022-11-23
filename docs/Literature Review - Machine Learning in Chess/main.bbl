@@ -65,7 +65,8 @@ D.~Silver, T.~Hubert, J.~Schrittwieser, I.~Antonoglou, M.~Lai, A.~Guez,
   arXiv preprint arXiv:1712.01815}, 2017.
 
 \bibitem{stockfishRepository}
-``Stockfish.'' \url{https://github.com/official-stockfish/Stockfish}, 2022.
+``Stockfish {G}it{H}ub {R}epository.''
+  \url{https://github.com/official-stockfish/Stockfish}, 2022.
 \newblock Date Accessed: 22 November 2022.
 
 \end{thebibliography}
