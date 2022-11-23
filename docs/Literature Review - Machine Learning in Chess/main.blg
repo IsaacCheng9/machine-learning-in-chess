@@ -4,39 +4,40 @@ The top-level auxiliary file: main.aux
 The style file: ieeetr.bst.bst
 Database file #1: mainNotes.bib
 Database file #2: main.bib
+Warning--I didn't find a database entry for "stockfish"
 Warning--empty school in lowie2021big
 Warning--empty journal in turingalan
 Warning--empty year in turingalan
-You've used 14 entries,
+You've used 17 entries,
             1860 wiz_defined-function locations,
-            566 strings with 6109 characters,
-and the built_in function-call counts, 3630 in all, are:
-= -- 359
-> -- 164
+            580 strings with 6562 characters,
+and the built_in function-call counts, 3978 in all, are:
+= -- 398
+> -- 167
 < -- 0
-+ -- 62
++ -- 65
 - -- 48
-* -- 246
-:= -- 543
-add.period$ -- 16
-call.type$ -- 14
-change.case$ -- 3
+* -- 258
+:= -- 579
+add.period$ -- 22
+call.type$ -- 17
+change.case$ -- 6
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 168
-empty$ -- 323
+cite$ -- 20
+duplicate$ -- 180
+empty$ -- 377
 format.name$ -- 48
-if$ -- 866
+if$ -- 965
 int.to.chr$ -- 0
-int.to.str$ -- 14
+int.to.str$ -- 17
 missing$ -- 10
-newline$ -- 48
+newline$ -- 60
 num.names$ -- 13
-pop$ -- 45
+pop$ -- 66
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 120
+skip$ -- 129
 stack$ -- 0
 substring$ -- 240
 swap$ -- 69
@@ -46,6 +47,6 @@ top$ -- 0
 type$ -- 0
 warning$ -- 3
 while$ -- 37
-width$ -- 16
-write$ -- 137
-(There were 3 warnings)
+width$ -- 19
+write$ -- 164
+(There were 4 warnings)

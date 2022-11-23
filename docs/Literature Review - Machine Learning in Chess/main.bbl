@@ -29,8 +29,8 @@ W.~Hartston, ``It calculates 1 billion chess moves every second, but it's still
 A.~Turing, Alan Turing 1912-1954
 
 \bibitem{copeland2005turing}
-B.~J. Copeland and D.~Proudfoot, Turing and the computer {\em Alan Turing’s
-  Automatic Computing Engine: The Master Codebreaker’s Struggle to Build the
+B.~J. Copeland and D.~Proudfoot, Turing and the computer {\em Alan Turing's
+  Automatic Computing Engine: The Master Codebreaker's Struggle to Build the
   Modern Computer, Oxford University Press, Oxford}, pp.~107--148, 2005.
 
 \bibitem{shannon1950xxii}
@@ -45,6 +45,20 @@ Y.~Seirawan, H.~A. Simon, and T.~Munakata, The implications of kasparov vs.
 \bibitem{strogatz2018one}
 S.~Strogatz, One giant step for a chess-playing machine {\em New York Times},
   pp.~1--6, 2018.
+
+\bibitem{aboutStockfish}
+``About stockfish.'' \url{https://stockfishchess.org/about/}, 2022.
+\newblock Date Accessed: 22 November 2022.
+
+\bibitem{fishtestDistributedTestingFramework}
+``Fishtest distributed testing framework.''
+  \url{https://www.talkchess.com/forum3/viewtopic.php?start=0&t=47885}, 2022.
+\newblock Date Accessed: 22 November 2022.
+
+\bibitem{computerChessRatingLists}
+``Computer {C}hess {R}ating {L}ists: {N}ovember 2022.''
+  \url{https://computerchess.org.uk/ccrl/4040/rating_list_all.html}, 2022.
+\newblock Date Accessed: 22 November 2022.
 
 \bibitem{silver2018general}
 D.~Silver, T.~Hubert, J.~Schrittwieser, I.~Antonoglou, M.~Lai, A.~Guez,
