@@ -64,4 +64,8 @@ D.~Silver, T.~Hubert, J.~Schrittwieser, I.~Antonoglou, M.~Lai, A.~Guez,
   and shogi by self-play with a general reinforcement learning algorithm {\em
   arXiv preprint arXiv:1712.01815}, 2017.
 
+\bibitem{stockfishRepository}
+``Stockfish.'' \url{https://github.com/official-stockfish/Stockfish}, 2022.
+\newblock Date Accessed: 22 November 2022.
+
 \end{thebibliography}

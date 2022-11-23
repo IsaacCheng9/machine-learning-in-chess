@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.2.2)  23 NOV 2022 21:58
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.2.2)  23 NOV 2022 22:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -587,7 +587,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1]
 File: images/Lichess Number of Games Played Per Day.png Graphic file (type bmp)
 <images/Lichess Number of Games Played Per Day.png>
- [2] [3] [4] (/Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.bbl
+ [2] [3] [4] (/Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.bbl [5]
 Underfull \hbox (badness 10000) in paragraph at lines 22--27
 []\TU/Arial.ttf(0)/m/n/10 W. Hartston, “It calculates 1 billion chess moves every second, but
  []
@@ -602,17 +602,17 @@ Overfull \hbox (35.73282pt too wide) in paragraph at lines 22--27
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-[5]) [6] (/Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.aux)
+) [6] (/Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 73BA384AF461CDD06329208CA2C61A9C;2435.
+(rerunfilecheck)             Checksum: 6AB8E950147DCEF673D12517B742D58A;2435.
  ) 
 Here is how much of TeX's memory you used:
- 14629 strings out of 476919
- 262881 string characters out of 5821841
- 662460 words of memory out of 5000000
- 34370 multiletter control sequences out of 15000+600000
+ 14632 strings out of 476919
+ 262962 string characters out of 5821841
+ 658476 words of memory out of 5000000
+ 34373 multiletter control sequences out of 15000+600000
  418755 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,8n,89p,1556b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,8n,89p,1556b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.xdv (6 pages, 180592 bytes).
+Output written on /Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.xdv (6 pages, 194136 bytes).

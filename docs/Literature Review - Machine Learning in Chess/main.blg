@@ -7,36 +7,36 @@ Database file #2: main.bib
 Warning--empty school in lowie2021big
 Warning--empty journal in turingalan
 Warning--empty year in turingalan
-You've used 13 entries,
+You've used 14 entries,
             1860 wiz_defined-function locations,
-            561 strings with 5976 characters,
-and the built_in function-call counts, 3514 in all, are:
-= -- 346
-> -- 163
+            565 strings with 6076 characters,
+and the built_in function-call counts, 3630 in all, are:
+= -- 359
+> -- 164
 < -- 0
-+ -- 61
++ -- 62
 - -- 48
-* -- 242
-:= -- 531
-add.period$ -- 14
-call.type$ -- 13
-change.case$ -- 2
+* -- 246
+:= -- 543
+add.period$ -- 16
+call.type$ -- 14
+change.case$ -- 3
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 164
-empty$ -- 305
+cite$ -- 17
+duplicate$ -- 168
+empty$ -- 323
 format.name$ -- 48
-if$ -- 833
+if$ -- 866
 int.to.chr$ -- 0
-int.to.str$ -- 13
+int.to.str$ -- 14
 missing$ -- 10
-newline$ -- 44
+newline$ -- 48
 num.names$ -- 13
-pop$ -- 38
+pop$ -- 45
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 117
+skip$ -- 120
 stack$ -- 0
 substring$ -- 240
 swap$ -- 69
@@ -46,6 +46,6 @@ top$ -- 0
 type$ -- 0
 warning$ -- 3
 while$ -- 37
-width$ -- 15
-write$ -- 128
+width$ -- 16
+write$ -- 137
 (There were 3 warnings)
