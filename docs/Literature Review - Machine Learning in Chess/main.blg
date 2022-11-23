@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst.bst
+Database file #1: mainNotes.bib
+Database file #2: main.bib
+Warning--empty school in lowie2021big
+You've used 7 entries,
+            1860 wiz_defined-function locations,
+            523 strings with 4672 characters,
+and the built_in function-call counts, 1559 in all, are:
+= -- 171
+> -- 39
+< -- 0
++ -- 17
+- -- 10
+* -- 93
+:= -- 226
+add.period$ -- 9
+call.type$ -- 7
+change.case$ -- 2
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 76
+empty$ -- 154
+format.name$ -- 10
+if$ -- 384
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 4
+newline$ -- 26
+num.names$ -- 6
+pop$ -- 22
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 55
+stack$ -- 0
+substring$ -- 104
+swap$ -- 30
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 18
+width$ -- 8
+write$ -- 71
+(There was 1 warning)

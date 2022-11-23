@@ -1,0 +1,36 @@
+\begin{thebibliography}{1}
+
+\bibitem{beheim2014strategic}
+B.~A. Beheim, C.~Thigpen, and R.~Mcelreath, Strategic social learning and the
+  population dynamics of human behavior: The game of Go {\em Evolution and
+  Human Behavior}, vol.~35, no.~5, pp.~351--357, 2014.
+
+\bibitem{muller2002computer}
+M.~M{\"u}ller, Computer go {\em Artificial Intelligence}, vol.~134, no.~1-2,
+  pp.~145--179, 2002.
+
+\bibitem{chessOpeningStats}
+Paul556, ``Games played per day on lichess.''
+  \url{https://github.com/Paul566/chessOpeningStats}, 2022.
+\newblock Date Accessed: 15 November 2022.
+
+\bibitem{lowie2021big}
+F.~L. Lowie, How big is the Netflix effect? The Queen's Gambit: The influence
+  of Beth on the increase in chess numbers Master's thesis, 2021.
+
+\bibitem{earlyComputerChessHistory}
+``It calculates 1 billion chess moves every second, but it's still not as
+  bright as you.''
+  \url{https://www.independent.co.uk/news/uk/it-calculates-1-billion-chess-moves-every-second-but-it-s-still-not-as-bright-as-you-1318781.html},
+  1996.
+\newblock Date Accessed: 22 November 2022.
+
+\bibitem{seirawan1997implications}
+Y.~Seirawan, H.~A. Simon, and T.~Munakata, The implications of kasparov vs.
+  deep blue {\em Communications of the ACM}, vol.~40, no.~8, pp.~21--25, 1997.
+
+\bibitem{strogatz2018one}
+S.~Strogatz, One giant step for a chess-playing machine {\em New York Times},
+  pp.~1--6, 2018.
+
+\end{thebibliography}
