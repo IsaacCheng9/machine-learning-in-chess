@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{beheim2014strategic}
 B.~A. Beheim, C.~Thigpen, and R.~Mcelreath, Strategic social learning and the
@@ -37,5 +37,17 @@ Y.~Seirawan, H.~A. Simon, and T.~Munakata, The implications of kasparov vs.
 \bibitem{strogatz2018one}
 S.~Strogatz, One giant step for a chess-playing machine {\em New York Times},
   pp.~1--6, 2018.
+
+\bibitem{silver2018general}
+D.~Silver, T.~Hubert, J.~Schrittwieser, I.~Antonoglou, M.~Lai, A.~Guez,
+  M.~Lanctot, L.~Sifre, D.~Kumaran, T.~Graepel, {\em et~al.}, A general
+  reinforcement learning algorithm that masters chess, shogi, and Go through
+  self-play {\em Science}, vol.~362, no.~6419, pp.~1140--1144, 2018.
+
+\bibitem{silver2017mastering}
+D.~Silver, J.~Schrittwieser, K.~Simonyan, I.~Antonoglou, A.~Huang, A.~Guez,
+  T.~Hubert, L.~Baker, M.~Lai, A.~Bolton, {\em et~al.}, Mastering the game of
+  go without human knowledge {\em nature}, vol.~550, no.~7676, pp.~354--359,
+  2017.
 
 \end{thebibliography}
