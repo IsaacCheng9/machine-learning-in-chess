@@ -5,10 +5,9 @@
 - Use slides 58 onwards from 8.1 of Google Drive lecture slides for clustering etc
 - Largest sections are usually preliminary research and design and development
 - Title doesn't have to be a question – may change the wording to read better at a later point if needed.
+- Use [arxiv.org](https://arxiv.org/) as an additional source of academic papers (but not peer-reviewed)
 
 ## Next Steps
-- Fix citation for chessOpeningStats.
-	- Add 'date accessed' section.
 - Move chess opening stats figure to the bottom of the page (closer to the paragraph where it's mentioned)
 - Focus on adding more to the Preliminary Research section.
 - Complete the Evaluation subsection.
@@ -19,6 +18,7 @@
 
 ## 1: Introduction – Background and Aim
 - Focus on motivation and general statements in the introduction
+	- Consider changing order of introduction – perhaps move the motivation for studying chess in particular to the top
 - Economic importance
 	- Large amount of money invested in chess
 		- 'The Queen's Gambit' was released in 2020 and is the most poignant example of chess in popular culture
@@ -38,25 +38,28 @@
 	- Research on cultural analytics
 	- About chess theory
 	- About chess databases
-	- About computational chess
-### 2.1: Growth in the Popularity of Chess
+### Growth in the Popularity of Chess
 - [chessOpeningStats repository](https://github.com/Paul566/chessOpeningStats)
 	- Spike in number of games played daily caused by COVID-19 pandemic and release of 'The Queen's Gambit' series
 	- However, continuous growth observed over the last decade regardless
 	- Mention that no peer-reviewed academic research has been performed on this, and use it as motivation for this project
 	- May need to find more formal studies to back these statements?
-### 2.2: Chess Bots
+### History of Computer Chess
 - History
+	- Turing's Turochamp (with Champernowne)
+	- Prinz's first chess program
 	- IBM Deep Blue
+	- Stockfish, its iterations, and prevalence
 	- Google AlphaZero
+	- Cheating in chess (Hans Niemann scandal)
 - Training them using unsupervised learning
-### 2.3: Chess Engines
-- Stockfish's prevalence
-### 2.4: Piece Valuation
+### Piece Valuation
 - How pieces were provided values
+### Social Learning Theory
+- Explanation of what it entails
 
 ## 3: Design and Development
-### 3.1: Requirements
+### Requirements
 - Functional and non-functional requirements
 - Functional requirements should link back to the background and aim of the project
 - May be best to use Matthew's example as guidance, as the type of data is similar
@@ -68,7 +71,7 @@
 	- Methods to investigate these
 		- e.g. how to classify
 - What questions we won't be looking to answer – restrict scope and set expectations
-### 3.2: Design
+### Design
 - Explain use of Lichess database of games every month
 - Libraries used:
 	- `python-chess` and `stockfish` libraries to parse and analyse chess games
@@ -76,14 +79,17 @@
 	- `seaborn` for graph visualisations
 	- `pandas` for dataframes
 	- `numpy` for mathematical analysis
-### 3.3: Development
+
+### Project Risks
+### Legal and Ethical Issues
+### Development
 - Create a Gantt chart
 - Sequence of things that need to be achieved
 	- How are we going to investigate the things we've outlined in the scope?
 	- Downloading the data (Lichess database, how we'll be storing the data), filtering the data, analysing the data, making data visualisations etc.
 - Mention success criteria and how we'll go into it into further detail in Evaluation
 	- For example, evaluate results of prediction, evaluate results of clustering
-### 3.4: Evaluation
+### Evaluation
 - How we'll be judging the success of the project
 	- See Izzy and Matt for examples
 	- Assess the quality of our model – how effective/robust
