@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.2.2)  23 NOV 2022 01:27
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.2.2)  23 NOV 2022 02:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -592,17 +592,17 @@ Overfull \hbox (172.23282pt too wide) in paragraph at lines 22--27
 [][][][][][][][][][][] [] [][] [] [][] [] [][][][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-) [5] (/Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.aux)
+[5]) [6] (/Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 665686951BC9B77A13DE34E0EFE32CD1;2122.
  ) 
 Here is how much of TeX's memory you used:
- 14620 strings out of 476919
- 262665 string characters out of 5821841
- 660058 words of memory out of 5000000
- 34361 multiletter control sequences out of 15000+600000
+ 14630 strings out of 476919
+ 262891 string characters out of 5821841
+ 662125 words of memory out of 5000000
+ 34371 multiletter control sequences out of 15000+600000
  418755 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 82i,8n,89p,1275b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,8n,89p,1556b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.xdv (5 pages, 158244 bytes).
+Output written on /Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.xdv (6 pages, 171812 bytes).

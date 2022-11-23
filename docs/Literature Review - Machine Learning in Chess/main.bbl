@@ -25,6 +25,14 @@ F.~L. Lowie, How big is the Netflix effect? The Queen's Gambit: The influence
   1996.
 \newblock Date Accessed: 22 November 2022.
 
+\bibitem{turingalan}
+A.~Turing, Alan Turing 1912-1954
+
+\bibitem{copeland2005turing}
+B.~J. Copeland and D.~Proudfoot, Turing and the computer {\em Alan Turing’s
+  Automatic Computing Engine: The Master Codebreaker’s Struggle to Build the
+  Modern Computer, Oxford University Press, Oxford}, pp.~107--148, 2005.
+
 \bibitem{shannon1950xxii}
 C.~E. Shannon, XXII. Programming a computer for playing chess {\em The London,
   Edinburgh, and Dublin Philosophical Magazine and Journal of Science},
@@ -49,5 +57,11 @@ D.~Silver, J.~Schrittwieser, K.~Simonyan, I.~Antonoglou, A.~Huang, A.~Guez,
   T.~Hubert, L.~Baker, M.~Lai, A.~Bolton, {\em et~al.}, Mastering the game of
   go without human knowledge {\em nature}, vol.~550, no.~7676, pp.~354--359,
   2017.
+
+\bibitem{silver2017mastering2}
+D.~Silver, T.~Hubert, J.~Schrittwieser, I.~Antonoglou, M.~Lai, A.~Guez,
+  M.~Lanctot, L.~Sifre, D.~Kumaran, T.~Graepel, {\em et~al.}, Mastering chess
+  and shogi by self-play with a general reinforcement learning algorithm {\em
+  arXiv preprint arXiv:1712.01815}, 2017.
 
 \end{thebibliography}
