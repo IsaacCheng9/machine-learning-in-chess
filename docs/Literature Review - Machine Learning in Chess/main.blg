@@ -9,15 +9,15 @@ Warning--empty journal in turingalan
 Warning--empty year in turingalan
 You've used 13 entries,
             1860 wiz_defined-function locations,
-            561 strings with 5975 characters,
-and the built_in function-call counts, 3494 in all, are:
-= -- 345
-> -- 160
+            561 strings with 5976 characters,
+and the built_in function-call counts, 3514 in all, are:
+= -- 346
+> -- 163
 < -- 0
-+ -- 60
-- -- 47
-* -- 241
-:= -- 523
++ -- 61
+- -- 48
+* -- 242
+:= -- 531
 add.period$ -- 14
 call.type$ -- 13
 change.case$ -- 2
@@ -25,14 +25,14 @@ chr.to.int$ -- 0
 cite$ -- 16
 duplicate$ -- 164
 empty$ -- 305
-format.name$ -- 47
-if$ -- 831
+format.name$ -- 48
+if$ -- 833
 int.to.chr$ -- 0
 int.to.str$ -- 13
 missing$ -- 10
 newline$ -- 44
-num.names$ -- 12
-pop$ -- 39
+num.names$ -- 13
+pop$ -- 38
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -45,7 +45,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 36
+while$ -- 37
 width$ -- 15
-write$ -- 127
+write$ -- 128
 (There were 3 warnings)
