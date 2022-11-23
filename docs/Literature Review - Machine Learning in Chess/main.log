@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.2.2)  23 NOV 2022 00:53
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.2.2)  23 NOV 2022 01:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -597,12 +597,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B3A6DCD44263ADBAF8BF2CED7BC0E247;2173.
  ) 
 Here is how much of TeX's memory you used:
- 14611 strings out of 476919
- 262440 string characters out of 5821841
- 659062 words of memory out of 5000000
- 34352 multiletter control sequences out of 15000+600000
+ 14613 strings out of 476919
+ 262497 string characters out of 5821841
+ 659077 words of memory out of 5000000
+ 34354 multiletter control sequences out of 15000+600000
  418755 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  82i,8n,89p,1189b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.xdv (5 pages, 140476 bytes).
+Output written on /Users/isaac/My Drive/Documents/University/Year 4/Project (ECM3401)/machine-learning-in-chess/docs/Literature Review - Machine Learning in Chess/main.xdv (5 pages, 146008 bytes).

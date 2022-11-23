@@ -5,45 +5,45 @@ The style file: ieeetr.bst.bst
 Database file #1: mainNotes.bib
 Database file #2: main.bib
 Warning--empty school in lowie2021big
-You've used 7 entries,
+You've used 8 entries,
             1860 wiz_defined-function locations,
-            523 strings with 4672 characters,
-and the built_in function-call counts, 1559 in all, are:
-= -- 171
-> -- 39
+            532 strings with 4863 characters,
+and the built_in function-call counts, 1868 in all, are:
+= -- 208
+> -- 43
 < -- 0
-+ -- 17
-- -- 10
-* -- 93
-:= -- 226
-add.period$ -- 9
-call.type$ -- 7
++ -- 19
+- -- 11
+* -- 112
+:= -- 266
+add.period$ -- 10
+call.type$ -- 8
 change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 76
-empty$ -- 154
-format.name$ -- 10
-if$ -- 384
+cite$ -- 9
+duplicate$ -- 93
+empty$ -- 183
+format.name$ -- 11
+if$ -- 462
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 4
-newline$ -- 26
-num.names$ -- 6
-pop$ -- 22
+int.to.str$ -- 8
+missing$ -- 5
+newline$ -- 29
+num.names$ -- 7
+pop$ -- 23
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 55
+skip$ -- 69
 stack$ -- 0
-substring$ -- 104
-swap$ -- 30
+substring$ -- 136
+swap$ -- 39
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 18
-width$ -- 8
-write$ -- 71
+while$ -- 22
+width$ -- 9
+write$ -- 82
 (There was 1 warning)
