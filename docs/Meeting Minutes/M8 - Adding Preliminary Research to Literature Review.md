@@ -28,8 +28,8 @@
 	- Could go deeper into the clustering algorithms in development section?
 - Gantt chart could be a good idea
 	- Alternatively a bullet point list of where we want to arrive
-	- Follow this by the sequence of steps that will get us there
-	- May be useful to backtrack from the final deadline – easier to come up with timeline that way
+		- Follow this by the sequence of steps that will get us there
+	- In Gantt chart, it may be useful to backtrack from the final deadline – easier to come up with timeline that way
 - Project risks and ethical/legal issues
 	- Add a subsection for project risks (after design)
 	- Add a subsection for ethical/legal issues (after design)
