@@ -1,0 +1,45 @@
+# M8 – Adding Preliminary Research to Literature Review (23/11/2022)
+
+## Agenda
+- Ask about letter of recommendation
+- Arrange final pre-deadline meeting for Friday 25th.
+- How much detail about chess do I need to go into? Should I explain the ELO system?
+	- Alternatively, split some of the current sections on the history of chess into separate subsections, and delve into greater detail on how they worked
+	- Turing's Turochamp
+	- Prinz's exhaustive chess program
+	- IBM's Deep Blue
+	- Stockfish and further iterations
+	- DeepMind's AlphaZero
+- Mark scheme mentions 'comprehensive critical analysis' – how technical do I need to be?
+	- Should I delve deep into some of the machine learning methods used in computer chess?
+		- For example, talk about how AlphaZero uses a Monte Carlo Tree Search?
+- Should I add a Gantt chart to visualise the project plan?
+- According to mark scheme, need to add project risks and ethical/legal issues (or a 'convincing justification why there are none') – what things could I talk about?
+## Feedback
+- Overall focus on breadth, but delve into further detail in specific parts
+	- No need for the history of ELO system, but explain what it is, how it works, how it's used to compare the skill sets of players (development section, not background)
+	- One or two lines describing how it works
+	- Demonstrate the changes between all the computers that played chess
+		- Was DeepBlue just faster, or other improvements?
+		- e.g. expand one or two sentences from Monte-Carlo tree search algorithm
+- No need to go deep into machine learning methods in background
+	- However, compare and contrast to show a good understanding of existing solutions
+		- Trade-offs
+	- Could go deeper into the clustering algorithms in development section?
+- Gantt chart could be a good idea
+	- Alternatively a bullet point list of where we want to arrive
+	- Follow this by the sequence of steps that will get us there
+	- May be useful to backtrack from the final deadline – easier to come up with timeline that way
+- Project risks and ethical/legal issues
+	- Add a subsection for project risks (after design)
+	- Add a subsection for ethical/legal issues (after design)
+	- Add a subsection for downloading the data (move first paragraph before development, or mini-subsection within development)
+	- Project risks
+		- Size of the databases
+		- Data is already available and consistently being published, so no risk in there
+	- No ethical or legal issues in the project
+		- Publicly accessible data from Lichess – open-source
+		- Not personal data
+		- No information about specific chess players – just their username rather than personally identifiable information
+		- Output of the project will only concern chess rather than personal habits
+		- Output will consist of largely aggregated data to find general trends – no specific info about players
