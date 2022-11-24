@@ -49,6 +49,7 @@ notitlepage,
 tightenlines      % uncomment for double space
 ]{revtex4-1}
 
+\usepackage{float}
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
@@ -194,11 +195,11 @@ Strategic board games are good candidates for artificial intelligence research d
 \subsection{Growth in the Popularity of Chess}
 While there has been continuous growth in the popularity of chess over the last decade, a significant spike occurred with the pandemic and the release of 'The Queen's Gambit'. Some people have researched Lichess databases to demonstrate this, such as in the chessOpeningStats repository (see figure 1) \cite{chessOpeningStats}. However, there is a lack of formal academic research on this topic -- the closest is a thesis that investigates the influence of Beth and their qualitative effects on how viewers in the Netherlands and United States view chess \cite{lowie2021big}, but this does not provide quantifiable results.
 
-\begin{figure}
-\caption{Popularity of Lichess in Number of Games Played Daily \cite{chessOpeningStats}}
-\begin{center}
-\includegraphics[width=10cm]{images/Lichess Number of Games Played Per Day.png}
-\end{center}
+\begin{figure}[H]
+    \caption{Popularity of Lichess in Number of Games Played Daily \cite{chessOpeningStats}}
+    \begin{center}
+    \includegraphics[width=0.7\textwidth]{images/Lichess Number of Games Played Per Day.png}
+    \end{center}
 \end{figure}
 
 \subsection{History of Computer Chess}
@@ -217,8 +218,8 @@ Most recently, computer chess has come under scrutiny in chess tournaments, as U
 \subsection{Social Learning Theory}
 
 
-\section{Project Specification}
-\subsection{Requirements Analysis}
+
+\section{Project Aims and Objectives}
 Machine learning in chess covers a broad range of topics, so it is crucial to scope design and development systematically. We will start exploring simple, wide-spanning areas to build a baseline -- this may include answering questions such as:
 
 \begin{itemize}
@@ -235,6 +236,13 @@ Then, we will build up to more complex questions using previous findings. Questi
 \end{itemize}
 
 It is also important to outline what will be out of the project's scope. There is a vast range of chess game variants like Chess960 (also known as Fischer random chess), King of the Hill, and Antichess [CITATION NEEDED]. However, they would all introduce significant overhead to our research as they change the fundamental rules and theories of the game. We will not include them in the project to avoid scope creep and maintain a strong focus on the standard variant. In addition, we will not be creating a chess bot that plays games -- we will instead focus on generating insights to understand patterns in chess strategy.
+
+\section{Project Management}
+
+\subsection{Overview of Plan}
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{images/Gantt Chart - Project Management (Zoomed In).png}
+\end{center}
 
 \subsection{Design}
 A large data set is paramount to performing machine learning effectively. We will be using Lichess as our data source. They provide an open database of standard-rated games played on lichess.org every month in PGN (Portable Game Notation) format [CITATION NEEDED], which is the standard for recording chess games [CITATION NEEDED]. Lichess is one of the two mainstream platforms for playing chess online (alongside Chess.com), which means they provide a large sample to analyse each month -- October 2022 includes over 90 million games.
@@ -264,6 +272,7 @@ Next, we will analyse the data to investigate our questions. The simple question
 Finally, we will create visualisations of our results to demonstrate them in a manner that is easier to understand. We will plot a bar chart to show the most popular chess openings by percentage and their win rates, as well as a bar chart to demonstrate the distribution of ELO ratings in Lichess. Meanwhile, a line graph will show the most popular chess openings over time. These visualisations for the results of our simple questions will help readers by providing context for further studies on more complex topics. Using the same example as the previous paragraph, we could plot bar charts to compare the importance of different features of games containing less popular openings.
 
 \subsection{Evaluation}
+
 
 \section{Conclusion}
 
