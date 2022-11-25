@@ -49,6 +49,7 @@ notitlepage,
 tightenlines      % uncomment for double space
 ]{revtex4-1}
 
+\usepackage[toc,page]{appendix}
 \usepackage{float}
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
@@ -237,8 +238,8 @@ Machine learning in chess covers a broad range of topics, so it is crucial to sc
 \begin{itemize}
     \setlength\itemsep{0em}
     \item What are the most common chess openings and their success rates?
-    \item What are the most popular chess openings over time?
-    \item What is the distribution of Elo ratings on a given online platform?
+    \item How effectively does the centipawn score of a game predict the outcome of the game?
+    \item What is the distribution of Elo ratings for online chess players?
 \end{itemize}
 
 Then, we will build up to more complex questions using previous findings. Questions may include:
@@ -253,15 +254,17 @@ It is also important to outline what will be out of the project's scope. There i
 
 \section{Project Management}
 
-\subsection{Overview of Plan}
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{images/Gantt Chart - Project Management.png}
-\end{center}
+% \subsection{Overview of Plan}
+% \begin{center}
+%     \includegraphics[width=0.8\textwidth]{images/Gantt Chart - Project Management.png}
+% \end{center}
 
 \subsection{Planning Our Approach}
 A large data set is paramount to performing machine learning effectively. We will be using Lichess as our data source. They provide an open database of standard-rated games played on lichess.org every month in PGN (Portable Game Notation) format \cite{lichessOpenDatabase}, which is the standard for recording chess games \cite{pgnExplanation}. Lichess is one of the two mainstream platforms for playing chess online (alongside Chess.com), which means they provide a large sample to analyse each month -- October 2022 includes over 92 million standard rated games.
 
 We will use Python 3.11.0 because Python is the de facto standard for data science \cite{pythonForDataScience} and that is the latest version at the time of writing. The python-chess library has emerged as the most popular for PGN parsing alongside other features -- it has over 1,900 stars on GitHub and is maintained regularly \cite{pythonChessLibrary}. It will accompany the Python Stockfish library, the best and most popular chess engine available to the public \cite{aboutStockfish} -- this enables us to integrate the Stockfish engine with Python to analyse positions and generate insights. In addition, we will use industry-standard Python libraries such as seaborn for graph visualisations, pandas for data frames, and NumPy for mathematical analysis.
+
+To see an overview of my project plan, see appendix A.
 
 \subsection{Project Risks}
 There are very few risks in the project. The main risk is that the data set is not large enough to provide meaningful insights. However, this is unlikely to be an issue as Lichess provides a large data set every month, and there is already a history of monthly data from January 2013 onwards. The file sizes for Lichess' latest monthly data sets are huge, measuring at 30 GB for the compressed October 2022 download, and 214 GB when uncompressed. The computational analysis for this project will take place on my personal laptop, which is an M1 Max MacBook Pro 16 (2021) with 32 GB of RAM and 1 TB of SSD storage. If the lack of storage space becomes an issue when analysing multiple months' worth of data sets, we could look at using high-speed external solid state drives or using another machine. The latter solution would involve a high-performance desktop computer running a Linux distribution provided by my supervisor Chico Camargo, which could provide further benefits such as more powerful GPU accelerated computation to streamline our process.
@@ -290,6 +293,10 @@ Once the data has been prepared, we will analyse the data to find patterns and i
 
 Finding the distribution of Elo ratings on Lichess will provide us a baseline for investigating social learning theory in chess. The distribution of Elo ratings is likely a normal distribution, and our initial hypothesis is that social learning theory will be more prevalent in lower and middle sections of the distribution -- people who are less skilled at chess may be more likely to copy the moves of others, whereas people who are more skilled may be more likely to play their own moves. Identifying the degree to which social learning theory is evident in chess may become a feature importance problem. A reasonable hypothesis is that social learning theory takes place to a greater degree for popular openings, as there is substantially more educational material for them. Thus, we could use feature selection methods such as information gain and variance thresholding to identify the features of games containing less popular openings.
 
+Meanwhile, we could cluster games based on the type of moves that are played using k-means clustering. This will allow us to identify the most common types of moves, and we could use this to investigate whether there is a correlation between the type of move and the outcome of the game. For example, we could investigate whether a player is more likely to win if they play a positional move as opposed to a tactical move. This may also be a feature importance problem, as we could use the same feature selection methods as above to identify the features that are most indicative of the outcome of the game. On a similar note, we could cluster games as either open, which is when pieces can move freely and there are few pieces on the board, or closed, which is when pieces are restricted and there are many pieces on the board. Bishops are considered to be better in open games whereas knights are better in closed games, so we could seek to quantify the difference between these two pieces by calculating their respective piece values based on win rate in open and closed games.
+
+We could also use logistic regression to determine whether there is a relationship between the centipawn score of a game and whether it ended in a checkmate or a resignation. This will allow us to determine whether there is a correlation between the two, and if so, whether it is a positive or negative correlation.
+
 \subsection{Evaluation}
 We will also use cross-validation to ensure that our model generalises well to new data. This will involve splitting the data into k folds, where k is a number that we choose. We will then train the model k times, each time using a different fold as the testing data and the rest as the training data. In the end, we will average the results to get a more accurate estimate of the model's performance.
 
@@ -315,4 +322,12 @@ To conclude, this paper critically reviewed the existing uses of machine learnin
 
 \bibliographystyle{ieeetr.bst}
 \bibliography{main}
+
+\begin{appendices}
+    \section{Project Management Gantt Chart}
+    \begin{center}
+        \includegraphics[width=1\textwidth]{images/Gantt Chart - Project Management.png}
+    \end{center}
+\end{appendices}
+
 \end{document}
