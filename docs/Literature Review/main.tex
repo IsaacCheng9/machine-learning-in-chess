@@ -153,7 +153,7 @@ ItalicFont=ArialItalic.ttf
 \usepackage{setspace}
 \begin{document}
 
-\title{\Large Machine Learning in Chess}
+\title{\Large Machine Learning to Study Patterns in Chess Games}
 
 % \author{NO AUTHORS GIVEN}
 \author{Isaac Cheng}
@@ -295,7 +295,7 @@ Finding the distribution of Elo ratings on Lichess will provide us a baseline fo
 
 Meanwhile, we could cluster games based on the type of moves that are played using k-means clustering. This will allow us to identify the most common types of moves, and we could use this to investigate whether there is a correlation between the type of move and the outcome of the game. For example, we could investigate whether a player is more likely to win if they play a positional move as opposed to a tactical move. This may also be a feature importance problem, as we could use the same feature selection methods as above to identify the features that are most indicative of the outcome of the game. On a similar note, we could cluster games as either open, which is when pieces can move freely and there are few pieces on the board, or closed, which is when pieces are restricted and there are many pieces on the board. Bishops are considered to be better in open games whereas knights are better in closed games, so we could seek to quantify the difference between these two pieces by calculating their respective piece values based on win rate in open and closed games.
 
-We could also use logistic regression to determine whether there is a relationship between the centipawn score of a game and whether it ended in a checkmate or a resignation. This will allow us to determine whether there is a correlation between the two, and if so, whether it is a positive or negative correlation.
+We could also use logistic regression to determine whether there is a relationship between the centipawn score of a game and whether it ended in a checkmate or a resignation. This will allow us to determine whether there is a correlation between the two, and if so, whether it is a positive or negative correlation. It would form part of our investigation into how good the existing metrics for predicting win probability in chess games are.
 
 \subsection{Evaluation}
 We will also use cross-validation to ensure that our model generalises well to new data. This will involve splitting the data into k folds, where k is a number that we choose. We will then train the model k times, each time using a different fold as the testing data and the rest as the training data. In the end, we will average the results to get a more accurate estimate of the model's performance.
