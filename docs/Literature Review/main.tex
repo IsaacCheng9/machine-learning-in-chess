@@ -219,7 +219,7 @@ Most recently, computer chess has come under scrutiny in chess tournaments, as U
 This saga demonstrates the practical use of chess databases, as we will use them to find patterns in how people play chess and these patterns can be used to identify players who are cheating. While we will not be creating the cheat detection algorithms themselves (as sophisticated programs like Lichess' Irwin AI Hunter already exist \cite{lichessIrwinCheatDetection}), the patterns that we find could be used to create or improve such algorithms. For example, we could cluster players by their playstyle using metrics such as tendency to sacrifice pieces, and then these clusters could be used to flag players who are playing abnormally. Similarly, we could analyse games to determine the parameter space of chess players on x and y-axes, and this could flag players who demonstrate abilities beyond the wider chess population for further investigation.
 
 \subsection{Chess Piece Valuation}
-In chess, the value of a piece is determined by its ability to influence the outcome of the game. Valuation systems typically assign one point to a pawn, three points to a knight, three points to a bishop, five points to a rook, and nine points to a queen.
+In chess, the value of a piece is determined by its ability to influence the outcome of the game. The standard valuation system assigns one point to a pawn, three points to a knight, three points to a bishop, five points to a rook, and nine points to a queen. However, these points are fixed and do not consider the position of the pieces on the board -- a well-positioned bishop defending multiple pieces may be more valuable than an inactive rook that is passively positioned in the corner despite technically having a lower valuation. Furthermore, certain pieces combinations are generally thought to be more valuable than the sum of their parts. For example, two bishops are considered more valuable than a bishop plus a knight [CITATION NEEDED].
 
 \subsection{Growth in the Popularity of Chess}
 While there has been continuous growth in the popularity of chess over the last decade, a significant spike occurred with the pandemic and the release of 'The Queen's Gambit'. Some people have researched Lichess databases to demonstrate this, such as in the chessOpeningStats repository (see figure 1). However, there is a lack of formal academic research on this topic -- the closest is a thesis that investigates the influence of Beth and their qualitative effects on how viewers in the Netherlands and United States view chess \cite{lowie2021big}, but this does not provide quantifiable results.
@@ -227,7 +227,7 @@ While there has been continuous growth in the popularity of chess over the last 
 \begin{figure}[h]
     \caption{Popularity of Lichess in Number of Games Played Daily \cite{chessOpeningStats}}
     \begin{center}
-    \includegraphics[width=0.7\textwidth]{images/Lichess Number of Games Played Per Day.png}
+    \includegraphics[width=0.6\textwidth]{images/Lichess Number of Games Played Per Day.png}
     \end{center}
 \end{figure}
 
@@ -255,7 +255,7 @@ It is also important to outline what will be out of the project's scope. There i
 
 \subsection{Overview of Plan}
 \begin{center}
-    \includegraphics[width=0.9\textwidth]{images/Gantt Chart - Project Management.png}
+    \includegraphics[width=0.8\textwidth]{images/Gantt Chart - Project Management.png}
 \end{center}
 
 \subsection{Planning Our Approach}
