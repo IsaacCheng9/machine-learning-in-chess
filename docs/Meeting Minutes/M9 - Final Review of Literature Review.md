@@ -1,0 +1,61 @@
+# M9 – Final Review of Literature Review
+
+## Agenda
+- How specific do I need to be in the project management section regarding plans on models that I'll be using?
+	- Particularly in 'Analysing the Data' subsection
+- Confused about evaluation section
+	- Difference between evaluating our model and evaluating our project?
+- Does my literature review have a lack of depth that I need to address?
+	- Especially in sections 'Analysing the Data' and 'Evaluation'
+- Is it a concern that most of my references are online resources?
+	- Most of the information that I cited couldn't be found from academic papers
+## Feedback
+- Need more detail in Analysing the Data
+	- What analyses are we going to run?
+		- Like the social learning theory example, but more of that
+		- Examples:
+			- Using frequency of openings to predict Elo ratings
+			- Cluster strategies into player types
+			- Cluster games based on the types of moves that are played
+				- Open-ended games and closed games
+					- Bishops are better in open-ended games whereas knights are better in closed games
+					- Quantify the difference between these
+		- Regression
+		- Classification
+- Explain why allegations of cheating are relevant to our research
+	- Frame the section as the practical use of chess databases
+		- The patterns that we find could be used to identify players who are cheating
+			- If their playstyle doesn't fit into patterns we've found, we could try to find the likelihood that they're cheating
+			- If they don't fit in clusters of players (similar to finding 'top-right Messi')
+				- Finding parameter space of chess players – x and y-axes
+				- Players who are close together in clustering play similarly to each other, and vice versa
+	- Look into Kenneth Regan's academic papers
+- Evaluation
+	- Need to add evaluation methods for regression
+	- Evaluate the project based on:
+		- The results from evaluating model
+		- Whether we have found patterns in how players use chess strategies
+		- Models may have good evaluation results, yet we're unable to find patterns
+- Remember to connect preliminary research to the project
+	- Link the patterns they're extracting into how we can use it for our analysis
+	- Add a subsection about the relevance of computer chess to our project
+- Preliminary research topics:
+	- Could remove the history of how computer chess started etc, as they aren't directly relevant – nice-to-haves
+	- Growth in the popularity of chess
+		- Could delve into some of the research performed about chess openings, but they're very simple, lack depth, and aren't formal academic pieces of research
+		- May not need to investigate more breadth – just focus on how there's interest
+	- Explain how piece valuation works and how it was defined, but not the entire history
+	- Don't need to add subsection on social learning theory
+		- Could risk overwhelming the project – avoid scope creep
+- Conclusion
+	- Briefly mention some of the methods we could use
+		- Focus on the prediction/clustering methods as opposed to the evaluation
+		- 'identify patterns in how people play chess, such as...'
+	- Mention more potential outcomes of this project:
+		- Detecting cheating in chess
+- Final refinements (to do at the end)
+	- Formatting of formulas (could be explained in-text as the ratio rather than showing the math formulas)
+	- Figures:
+		- Queen's Gambit popularity
+		- French win ratio
+		- What the French opening looks like
