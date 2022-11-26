@@ -298,9 +298,7 @@ Meanwhile, we could cluster games based on the type of moves that are played usi
 We could also use logistic regression, which is used to predict the probability of a binary event occurring \cite{peng2002introduction}. For example, we could use it to determine whether there is a relationship between the centipawn score of a game and whether it ended in a checkmate or a resignation. This will allow us to determine whether there is a correlation between the two, and if so, whether it is a positive or negative correlation. It would form part of our investigation into how good the existing metrics for predicting win probability in chess games are, and potentially suggest better metrics based on the patterns we find in chess games.
 
 \subsection{Evaluation}
-We will also use cross-validation to ensure that our model generalises well to new data. This will involve splitting the data into k folds, where k is a number that we choose. We will then train the model k times, each time using a different fold as the testing data and the rest as the training data. In the end, we will average the results to get a more accurate estimate of the model's performance.
-
-As this project focuses on using machine learning to analyse chess games, we will evaluate the performance of our models using metrics that are relevant to machine learning. This starts with the confusion matrix, which counts the number of true positives, true negatives, false positives, and false negatives. Based on the confusion matrix, we will measure accuracy, precision, recall, F1 score, and receiving operating character (ROC) curve to evaluate the performance of our models.
+To evaluate our classification models, we will use the confusion matrix, which counts the number of true positives, true negatives, false positives, and false negatives. Based on the confusion matrix, we will measure accuracy, precision, recall, F1 score, and receiving operating character (ROC) curve to evaluate the performance of our models.
 
 \begin{itemize}
     \item Accuracy is the proportion of correct predictions, defined as: $\frac{\text{number of correct predictions}}{\text{number of data points}}$
@@ -313,6 +311,8 @@ As this project focuses on using machine learning to analyse chess games, we wil
     \item F1 score is the harmonic mean (reciprocal of the average of reciprocals) of precision and recall, defined as: $2 * \frac{\text{precision * recall}}{\text{precision + recall}}$
     \item Receiver operating characteristic (ROC) curve visualises the trade-off between the true positive rate and the false positive rate. This will allow us to see how well our model performs at different classifications thresholds.
 \end{itemize}
+
+We will also use cross-validation to ensure that our model generalises well to new data. This will involve splitting the data into k folds, where k is a number that we choose. We will then train the model k times, each time using a different fold as the testing data and the rest as the training data. In the end, we will average the results to get a more accurate estimate of the model's performance.
 
 \subsection{Visualising our Results}
 At the end, we will create visualisations of our results to demonstrate them in a manner that is easier to understand. We will plot a bar chart to show the most popular chess openings by percentage and their win rates, as well as a bar chart to demonstrate the distribution of Elo ratings in Lichess. Meanwhile, a line graph will show the most popular chess openings over time. These visualisations for the results of our simple questions will help readers by providing context for further studies on more complex topics. Using the same example as the previous paragraph, we could plot bar charts to compare the importance of different features of games containing less popular openings. This will allow us to see which features are more important in determining the outcome of a game.
