@@ -6,7 +6,7 @@ import chess.pgn
 from stockfish import Stockfish
 
 
-def analyse_position(fen: str, depth_limit=20):
+def analyse_position(fen: str, depth_limit=20) -> tuple:
     """
     Analyse a FEN position using Stockfish.
 
@@ -16,8 +16,8 @@ def analyse_position(fen: str, depth_limit=20):
                      take longer to compute.
 
     Returns:
-        A dictionary containing the evaluation info and details of the top five
-        moves.
+        A dictionary containing the evaluation info and a dictionary of details
+        of the top five moves.
     """
     board = chess.Board(fen)
     stockfish.set_fen_position(fen)
@@ -40,23 +40,25 @@ def show_board_state(fen: str) -> None:
     )
 
 
-pgn = open("/Users/isaac/Downloads/lichess_db_standard_rated_2022-08.pgn")
-engine = chess.engine.SimpleEngine.popen_uci("/opt/homebrew/bin/stockfish")
-stockfish = Stockfish("/opt/homebrew/bin/stockfish")
+if __name__ == "__main__":
+    engine = chess.engine.SimpleEngine.popen_uci("/opt/homebrew/bin/stockfish")
+    stockfish = Stockfish("/opt/homebrew/bin/stockfish")
+    pgn_file = "/Users/isaac/Downloads/lichess_db_standard_rated_2022-08.pgn"
+    pgn = open(pgn_file, encoding="utf-8")
 
-for _ in range(1):
-    game = chess.pgn.read_game(pgn)
-    print(game)
-    print()
-    # Get the FEN string of the final board position.
-    while game.next():
-        game = game.next()
-    fen = game.board().fen()
-    print(fen)
-    print()
+    for _ in range(1):
+        game = chess.pgn.read_game(pgn)
+        print(game)
+        print()
+        # Get the FEN string of the final board position.
+        while game.next():
+            game = game.next()
+        fen = game.board().fen()
+        print(fen)
+        print()
 
-show_board_state(fen)
-info, top_five_moves = analyse_position(fen)
-pprint(info)
-print()
-pprint(top_five_moves)
+    show_board_state(fen)
+    info, top_five_moves = analyse_position(fen)
+    pprint(info)
+    print()
+    pprint(top_five_moves)
