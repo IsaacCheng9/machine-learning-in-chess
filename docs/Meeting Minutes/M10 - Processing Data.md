@@ -6,11 +6,22 @@
 ### Difficulties with Big Data
 - Starting by focusing on rated Blitz, Rapid, and Bullet games
 - Mention this in the final report
+	- Testing Scoutfish – reason to use it, what it is, and the conclusion
+	- How useful is performing analysis on just a single day?
+		- Large scale of people playing on a given day might still produce good insights
+		- Compare one day with one week to see whether patterns are clearer
+	- Are the least random patterns found amongst the elite players?
+		- What percentile are within this ELO range?
+		- Patterns found amongst the elite may not necessarily apply to the general population
+	- Explain directions and why you chose them
 - [Parsing Large PGN Files Efficiently](https://www.reddit.com/r/learnpython/comments/gmogd0/how_do_i_parse_large_pgn_files_efficiently/)
 - [Estimating Playing Strength in Chess](https://patzersreview.blogspot.com/2020/05/estimating-playing-strength.html)
+- [Kaggle Example of Lichess DB EDA](https://www.kaggle.com/code/ironicninja/converting-raw-chess-pgn-to-readable-data/notebook)
 #### Individual Game Analysis
 - Analysing each game takes a long time, even if only looking at the last move. How should we approach this?
-	- Perform stratified sampling on the types of games?
+	- Perform stratified sampling on the types of games
+		- Proportion of players in each bin etc.
+		- Need to think about what scale is manageable – could also mention this in the report
 #### Metadata Analysis
 - Even analysing the metadata takes a long time due to the large number of games.
 	- Multi-threading seems like it's no good (useful for IO-bound tasks, but we're CPU-bound)
@@ -18,6 +29,7 @@
 		- Use this on chunks of PGN files (split into 10 segments)
 	- Probably only have to do this once
 	- Do you have alternative suggestions?
+		- Iterate on a smaller sample – first ~3 million games of the month?
 - Processing could be faster on Chico's machine?
 	- Set up access and perform some benchmarks so we can see whether it's actually faster for our use case – single-core performance seems most important
 #### Potential Workarounds
@@ -49,16 +61,24 @@
 	- Influence of ELO difference on win probability
 		- Normalised by white/black win rate?
 		- Differential as a percentage of the mean ELO between players?
-	- Blunder rate by ELO
+	- **Blunder rate by ELO**
+	- **Categorising players by playstyle**
+		- How aggressive they are / tendency to have more open games
+		- Highlight specific players such as famous pros
+			- Chess.com may provide game data
 - Could test conclusions near the end of the project by looking at examples from specific games (in-depth qualitative discretionary analysis to give a human interpretation)
 	- Low priority?
 	- [Scid Chess DB Analyser](https://scid.sourceforge.net/)
+	- For example, what counts as a blunder?
 
 ### Timelines
 - What were your experiences with previous students and their timelines?
 - Rough targets for:
-	- Starting to find conclusions for the project
-	- Completing full code implementation
-	- Completing final report
-
+	- First directions – February
+	- Explore various directions – before April
+		- Depends on type of project
+	- Stop pursuing new directions and start writing report – April
+		- A lot will be borrowed from the lit review
+	- Complete full code implementation and final report – May
+		- Don't worry too much about documentation – enough to remember how useful it is
 ## Other Feedback
