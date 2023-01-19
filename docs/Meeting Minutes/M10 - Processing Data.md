@@ -82,3 +82,4 @@
 	- Complete full code implementation and final report – May
 		- Don't worry too much about documentation – enough to remember how useful it is
 ## Other Feedback
+- Continue doing what I'm doing so far and coming up with new directions such as blunder rate by ELO
