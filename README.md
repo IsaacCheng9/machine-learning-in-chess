@@ -1,4 +1,4 @@
-# Machine Learning in Chess
+# Machine Learning to Study Patterns in Chess Games
 
 A final year project for the University of Exeter, using machine learning to
 understand patterns in chess games over the scale of millions of games.
