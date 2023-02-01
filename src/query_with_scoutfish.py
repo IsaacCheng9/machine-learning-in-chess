@@ -18,5 +18,13 @@ if __name__ == "__main__":
 
     scoutfish.open(PGN_PATH)
     query = {"result": "0-1"}
-    res = scoutfish.scout(query)
-    print(res)
+    print(f"Searching games with the following query:\n{query}")
+    result = scoutfish.scout(query)
+
+    num_games = result["match count"]
+    print(f"\nFound {num_games} games matching the query.")
+
+    # games = scoutfish.get_games(result["matches"])
+    # for game in games:
+    #     print(game["pgn"])
+    #     break
