@@ -10,6 +10,9 @@
 *.xdv
 mainNotes.bib
 
+# Ignore .pgn files.
+*.pgn
+
 # Prerequisites
 *.d
 
