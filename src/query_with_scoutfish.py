@@ -10,7 +10,7 @@ if __name__ == "__main__":
     scoutfish = Scoutfish(engine="scoutfish/src/scoutfish")
     scoutfish.setoption("threads", 10)
     PGN_PATH = ""
-    PGN_PATH = "/Users/isaac/Downloads/ChessDBs/lichess_elite_2022-08.pgn"
+    # PGN_PATH = "/Users/isaac/Downloads/ChessDBs/lichess_elite_2022-08.pgn"
     if not PGN_PATH:
         PGN_PATH = input("Directory of PGN file: ")
     if not PGN_PATH.endswith(".pgn"):
