@@ -1,39 +1,16 @@
 # P2 – Project Plan
 
-## Final Report Structure
-- Change this to be similar to the structure of the literature review
-	- Provided structure is more for software engineering projects
-- Introduce methods at the start vs. introduce methods as they're used
-	- Whatever is easier to navigate
-
-### Introduction – Background and Aim
-
-### Preliminary Research
-- How much should this differ from the literature review?
-	- Should it contain a subset of this, alongside new findings during development?
-### Analysis of Requirements
-- How much should this differ from the literature review?
-	- Include new findings about difficulties with big data
-### Design
-- How does this work? In our case, how does it differ from analysis of requirements?
-### Development
-
-### Evaluation
-
-### Conclusions
-- Limitations
-	- Challenges in collecting and parsing data – may be difficult for future work
-- What worked
-- What didn't work
-- What we didn't explore but could be useful in the future
-### References/Appendices
-
-## Demonstration
-- Is this an uploaded video or a live presentation?
+## Data Pipeline
+- Download monthly data set from Lichess Open Database
+- Query with Scoutfish for specific occurrences in games
+- Query with pandas for openings
+	- Split PGN file
+	- Convert PGN files to CSV with multiprocessing
+	- Convert CSV to pandas DataFrame and perform queries on it
 
 ## Metadata Analysis
 ### High-Level
-#### Blunder rate by ELO
+#### Blunder Rate by ELO
 - Average number of moves by ELO rating
 	- Initial hypothesis – this should increase as ELO rating increases as players are less likely to make game-changing blunders at an earlier stage
 		- Talk about lack of universal definition of a game-changing blunder vs. other blunders
@@ -41,11 +18,18 @@
 	- Initial hypothesis – rate of resignations after specific pieces increases as ELO rating increases
 		- Relative piece value (percentage of their total piece value)
 	- If they made a game-changing blunder and didn't resign, what was the outcome?
-#### Categorising players by playstyle
+#### Probability of Chess Piece Positions
+- Heat map of chess piece positions
+	- Initial hypothesis – probabilities are more spread out at higher ELO
+		- Higher skilled players activate their pieces more
+	- Initial hypothesis – probabilities are less spread at smaller 
+	- Perform analysis based on ECO code categorisations
+		- Open and close games, how they cause piece probabilities to differ
+#### Categorising Players by Playstyle
 - How aggressive they are / tendency to have more open games
 - Highlight specific players such as famous pros
 	- Chess.com may provide game data
-#### Most popular and most effective openings
+#### Most Popular and Most Effective Openings
 - Compare this by ELO rating
 - Initial hypothesis – variation in openings converges as ELO rating increases due to social learning theory
 	- Potential spike at the tail end – surprise factor
@@ -59,7 +43,7 @@
 - Influence of ELO difference on win probability
 	- Normalised by white/black win rate?
 	- Differential as a percentage of the mean ELO between players?
-#### New
+
 ### Low-Level
  - Look at examples of our hypotheses in practice from specific games (in-depth qualitative discretionary analysis to give a human interpretation)
 	 - What counts as a blunder?
