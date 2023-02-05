@@ -78,13 +78,11 @@ def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> 
 
 
 if __name__ == "__main__":
-    WHITELISTED_EVENTS = set(
-        [
-            "Rated Blitz game",
-            "Rated Rapid game",
-            "Rated Bullet game",
-        ]
-    )
+    WHITELISTED_EVENTS = {
+        "Rated Blitz game",
+        "Rated Rapid game",
+        "Rated Bullet game",
+    }
     PGN_PATH = ""
     PGN_PATH = "/Users/isaac/Downloads/ChessDBs/lichess_db_standard_rated_2022-08.1.pgn"
     if not PGN_PATH:
