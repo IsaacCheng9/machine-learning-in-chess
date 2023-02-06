@@ -3,6 +3,7 @@ Convert a PGN file to a CSV file for the game metadata to make it easier to
 perform data analysis with pandas.
 """
 import csv
+import multiprocessing
 import os
 
 import chess.pgn
@@ -84,10 +85,19 @@ if __name__ == "__main__":
         "Rated Bullet game",
     }
     PGN_PATH = ""
-    PGN_PATH = "/Users/isaac/Downloads/ChessDBs/lichess_db_standard_rated_2022-08.1.pgn"
+    PGN_PATH = "/Users/isaac/Downloads/ChessDBs/lichess_db_standard_rated_2022-09.pgn"
     if not PGN_PATH:
         PGN_PATH = input("Directory of PGN file: ")
     if not PGN_PATH.endswith(".pgn"):
         raise ValueError(f"The following path isn't a PGN file: {PGN_PATH}")
 
-    convert_pgn_metadata_to_csv_file(PGN_PATH, WHITELISTED_EVENTS)
+    # Remove the '.pgn' extension from the PGN file path.
+    PGN_PATH = PGN_PATH.replace(".pgn", "")
+    # Perform multiprocessing on the PGN files that have been split into
+    # five parts with '.1', '.2', '.3', '.4', and '.5' appended to the end of
+    # the file name before the .pgn extension.
+    with multiprocessing.Pool() as pool:
+        pool.starmap(
+            convert_pgn_metadata_to_csv_file,
+            [(f"{PGN_PATH}.{i}.pgn", WHITELISTED_EVENTS) for i in range(1, 6)],
+        )
