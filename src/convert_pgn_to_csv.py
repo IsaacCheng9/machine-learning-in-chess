@@ -5,9 +5,9 @@ perform data analysis with pandas.
 import csv
 import multiprocessing
 import os
-from typing import List
 
 import chess.pgn
+from merge_csv_files import merge_csv_files
 
 
 def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> str:
@@ -85,33 +85,6 @@ def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> 
     return csv_file_path
 
 
-def merge_csv_files(base_pgn_file: str, csv_files: List[str]) -> str:
-    """
-    Merge the multiple CSV files into one.
-
-    Args:
-        base_pgn_file: The path to the PGN file without the '.pgn' extension.
-        csv_files: The paths to the split CSV files.
-
-    Returns:
-        The path of the combined CSV file.
-    """
-    print(f"Merging {len(csv_files)} CSV files into one...")
-    with open(f"{base_pgn_file}.csv", "w", encoding="utf-8") as output_file:
-        writer = csv.writer(output_file)
-        for i, split_csv_file in enumerate(csv_files):
-            with open(split_csv_file, encoding="utf-8") as file:
-                reader = csv.reader(file)
-                # Skip the header row if it's not the first CSV file.
-                if i != 1:
-                    next(reader)
-                for row in reader:
-                    writer.writerow(row)
-
-    print(f"Merged CSV files into: {base_pgn_file}.csv")
-    return f"{base_pgn_file}.csv"
-
-
 if __name__ == "__main__":
     WHITELISTED_EVENTS = {
         "Rated Bullet game",
@@ -121,7 +94,6 @@ if __name__ == "__main__":
     # The number of files the PGN file is split into.
     NUM_SPLIT_FILES = 6
     PGN_PATH = ""
-    PGN_PATH = "/Users/isaac/Downloads/ChessDBs/lichess_db_standard_rated_2022-09.pgn"
     if not PGN_PATH:
         PGN_PATH = input("Directory of PGN file: ")
     if not PGN_PATH.endswith(".pgn"):
@@ -142,4 +114,4 @@ if __name__ == "__main__":
             ],
         )
     # Merge the split CSV files into one.
-    merge_csv_files(BASE_FILE_PATH, csv_file_paths)
+    merge_csv_files(f"{BASE_FILE_PATH}.csv", csv_file_paths)
