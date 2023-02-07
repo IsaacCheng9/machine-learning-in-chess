@@ -1,10 +1,17 @@
-import pandas as pd
+"""
+A utility script to convert a CSV file to an SQLite3 database. This can be
+useful to make the data more accessible for user interaction when the CSV file
+is too large to be loaded into memory.
+"""
 import sqlite3
+
+import pandas as pd
 
 
 def convert_csv_to_sqlite3(csv_path: str) -> None:
     """
-    Convert a CSV file to a SQLite3 database to make it more accessible.
+    Convert a CSV file to a SQLite3 database to make it more accessible for
+    user interaction when the CSV file is too large to be loaded in-memory.
 
     Args:
         csv_path: The path to the CSV file.
