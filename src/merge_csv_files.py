@@ -17,15 +17,18 @@ def merge_csv_files(output_file_name: str, csv_files: List[str]) -> str:
     Returns:
         The path of the combined CSV file.
     """
-    print(f"Merging {len(csv_files)} CSV files into {output_file_name} ...")
+    print(f"Merging {len(csv_files)} CSV files into {output_file_name}")
     with open(output_file_name, "w", encoding="utf-8") as output_file:
         writer = csv.writer(output_file)
-        for i, split_csv_file in enumerate(csv_files):
+        header_written = False
+        for split_csv_file in csv_files:
             with open(split_csv_file, encoding="utf-8") as file:
                 reader = csv.reader(file)
-                # Skip the header row if it's not the first CSV file.
-                if i != 1:
-                    next(reader)
+                header = next(reader)
+                # Add the header row from the first CSV file.
+                if not header_written:
+                    writer.writerow(header)
+                    header_written = True
                 for row in reader:
                     writer.writerow(row)
 
