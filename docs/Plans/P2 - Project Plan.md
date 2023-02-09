@@ -1,12 +1,25 @@
 # P2 – Project Plan
 
-## Data Pipeline
-- Download monthly data set from Lichess Open Database
-- Query with Scoutfish for specific occurrences in games
-- Query with pandas for openings
-	- Split PGN file
-	- Convert PGN files to CSV with multiprocessing
-	- Convert CSV to pandas DataFrame and perform queries on it
+## To Do
+- Ask about the possibility of changing the template in the lecture.
+	- Can we change the template?
+	- Can we use our own template?
+- Look into data pipeline for project.
+	- Create a diagram to represent the data pipeline.
+	- Convert the PGN file into CSV so it can be imported as a pandas DataFrame.
+		- Consider how we can work around high memory usage when loading the CSV file.
+			- Use Dask for efficient data processing?
+			- Convert CSV to SQL data and query it with SQL instead?
+		- Look into the most efficient way of storing the DataFrame.
+- Write a section in the final report about my findings when creating the data pipeline.
+	- Early sections about exploring different technologies and their limitations
+	- Talk about structure of PGN – what headers are standardised and what's specific to the website?
+	- Mention grouping openings by splitting opening name by colon.
+- Investigate whether we can use the additional fields from chess-openings repository to work with Scoutfish.
+	- UCI notation to sub-FEN?
+- Start to implement metadata analysis.
+	- ELO distribution
+	- Most popular opening categories by ELO range
 
 ## Metadata Analysis
 ### High-Level
