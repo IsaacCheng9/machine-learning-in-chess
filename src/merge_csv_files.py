@@ -24,12 +24,17 @@ def merge_csv_files(output_file_name: str, csv_files: List[str]) -> str:
         for split_csv_file in csv_files:
             with open(split_csv_file, encoding="utf-8") as file:
                 reader = csv.reader(file)
-                header = next(reader)
                 # Add the header row from the first CSV file.
                 if not header_written:
+                    header = next(reader)
                     writer.writerow(header)
                     header_written = True
+                else:
+                    next(reader)
                 for row in reader:
+                    # Avoid adding the row if it's the header row.
+                    if row[0] == "UTCDate":
+                        continue
                     writer.writerow(row)
 
     print(f"Merged CSV files into: {output_file_name}")
