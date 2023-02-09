@@ -21,21 +21,6 @@ def convert_csv_to_sqlite3(csv_path: str) -> None:
     df = pd.read_csv(
         csv_path,
         low_memory=False,
-        names=[
-            "UTCDate",
-            "UTCTime",
-            "Event",
-            "TimeControl",
-            "Result",
-            "Termination",
-            "ECO",
-            "Opening",
-            "White",
-            "Black",
-            "WhiteElo",
-            "BlackElo",
-            "Site",
-        ],
     )
     df.to_sql(
         "games",
