@@ -1,6 +1,6 @@
 """
-Convert a PGN file to a CSV file for the game metadata to make it easier to
-perform data analysis with pandas.
+Convert a PGN file to a folder of Parquet files for the game metadata to make
+it easier to perform data analysis with Dask and pandas.
 """
 import csv
 import multiprocessing
