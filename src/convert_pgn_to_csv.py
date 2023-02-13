@@ -7,7 +7,8 @@ import multiprocessing
 import os
 
 import chess.pgn
-from merge_csv_files import merge_csv_files
+
+from merge_csv_files import convert_csv_to_parquet, merge_csv_files
 
 
 def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> str:
@@ -115,3 +116,4 @@ if __name__ == "__main__":
         )
     # Merge the split CSV files into one.
     merge_csv_files(f"{BASE_FILE_PATH}.csv", csv_file_paths)
+    convert_csv_to_parquet(f"{BASE_FILE_PATH}.csv")
