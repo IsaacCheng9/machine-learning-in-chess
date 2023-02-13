@@ -3,8 +3,9 @@ A utility script to merge multiple CSV files into one. This can be useful when
 aggregating the results of performing multiprocessing on a split data set.
 """
 import csv
-import dask.dataframe as dd
 from typing import List
+
+import dask.dataframe as dd
 
 
 def merge_csv_files(output_file_name: str, csv_files: List[str]) -> str:
@@ -56,7 +57,23 @@ def convert_csv_to_parquet(csv_file: str) -> str:
     # Remove the .csv extension for the name of the folder of .parquet files.
     parquet_folder = csv_file.replace(".csv", "")
     print(f"Converting the following CSV file to Parquet files: {csv_file}")
-    df = dd.read_csv(csv_file)
+    df = dd.read_csv(
+        csv_file,
+        parse_dates={"UTCDateTime": ["UTCDate", "UTCTime"]},
+        dtype={
+            "Event": "category",
+            "TimeControl": "string[pyarrow]",
+            "Result": "category",
+            "Termination": "category",
+            "ECO": "string[pyarrow]",
+            "Opening": "string[pyarrow]",
+            "White": "string[pyarrow]",
+            "Black": "string[pyarrow]",
+            "WhiteElo": "int16",
+            "BlackElo": "int16",
+            "Site": "string[pyarrow]",
+        },
+    )
     df.to_parquet(parquet_folder)
     print(f"Converted CSV file to Parquet files: {parquet_folder}")
     return parquet_folder
