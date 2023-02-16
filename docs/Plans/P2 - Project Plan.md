@@ -1,36 +1,35 @@
 # P2 – Project Plan
 
 ## To Do
-- Ask about the possibility of changing the template in the lecture.
-	- Can we change the template?
-	- Can we use our own template?
-- Look into data pipeline for project.
-	- Create a diagram to represent the data pipeline.
-	- Convert the PGN file into CSV so it can be imported as a pandas DataFrame.
-		- Consider how we can work around high memory usage when loading the CSV file.
-			- Use Dask for efficient data processing?
-			- Convert CSV to SQL data and query it with SQL instead?
-		- Look into the most efficient way of storing the DataFrame.
+### In Progress
 - Write a section in the final report about my findings when creating the data pipeline.
+	- Explain what Rated Bullet/Blitz/Rapid means
 	- Early sections about exploring different technologies and their limitations
-	- Talk about structure of PGN – what headers are standardised and what's specific to the website?
+		- Scoutfish
+	- Explain the diagram and refer to figure 1 – why repeat x12?
+		- Expand on parts of the diagram – repeat some points but in more detail
+- Discuss Elo distribution
+	- Note how the smaller bins aren't very visible – final four bins include totals of xyz
+	- Random walk – if you start with everyone in the same spot, the final positions will tend towards a normal distribution
+		- Random wins and losses – matchmaking system could possibly be the cause of this, as every game should end up being roughly 50/50 assuming similar skill
+		- Over time, the distribution will spread more
+	- By contrast, long tail distributions occur when there's an event with a small probability, like winning a ton of money at a casino by going on a hot streak (compound multiplication)
+		- Matchmaking system normalises your rank over time to prevent this
+- Discuss most common games
 	- Mention grouping openings by splitting opening name by colon.
+	- '90% of openings are either x, y, or z' – provides context to the reader
+- Fix diagram to show merging all months to a 2022 file.
+- Start to implement metadata analysis.
+### Backlog
+- Calculate the count of games each player has played.
+- Try getting Elo distribution of unique players (take highest or lowest Elo for each player).
+- Look into creating my own simpler template.
+	- Ensure that it meets the requirements.
 - Investigate whether we can use the additional fields from chess-openings repository to work with Scoutfish.
 	- UCI notation to sub-FEN?
-- Start to implement metadata analysis.
-	- ELO distribution
-	- Most popular opening categories by ELO range
 
 ## Metadata Analysis
 ### High-Level
-#### Blunder Rate by ELO
-- Average number of moves by ELO rating
-	- Initial hypothesis – this should increase as ELO rating increases as players are less likely to make game-changing blunders at an earlier stage
-		- Talk about lack of universal definition of a game-changing blunder vs. other blunders
-		- How we quantified a game-changing blunder – lose a Queen and resigned within a move?
-	- Initial hypothesis – rate of resignations after specific pieces increases as ELO rating increases
-		- Relative piece value (percentage of their total piece value)
-	- If they made a game-changing blunder and didn't resign, what was the outcome?
 #### Probability of Chess Piece Positions
 - Heat map of chess piece positions
 	- Initial hypothesis – probabilities are more spread out at higher ELO
@@ -58,6 +57,14 @@
 	- Differential as a percentage of the mean ELO between players?
 
 ### Low-Level
+#### Blunder Rate by ELO
+- Average number of moves by ELO rating
+	- Initial hypothesis – this should increase as ELO rating increases as players are less likely to make game-changing blunders at an earlier stage
+		- Talk about lack of universal definition of a game-changing blunder vs. other blunders
+		- How we quantified a game-changing blunder – lose a Queen and resigned within a move?
+	- Initial hypothesis – rate of resignations after specific pieces increases as ELO rating increases
+		- Relative piece value (percentage of their total piece value)
+	- If they made a game-changing blunder and didn't resign, what was the outcome?
  - Look at examples of our hypotheses in practice from specific games (in-depth qualitative discretionary analysis to give a human interpretation)
 	 - What counts as a blunder?
 ## Timelines
