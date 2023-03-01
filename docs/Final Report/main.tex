@@ -52,7 +52,7 @@ The time controls in Lichess are decided based on the estimated game duration, u
 I started by downloading the PGN files for each month, which introduced difficulties with big data. Each month's file is around 30 GB to download and they are compressed, which means each month is around 210 GB when uncompressed, resulting in approximately 2.5 TB of data for the year. My laptop only had 1 TB of storage, and the sheer size of the data would make it unrealistic to process in a reasonable amount of time. Therefore, I aimed to collect a sample of approximately 5 million chess games from each month, so I took 6 million games from each month as this included Rated Classical games that I would later filter out.
 
 \subsection{Data Processing}
-PGN (Portable Game Notation) files are a standard format for recording chess games -- each game has headers containing information like the white player, black player, their ELO ratings, and the result of the game. In addition, it stores a list of all the moves in each game. While PGN files are well-structured, they are not easy to process. The pgn2data Python library [CITATION HERE] provides a simple way to convert PGN files into CSV files, but it exported both the moves and the metadata of each game in separate CSV files. I did not need the moves, so it was using up unnecessary space and taking a long time to process each game. It was also designed for generic PGN files so it did not include additional useful metadata provided by Lichess such as the opening of the game.
+PGN (Portable Game Notation) files are a standard format for recording chess games -- each game has headers containing information like the white player, black player, their Elo ratings, and the result of the game. In addition, it stores a list of all the moves in each game. While PGN files are well-structured, they are not easy to process. The pgn2data Python library [CITATION HERE] provides a simple way to convert PGN files into CSV files, but it exported both the moves and the metadata of each game in separate CSV files. I did not need the moves, so it was using up unnecessary space and taking a long time to process each game. It was also designed for generic PGN files so it did not include additional useful metadata provided by Lichess such as the opening of the game.
 
 Thus, I wrote my own Python script to convert each PGN file into a single CSV file containing only the metadata of each game. I used the python-chess library to parse the PGN files and iterate over each game. I skipped Rated Classical games and games that involved a non-human player. To optimise performance, I split each month's PGN into six files each containing 1 million games with pgn-extract (a PGN manipulator written in C) [CITATION HERE], and I used Python's multiprocessing library to process each month in parallel -- this reduced the processing time for each month from 120 minutes to 20 minutes.
 
@@ -71,8 +71,10 @@ For low-level, turn-based analysis of games, I created a .scout file using Scout
 \subsection{Elo Distribution of Players}
 
 \begin{center}
-    \includegraphics[width=0.8\textwidth]{ELO Rating Distribution.png}
+    \includegraphics[width=0.8\textwidth]{Elo Rating Distribution.png}
 \end{center}
+
+To start with, I counted the Elo ratings of players in my data set and placed them into bins of 200 Elo points, starting from 600 (the minimum possible Elo rating on Lichess).
 
 \section{Conclusion}
 
