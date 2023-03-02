@@ -2,29 +2,15 @@
 
 ## To Do
 ### In Progress
-- Write a section in the final report about my findings when creating the data pipeline.
-	- Explain what Rated Bullet/Blitz/Rapid means
-	- Early sections about exploring different technologies and their limitations
-		- Scoutfish
-	- Explain the diagram and refer to figure 1 – why repeat x12?
-		- Expand on parts of the diagram – repeat some points but in more detail
-- Discuss Elo distribution
-	- Note how the smaller bins aren't very visible – final four bins include totals of xyz
-	- Random walk – if you start with everyone in the same spot, the final positions will tend towards a normal distribution
-		- Random wins and losses – matchmaking system could possibly be the cause of this, as every game should end up being roughly 50/50 assuming similar skill
-		- Over time, the distribution will spread more
-	- By contrast, long tail distributions occur when there's an event with a small probability, like winning a ton of money at a casino by going on a hot streak (compound multiplication)
-		- Matchmaking system normalises your rank over time to prevent this
 - Discuss most common games
 	- Mention grouping openings by splitting opening name by colon.
 	- '90% of openings are either x, y, or z' – provides context to the reader
-- Fix diagram to show merging all months to a 2022 file.
-- Start to implement metadata analysis.
+- Perform metadata analysis.
 ### Backlog
+- Add one or two examples of openings (screenshots) in the appendix to provide context to the reader.
 - Calculate the count of games each player has played.
 - Try getting Elo distribution of unique players (take highest or lowest Elo for each player).
-- Look into creating my own simpler template.
-	- Ensure that it meets the requirements.
+- Look into merging the first pages of the original template with my own template.
 - Investigate whether we can use the additional fields from chess-openings repository to work with Scoutfish.
 	- UCI notation to sub-FEN?
 
