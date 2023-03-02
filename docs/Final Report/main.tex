@@ -68,7 +68,7 @@ For low-level, turn-based analysis of games, I created a .scout file using Scout
 
 \section{Analysis of Data}
 
-\subsection{Distribution of Player Ratings}
+\subsection{Initial Data Exploration}
 
 \begin{center}
     \includegraphics[width=0.8\textwidth]{Distribution of Player Ratings.png}
@@ -77,6 +77,14 @@ For low-level, turn-based analysis of games, I created a .scout file using Scout
 To start with, I counted the ratings of players in my data set. Rating systems are designed to predict the outcome of games so that players can be matched fairly. There are various rating systems used in chess -- the most common is the Elo rating system, which is used by various sports. Lichess uses the Glicko 2 rating system, which accounts for volatility amongst other factors to provide better prediction accuracy than the Glicko 1 and Elo rating systems \cite{chessRatingSystems, DeloitteFIDEChessRatingChallenge}.
 
 I created bins of 200 rating points, starting from 600 (the minimum possible rating on Lichess).
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{Most Popular Openings by Category.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{Most Popular Openings.png}
+\end{center}
 
 \section{Conclusion}
 
