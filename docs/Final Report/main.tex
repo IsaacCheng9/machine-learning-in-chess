@@ -2,7 +2,7 @@
 
 \usepackage[british]{babel}
 \usepackage[autostyle]{csquotes}
-\usepackage[colorlinks=true, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorlinks=true, urlcolor=blue, citecolor=blue, linkcolor=blue]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{geometry}
@@ -73,21 +73,30 @@ Figure \ref{fig:dataPipeline} shows an overview of my data pipeline. It shows ho
 
 \subsection{Initial Data Exploration}
 
-\begin{center}
+\begin{figure}[H]
+    \centering
+    \caption{Distribution of Player Ratings}
+    \label{fig:distributionOfPlayerRatings}
     \includegraphics[width=0.8\textwidth]{Distribution of Player Ratings.png}
-\end{center}
+\end{figure}
 
 To start with, I counted the ratings of players in my data set. Rating systems are designed to predict the outcome of games so that players can be matched fairly. There are various rating systems used in chess -- the most common is the Elo rating system, which is used by various sports. Lichess uses the Glicko 2 rating system, which accounts for volatility amongst other factors to provide better prediction accuracy than the Glicko 1 and Elo rating systems \cite{chessRatingSystems, DeloitteFIDEChessRatingChallenge}. The Glicko 2 rating system starts at 1500, and it is artificially limited to a minimum of 600 in Lichess. I created bins of 200 rating point ranges starting from 600 -- this handles the representation of new players well, as those who have played few games will not have changed their rating significantly and likely get placed in the 1400-1600 bin. Note that the last four bins on the right of the bar chart do exist, but they are difficult to see -- they contain totals of 73,395, 7,295, 459, and 1 player(s) respectively. In addition, the counts are based on each game played, so some players may be overrepresented in the data set -- a player who plays 100 games within the year will have 100 entries in the data set, whereas a player who plays 1 game will have 1 entry. However, this is not a significant issue because the data set is large enough to represent the distribution of player ratings well.
 
-The distribution of player ratings tends towards a normal distribution. We could explain this based on the concept that a player's performance is similar to a random walk, which states that an object moves randomly with equal probability in different directions. In Lichess ratings, a player's rating can be seen as the result of a series of random walks, where the player's rating constantly changes as they win and lose games. Over time, their rating will tend to stabilise to represent their true skill level. Moreover, the central limit theorem states that the sum of a large number of independent and identically distributed random variables tends towards a normal distribution \cite{le1986central}. In this case, the ratings of individual players can be seen as independent and identically distributed random variables, with each game representing a single trial. Therefore, the central limit theorem predicts that the distribution of ratings will tend towards a normal dsitribution as the number of games increases. This is supported by how largest bin is the 1400-1600 bin, which contains the starting rating of 1500. Lichess' matchmaking system could contribute to this -- it matches players with similar skill, so games theoretically end up with a roughly equal number of wins and losses.
+Figure \ref{fig:distributionOfPlayerRatings} shows that the distribution of player ratings tends towards a normal distribution. We could explain this based on the concept that a player's performance is similar to a random walk, which states that an object moves randomly with equal probability in different directions. In Lichess ratings, a player's rating can be seen as the result of a series of random walks, where the player's rating constantly changes as they win and lose games. Over time, their rating will tend to stabilise to represent their true skill level. Moreover, the central limit theorem states that the sum of a large number of independent and identically distributed random variables tends towards a normal distribution \cite{le1986central}. In this case, the ratings of individual players can be seen as independent and identically distributed random variables, with each game representing a single trial. Therefore, the central limit theorem predicts that the distribution of ratings will tend towards a normal dsitribution as the number of games increases. This is supported by how largest bin is the 1400-1600 bin, which contains the starting rating of 1500. Lichess' matchmaking system could contribute to this -- it matches players with similar skill, so games theoretically end up with a roughly equal number of wins and losses.
 
-\begin{center}
+\begin{figure}[H]
+    \centering
+    \caption{Most Popular Openings by Category}
+    \label{fig:mostPopularOpeningsByCategory}
     \includegraphics[width=0.8\textwidth]{Most Popular Openings by Category.png}
-\end{center}
+\end{figure}
 
-\begin{center}
+\begin{figure}[H]
+    \centering
+    \caption{Most Popular Openings}
+    \label{fig:mostPopularOpenings}
     \includegraphics[width=0.8\textwidth]{Most Popular Openings.png}
-\end{center}
+\end{figure}
 
 \section{Conclusion}
 
