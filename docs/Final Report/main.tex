@@ -67,7 +67,7 @@ For low-level, turn-based analysis of games, I created a .scout file using Scout
     \includegraphics[width=0.8\textwidth]{Data Pipeline.png}
 \end{figure}
 
-Figure \ref{fig:dataPipeline} shows an overview of my data pipeline. It shows how I used the Lichess Open Database to collect the data over 12 months. On one hand, I aggregated it into a single CSV file, and converted it to a folder of Parquet files to query with Dask to analyse game metadata. On the other hand, I used this data to create a Scout index to enable fast queries for more detailed analysis of game scenarios.
+Figure \ref{fig:dataPipeline} shows an overview of my data pipeline. It shows how I used the Lichess Open Database to collect the data over 12 months. To analyse game metadata, I aggregated the data into a single CSV file, and converted it to a folder of Parquet files to query with Dask. Meanwhile, to perform more detailed analysis of game scenarios, I used this data to create a Scout index to enable fast queries.
 
 \section{Analysis of Data}
 
