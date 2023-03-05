@@ -1,0 +1,5 @@
+chess==1.9.3
+dask==2023.1.1
+pandas==1.5.0
+pexpect==4.8.0
+stockfish==3.28.0
