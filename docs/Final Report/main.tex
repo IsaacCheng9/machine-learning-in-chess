@@ -6,7 +6,9 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{geometry}
-\usepackage[ruled,vlined]{algorithm2e}
+\usepackage[toc,page]{appendix}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \graphicspath{{images/}}
 \geometry{margin=2.0cm}
@@ -102,7 +104,7 @@ Figure \ref{fig:mostPopularOpeningsByCategory} shows that the most popular categ
     \includegraphics[width=0.8\textwidth]{Most Popular Openings.png}
 \end{figure}
 
-The data set also includes a column for the specific opening detected in each game based on Lichess' opening detection. We grouped openings that were different variations of each other together to get a more accurate representation of the most popular openings. Figure \ref{fig:mostPopularOpenings} shows that the most popular openings are the Sicilian Defence and the Queen's Pawn Game by a significant margin. The Sicilian Defence is the most well-studied response to White moving the king's pawn forward by two, which could explain why it is the most popular opening. However, the Queen's Pawn Game is slightly misleading, as it describes any opening beginning with White moving the queen's pawn where they do not play the Queen's Gambit and therefore encompasses a large number of openings such as the London System which are not labelled separately.
+The data set also includes a column for the specific opening detected in each game based on Lichess' opening detection. We grouped openings that were different variations of each other together to get a more accurate representation of the most popular openings -- figure \ref{fig:examplesOfChessOpenings} from the appendices contains examples of openings on the chess board. The most popular openings are the Sicilian Defence and the Queen's Pawn Game by a significant margin, as shown in figure \ref{fig:mostPopularOpenings}. The Sicilian Defence is the most well-studied response to White moving the king's pawn forward by two, which could explain why it is the most popular opening. However, the Queen's Pawn Game is slightly misleading, as it describes any opening beginning with White moving the queen's pawn where they do not play the Queen's Gambit and therefore encompasses a large number of openings such as the London System which are not labelled separately.
 
 \section{Conclusion}
 
@@ -110,5 +112,28 @@ The data set also includes a column for the specific opening detected in each ga
 
 \bibliography{main.bib}
 \bibliographystyle{ieeetr.bst}
+
+\newpage
+\begin{appendices}
+
+\section{Examples}
+\begin{figure}[H]
+    \centering
+    \caption{Examples of Chess Openings}
+    \label{fig:examplesOfChessOpenings}
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{Sicilian Defence}
+        \includegraphics[width=\textwidth]{Example of Sicilian Defence.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \caption{Queen's Gambit}
+        \includegraphics[width=\textwidth]{Example of Queen's Gambit.png}
+    \end{subfigure}
+\end{figure}
+
+\end{appendices}
 
 \end{document}
