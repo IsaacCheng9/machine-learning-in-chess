@@ -48,3 +48,24 @@ learning. In addition to providing a good opportunity for the development and
 application of data science tools, this project should make a contribution to
 the understanding of chess endgames, but also to studies of computational social
 science and cultural analytics.
+
+## Libraries and Tools
+
+### Scoutfish
+
+[Scoutfish](https://github.com/mcostalba/scoutfish) is a tool written in C++ that is used to query chess databases formatted as .pgn files with very high speed.
+
+### pgn-extract
+
+## Installation
+
+### Python Versions
+
+This project has been developed and tested to work on Python 3.9 onwards.
+
+### Installing Dependencies
+
+1. Ensure that you're in the root directory: `machine-learning-in-chess`
+2. Install the Python dependencies: `pip install -r requirements.txt`
+
+## Reproducing the Results
