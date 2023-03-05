@@ -49,13 +49,19 @@ application of data science tools, this project should make a contribution to
 the understanding of chess endgames, but also to studies of computational social
 science and cultural analytics.
 
-## Libraries and Tools
+## External Libraries Used
 
 ### Scoutfish
 
-[Scoutfish](https://github.com/mcostalba/scoutfish) is a tool written in C++ that is used to query chess databases formatted as .pgn files with very high speed.
+[Scoutfish](https://github.com/mcostalba/scoutfish) is a tool written in C++
+that is used to query chess databases (formatted as PGN files) with very high
+speed.
 
 ### pgn-extract
+
+[pgn-extract](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/) is a
+command-line tool written in C that is used to manipulate chess databases
+(formatted as PGN files) with millions of games.
 
 ## Installation
 
