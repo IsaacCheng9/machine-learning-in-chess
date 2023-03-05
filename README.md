@@ -79,7 +79,8 @@ This project has been developed and tested to work on Python 3.9 onwards.
 ### Game Metadata Analysis
 
 1. Download a data set from the [Lichess Open Database](https://database.lichess.org/#standard_games).
-2. Decompress the data into a PGN file (.pgn).
+2. Decompress the data into a PGN file (.pgn) -- instructions are provided on
+   the Lichess Open Database page under the 'Decompress .zst' heading.
 3. Split the PGN file into multiple smaller PGN files, each containing up to a
    specified number of games (e.g. 1,000,000) with pgn-extract.
 4. Extract the game metadata from PGN files to Parquet files by running
