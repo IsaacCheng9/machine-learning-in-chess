@@ -49,7 +49,18 @@ application of data science tools, this project should make a contribution to
 the understanding of chess endgames, but also to studies of computational social
 science and cultural analytics.
 
-## External Libraries Used
+## Installation
+
+### Python Versions
+
+This project has been developed and tested to work on Python 3.9 onwards.
+
+### Installing Dependencies
+
+1. Ensure that you're in the root directory: `machine-learning-in-chess`
+2. Install the Python dependencies: `pip install -r requirements.txt`
+
+## External Libraries
 
 ### Scoutfish
 
@@ -97,17 +108,6 @@ command-line tool written in C that is used to manipulate chess databases
 3. Compile the program by running: `make`
 4. pgn-extract should now be compiled and ready to use via the `pgn-extract`
    file in the source code directory.
-
-## Installation
-
-### Python Versions
-
-This project has been developed and tested to work on Python 3.9 onwards.
-
-### Installing Dependencies
-
-1. Ensure that you're in the root directory: `machine-learning-in-chess`
-2. Install the Python dependencies: `pip install -r requirements.txt`
 
 ## Reproducing the Results
 
