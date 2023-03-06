@@ -49,7 +49,7 @@
 		- 1-2 pages for introduction and project specification
 			- Introduction ~0.5 pages
 			- Project specification is essentially a summary of the introduction – could probably merge sections
-			- Screenshot of Lichess e board
+			- Screenshot of Lichess board
 - Need to start thinking about how to convert the initial data analysis into machine learning.
 	- What factors influence win rate?
 		- Elo difference (absolute vs relative based on how the system works)
