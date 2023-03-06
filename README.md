@@ -60,7 +60,8 @@ speed.
 #### Compiling Scoutfish
 
 1. Download the source code from the [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
-2. Open the terminal and navigate to the `src` directory in the source code.
+2. Open the terminal and navigate to the `src` directory in the source code
+   directory.
 3. Compile the program by running: `make build ARCH=x86-64`
 4. Scoutfish should now be compiled and ready to use via the `scoutfish` file in
    the `src` directory.
@@ -70,6 +71,14 @@ speed.
 [pgn-extract](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/) is a
 command-line tool written in C that is used to manipulate chess databases
 (formatted as PGN files) with millions of games.
+
+#### Compiling pgn-extract
+
+1. Download the source code from the [pgn-extract website](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/).
+2. Open the terminal and navigate to the source code directory.
+3. Compile the program by running: `make`
+4. pgn-extract should now be compiled and ready to use via the `pgn-extract`
+   file in the source code directory.
 
 ## Installation
 
