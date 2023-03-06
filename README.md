@@ -57,6 +57,14 @@ science and cultural analytics.
 that is used to query chess databases (formatted as PGN files) with very high
 speed.
 
+#### Compiling Scoutfish
+
+1. Download the source code from the [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
+2. Open the terminal and navigate to the `src` directory in the source code.
+3. Compile the program by running: `make build ARCH=x86-64`
+4. Scoutfish should now be compiled and ready to use via the `scoutfish` file in
+   the `src` directory.
+
 ### pgn-extract
 
 [pgn-extract](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/) is a
