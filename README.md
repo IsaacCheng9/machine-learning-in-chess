@@ -60,11 +60,29 @@ speed.
 #### Compiling Scoutfish
 
 1. Download the source code from the [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
-2. Open the terminal and navigate to the `src` directory in the source code
-   directory.
+2. Open the terminal and navigate to the `src` directory in the source code for
+   Scoutfish.
 3. Compile the program by running: `make build ARCH=x86-64`
 4. Scoutfish should now be compiled and ready to use via the `scoutfish` file in
    the `src` directory.
+
+#### Creating a Scoutfish Index
+
+Before Scoutfish can be used to query a chess database, we must first create a
+Scoutfish index for that database:
+
+1. Open the terminal and navigate to the `src` directory in the source code for
+   Scoutfish.
+2. Run the following command to create a Scoutfish index for a PGN file, where
+   `<PGN_FILE>` is the absolute file path to the PGN:
+   `./scoutfish/src/scoutfish make <PGN_FILE>`
+3. The Scoutfish index will be created in the same directory as the PGN file as
+   a `.scout` file (e.g. the index for `lichess_db_standard_rated_2022-01.pgn`
+   will be saved as `lichess_db_standard_rated_2022-01.scout`).
+
+We can use the Scoutfish index to perform various queries. Further information
+and examples can be found on the
+[Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
 
 ### pgn-extract
 
@@ -75,7 +93,7 @@ command-line tool written in C that is used to manipulate chess databases
 #### Compiling pgn-extract
 
 1. Download the source code from the [pgn-extract website](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/).
-2. Open the terminal and navigate to the source code directory.
+2. Open the terminal and navigate to the source code directory for pgn-extract.
 3. Compile the program by running: `make`
 4. pgn-extract should now be compiled and ready to use via the `pgn-extract`
    file in the source code directory.
