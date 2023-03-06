@@ -70,9 +70,10 @@ speed.
 
 #### Compiling Scoutfish
 
-1. Download the source code from the [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
+1. Download the source code from the
+   [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
 2. Open the terminal and navigate to the `src` directory in the source code for
-   Scoutfish.
+   Scoutfish: `cd src`
 3. Compile the program by running: `make build ARCH=x86-64`
 4. Scoutfish should now be compiled and ready to use via the `scoutfish` file in
    the `src` directory.
@@ -83,10 +84,14 @@ Before Scoutfish can be used to query a chess database, we must first create a
 Scoutfish index for that database:
 
 1. Open the terminal and navigate to the `src` directory in the source code for
-   Scoutfish.
-2. Run the following command to create a Scoutfish index for a PGN file, where
-   `<PGN_FILE>` is the absolute file path to the PGN:
-   `./scoutfish/src/scoutfish make <PGN_FILE>`
+   Scoutfish: `cd src`
+2. Run the following command, where `<PGN_FILE>` is the absolute file path to
+   the PGN:
+
+   ```shell
+   ./scoutfish/src/scoutfish make <PGN_FILE>
+   ```
+
 3. The Scoutfish index will be created in the same directory as the PGN file as
    a `.scout` file (e.g. the index for `lichess_db_standard_rated_2022-01.pgn`
    will be saved as `lichess_db_standard_rated_2022-01.scout`).
@@ -103,21 +108,51 @@ command-line tool written in C that is used to manipulate chess databases
 
 #### Compiling pgn-extract
 
-1. Download the source code from the [pgn-extract website](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/).
+Before we can use pgn-extract, we must compile it from the source code:
+
+1. Download the source code from the
+   [pgn-extract website](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/).
 2. Open the terminal and navigate to the source code directory for pgn-extract.
 3. Compile the program by running: `make`
 4. pgn-extract should now be compiled and ready to use via the `pgn-extract`
    file in the source code directory.
 
+#### Splitting a PGN File with pgn-extract
+
+We will use pgn-extract to split a PGN file into multiple smaller PGN files --
+this enables us to take a sample of games from the larger PGN file, and then
+process the smaller PGN files in parallel.
+
+1. Open the terminal and navigate to the source code directory for pgn-extract.
+2. Run the following command, where `<NUM_GAMES>` is the maximum number of games
+   per PGN file output and `<PGN_FILE>` is the absolute file
+   path to the PGN file to split:
+
+   ```shell
+   ./pgn-extract/pgn-extract -#<NUM_GAMES> <PGN_FILE>
+   ```
+
+   For example:
+
+   ```shell
+   ./pgn-extract/pgn-extract -#1000000 /Users/isaac/Downloads/lichess_db_standard_rated_2022-01.pgn
+   ```
+
+3. The split PGN files will be saved as `1.pgn`, `2.pgn`, `3.pgn`... in the same
+   directory as `pgn-extract`.
+
 ## Reproducing the Results
 
 ### Game Metadata Analysis
 
-1. Download a data set from the [Lichess Open Database](https://database.lichess.org/#standard_games).
+1. Download a data set from the
+   [Lichess Open Database](https://database.lichess.org/#standard_games).
 2. Decompress the data into a PGN file (.pgn) -- instructions are provided on
    the Lichess Open Database page under the 'Decompress .zst' heading.
 3. Split the PGN file into multiple smaller PGN files, each containing up to a
-   specified number of games (e.g. 1,000,000) with pgn-extract.
+   specified number of games (e.g. 1,000,000) with pgn-extract. See the section
+   above for detailed instructions:
+   [Splitting a PGN File with pgn-extract](#splitting-a-pgn-file-with-pgn-extract)
 4. Extract the game metadata from PGN files to Parquet files by running
    `convert_pgn_to_parquet.py` and providing the name of the original PGN file
    (before it was split).
