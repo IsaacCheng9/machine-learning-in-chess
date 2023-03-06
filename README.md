@@ -27,19 +27,12 @@ of matches.
 Questions we might ask include:
 
 - What are the most common openings and the most common endgames?
-
 - Do particular openings often lead to particular endgames?
-
 - Which strategies work, and which ones do not?
-
 - How does the popularity of different styles change over time?
-
 - What's the best counter against a particular strategy?
-
 - Is it possible to cluster similar chess matches?
-
 - Does that match the classification into openings and endings?
-
 - How does one do dimensionality reduction and classification on a chess match?
 
 This project will require some basic knowledge of chess (or interest in picking
