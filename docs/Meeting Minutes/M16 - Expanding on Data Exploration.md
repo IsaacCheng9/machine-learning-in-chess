@@ -1,0 +1,57 @@
+# M16 – Expanding on Data Exploration (09/03/2023)
+
+## Progress
+- Explained plots about most popular openings and most popular openings by category.
+- Created appendices and added examples of openings in it.
+- Added sections to README about:
+	- Installation – Python version and dependencies
+	- External libraries (Scoutfish and pgn-extract) – compiling and using them
+	- Reproducing results – performing game metadata analysis
+- Calculated popularity of openings and opening categories per rating range.
+- Created columns `EloDiff`, `AbsEloDiff`, and `RelativeEloDiff`.
+- Started investigating the effect of rating on win rate.
+	- Will look into the effect of relative rating on the win rate by comparing the difference from the win rate of White from the overall population.
+		- Need to bin the values of relative ratings and take m, the win rate for each bin?
+
+## Questions
+- How are my explanations on the plots about most popular openings and most popular openings by category?
+	- Explain the difference between open and closed games
+	- Add a sentence or two about the difference in distributions between ratings and potential explanations for why
+		- Add these graphs in appendices
+- Are the appendices implemented correctly?
+	- Yes
+- Am I lacking any further detail in the README?
+	- Level of detail is good
+	- Should I include the external libraries in my source code when submitting?
+		- Yes
+- Do you have any specific suggestions on machine learning directions using the game metadata?
+	- SHAP values – feature importance
+		- Strength of input values on output
+		- How do various features increase the likelihood of a player winning
+		- Potential features:
+			- RelativeEloDiff
+			- Opening
+			- Number of games played in sample
+				- May be difficult because we’re not using the full population
+			- Event
+			- Number of moves
+			- How does the game end?
+				- Need to use Scoutfish for this, or redo pipeline to include number of moves?
+	- How does the proportion of frequency of openings vary with ratings?
+		- x-axis – rating bins
+		- y-axis – popularity of a specific opening when it wins/loses
+			- Split colour of the bar to show win/loss rate
+		- Use it to create a regression to predict win rate given these scenarios?
+			- Game theory
+				- Table
+				- Decision tree?
+			- Nash equilibrium?
+	- Investigate variations of the same opening
+		- Do variations share the same performance curves as rating changes?
+		- Distance metric for similarity
+			- Distances between bars in the performance curves
+			- Use agglomerative clustering instead of K-means
+		- Cluster openings that perform the same
+			- Openings that often result in draws vs. wins
+			- No train-test split – cluster and then perform clustering validation
+				- Silhouette – tightness of clusters
