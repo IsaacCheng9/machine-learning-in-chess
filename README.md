@@ -131,8 +131,16 @@ process the smaller PGN files in parallel.
    ./pgn-extract -#1000000 /Users/isaac/Downloads/lichess_db_standard_rated_2022-01.pgn
    ```
 
-3. The split PGN files will be saved as `1.pgn`, `2.pgn`, `3.pgn`... in the same
-   directory as `pgn-extract`.
+3. The split PGN files will be saved as `1.pgn`, `2.pgn`, `3.pgn`..., `6.pgn` in
+   the same directory as `pgn-extract`. We will only use the first six files
+   that are output.
+4. Rename the PGN files to the original PGN file name, but with a suffix
+   `.<NUM>.pgn` indicating the number of the PGN file to ensure that it will
+   work with `convert_pgn_to_parquet.py` later (e.g.
+   `lichess_db_standard_rated_2022-01_1.pgn`,
+   `lichess_db_standard_rated_2022-01_2.pgn`,
+   `lichess_db_standard_rated_2022-01_3.pgn`, ...,
+   `lichess_db_standard_rated_2022-01_6.pgn`).
 
 ## Reproducing the Results
 
