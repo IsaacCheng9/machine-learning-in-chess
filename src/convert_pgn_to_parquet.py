@@ -52,16 +52,27 @@ def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> 
         with open(pgn_file, encoding="utf-8") as pgn:
             game = chess.pgn.read_game(pgn)
             while game:
-                # Exclude games involving a non-human player.
                 if (
-                    "black_title" in game.headers
-                    and game.headers["black_title"] == "BOT"
-                    or "white_title" in game.headers
-                    and game.headers["white_title"] == "BOT"
+                    # Exclude games involving a non-human player.
+                    (
+                        "black_title" in game.headers
+                        and game.headers["black_title"] == "BOT"
+                    )
+                    or (
+                        "white_title" in game.headers
+                        and game.headers["white_title"] == "BOT"
+                    )
+                    # Exclude games that were abandoned.
+                    or (
+                        "Termination" in game.headers
+                        and game.headers["Termination"] == "Abandoned"
+                    )
+                    # Exclude games that aren't a time control category
+                    # (event) that we want.
+                    or (game.headers["Event"] not in whitelisted_events)
                 ):
-                    game = chess.pgn.read_game(pgn)
-                    continue
-                if game.headers["Event"] not in whitelisted_events:
+                    # Avoid writing the game to the CSV file and move onto the
+                    # next game.
                     game = chess.pgn.read_game(pgn)
                     continue
 
@@ -88,7 +99,6 @@ def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> 
 
 if __name__ == "__main__":
     WHITELISTED_EVENTS = {
-        "Rated Bullet game",
         "Rated Blitz game",
         "Rated Rapid game",
     }
