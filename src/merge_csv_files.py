@@ -1,5 +1,6 @@
 """
-A utility script to merge multiple CSV files into one. This can be useful when
+A utility script to that takes the input of multiple CSV files, and outputs
+both a single CSV file and a folder of Parquet files. This can be useful when
 aggregating the results of performing multiprocessing on a split data set.
 """
 import csv
@@ -84,11 +85,14 @@ if __name__ == "__main__":
     if not OUTPUT_FILE:
         OUTPUT_FILE = input("Name of the output file (without extension): ")
     SPLIT_CSV_FILES = []
-    if not SPLIT_CSV_FILES:
-        SPLIT_CSV_FILES = [
-            str(file)
-            for file in input("List of CSV files to merge (space separated): ").split()
-        ]
+    while True:
+        csv_file = input(
+            f"Path to a CSV file to merge (currently merging {len(SPLIT_CSV_FILES)} - "
+            "leave blank to finish): "
+        )
+        if not csv_file:
+            break
+        SPLIT_CSV_FILES.append(str(csv_file))
 
     merge_csv_files(f"{OUTPUT_FILE}.csv", SPLIT_CSV_FILES)
     convert_csv_to_parquet(f"{OUTPUT_FILE}.csv")
