@@ -82,7 +82,7 @@ Scoutfish index for that database:
    the PGN:
 
    ```shell
-   ./scoutfish make <PGN_FILE>
+   ./scoutfish make "<PGN_FILE>"
    ```
 
 3. The Scoutfish index will be created in the same directory as the PGN file as
@@ -122,13 +122,13 @@ process the smaller PGN files in parallel.
    path to the PGN file to split:
 
    ```shell
-   ./pgn-extract -#<NUM_GAMES> <PGN_FILE>
+   ./pgn-extract -#<NUM_GAMES> "<PGN_FILE>"
    ```
 
    For example:
 
    ```shell
-   ./pgn-extract -#1000000 /Users/isaac/Downloads/lichess_db_standard_rated_2022-01.pgn
+   ./pgn-extract -#1000000 "/Users/isaac/Downloads/lichess_db_standard_rated_2022-01.pgn"
    ```
 
 3. The split PGN files will be saved as `1.pgn`, `2.pgn`, `3.pgn`..., `6.pgn` in
