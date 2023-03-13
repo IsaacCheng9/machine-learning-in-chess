@@ -112,7 +112,7 @@ Before we can use pgn-extract, we must compile it from the source code:
 
 #### Splitting a PGN File with pgn-extract
 
-We will use pgn-extract to split a PGN file into multiple smaller PGN files --
+We will use pgn-extract to split a PGN file into six smaller PGN files --
 this enables us to take a sample of games from the larger PGN file, and then
 process the smaller PGN files in parallel.
 
@@ -150,7 +150,7 @@ process the smaller PGN files in parallel.
    [Lichess Open Database](https://database.lichess.org/#standard_games).
 2. Decompress the data into a PGN file (.pgn) -- instructions are provided on
    the Lichess Open Database page under the 'Decompress .zst' heading.
-3. Split the PGN file into multiple smaller PGN files, each containing up to a
+3. Split the PGN file into six smaller PGN files, each containing up to a
    specified number of games (e.g. 1,000,000) with pgn-extract. See the section
    above for detailed instructions:
    [Splitting a PGN File with pgn-extract](#splitting-a-pgn-file-with-pgn-extract)
