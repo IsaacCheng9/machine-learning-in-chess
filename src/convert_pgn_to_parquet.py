@@ -126,4 +126,3 @@ if __name__ == "__main__":
         )
     # Merge the split CSV files into one.
     merge_csv_files(f"{BASE_FILE_PATH}.csv", csv_file_paths)
-    convert_csv_to_parquet(f"{BASE_FILE_PATH}.csv")
