@@ -151,16 +151,32 @@ process the smaller PGN files in parallel.
 2. Decompress the data into a PGN file (.pgn) – instructions are provided on
    the Lichess Open Database page under the 'Decompress .zst' heading.
 3. Split the PGN file into six smaller PGN files, each containing up to a
-   specified number of games (e.g. 1,000,000) with pgn-extract. See the section
-   above for detailed instructions:
-   [Splitting a PGN File with pgn-extract](#splitting-a-pgn-file-with-pgn-extract)
+   specified number of games (e.g. 1,000,000) with pgn-extract.
+   - See the section above for detailed instructions:
+     [Splitting a PGN File with pgn-extract](#splitting-a-pgn-file-with-pgn-extract)
 4. Extract the game metadata from PGN files to a CSV file and a folder of
    Parquet files by running `convert_pgn_to_parquet.py` and providing the name
    of the original PGN file (before it was split, e.g.
    `lichess_db_standard_rated_2022-01.pgn`).
+   - This will output a folder of Parquet files, as well as a CSV file that
+     contains all the data (e.g. `lichess_db_standard_rated_2022-01.pgn` for the
+     folder of Parquet files and `lichess_db_standard_rated_2022-01.csv`).
 5. (Optional) If you want to use data sets from multiple months (like in our
    study), merge the CSV files from the previous step into a single CSV file and
    a folder of Parquet files by running `merge_csv_files.py` and providing the
    paths of the CSV files to merge.
 6. Change the `DATA_PATH` variable to the path of the directory containing the
    Parquet files in `analyse_csv_data.ipynb`, and then run the notebook.
+
+### Manual Data Exploration
+
+If you want to manually explore the data, we have provided a program to convert
+the CSV output to an SQLite3 file (`.db`). This makes it easy to perform queries
+and sorting, as the CSV file outputs may be too large to view directly.
+
+1. Run `convert_csv_to_sqlite3.py`.
+2. Enter the path to the CSV file to convert
+   (e.g. `lichess_db_standard_rated_2022-01.csv`).
+3. View the output SQLite3 file (e.g. `lichess_db_standard_rated_2022-01.db`) in
+   the database browser of your choice
+   (e.g. [DB Browser for SQLite](https://sqlitebrowser.org/)).
