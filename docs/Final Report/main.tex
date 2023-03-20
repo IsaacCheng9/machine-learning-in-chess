@@ -95,7 +95,7 @@ Figure \ref{fig:distributionOfPlayerRatings} shows that the distribution of play
 
 We also counted the most popular openings by category in figure \ref{fig:mostPopularOpeningsByCategory}, as this is represented by the ECO column provided in the Lichess PGN data. ECO (Encyclopedia of Chess Openings) is a classification of chess openings based on the first few moves of the game. Editors who mostly consist of chess grandmasters select critical opening lines and assign them a code \cite{matanovic1971classification}. The ECO system consists of five categories, A to E, each of which represent a category of opening. Within each category, there are further subcategories to group openings more explicitly. For example, a game with an ECO code of A41 means that the opening is a flank opening as it is in the A category, and the 41 means that the opening was the Queen's Pawn Game. The ECO system is not perfect as it does not include all openings (as demonstrated by the 32,799 games with the unknown category in figure \ref{fig:mostPopularOpeningsByCategory}), but it is useful to analyse opening trends.
 
-Figure \ref{fig:mostPopularOpeningsByCategory} shows that the most popular category of openings are open games and semi-open games, whereas the Indian defences and closed games are the least popular. This makes sense for the general population of games -- the ideas behind these openings are simple and straightforward, as they focus on controlling the centre and developing pieces quickly. However, we see that the pattern is different for players rated 2000 and above -- semi-open games and flank openings are more popular than open games in this category. At higher rated games, players often prefer to play more complex and dynamic openings that enable opportunities to create imbalances in the position and therefore gain an advantage at an earlier stage of the game.
+Figure \ref{fig:mostPopularOpeningsByCategory} shows that the most popular category of openings are open games and semi-open games, whereas the Indian defences and closed games are the least popular. This makes sense for the general population of games -- the ideas behind these openings are simple and straightforward, as they focus on controlling the centre and developing pieces quickly. However, we see that the pattern is different for players rated 2000 and above -- semi-open games and flank openings are more popular than open games in this category (shown in figure \ref{fig:mostPopularOpeningsByCategoryRated2000Plus} from the appendices). At higher rated games, players often prefer to play more complex and dynamic openings that enable opportunities to create imbalances in the position and therefore gain an advantage at an earlier stage of the game.
 
 \subsection{Most Popular Base Openings}
 \begin{figure}[H]
@@ -116,6 +116,14 @@ The data set also includes a column for the specific opening detected in each ga
 
 \newpage
 \begin{appendices}
+
+\section{Additional Plots}
+\begin{figure}[H]
+    \centering
+    \caption{Most Popular Openings by Category on Lichess in 2022 (Rated 2000+)}
+    \label{fig:mostPopularOpeningsByCategoryRated2000Plus}
+    \includegraphics[width=\textwidth]{Most Popular Openings by Category (Rated 2000+).png}
+\end{figure}
 
 \section{Examples}
 \begin{figure}[H]
