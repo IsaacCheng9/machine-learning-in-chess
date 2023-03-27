@@ -86,7 +86,7 @@ To start with, we counted the ratings of players in our data set. Rating systems
 Figure \ref{fig:distributionOfPlayerRatings} shows that the distribution of player ratings tends towards a normal distribution. We could explain this based on the concept that a player's performance is similar to a random walk, which states that an object moves randomly with equal probability in different directions. In Lichess ratings, a player's rating can be seen as the result of a series of random walks, where the player's rating constantly changes as they win and lose games. Over time, their rating will tend to stabilise to represent their true skill level. Moreover, the central limit theorem states that the sum of a large number of independent and identically distributed random variables tends towards a normal distribution \cite{le1986central}. In this case, the ratings of individual players can be seen as independent and identically distributed random variables, with each game representing a single trial. Therefore, the central limit theorem predicts that the distribution of ratings will tend towards a normal distribution as the number of games increases. This is supported by how largest bin is the 1400-1600 bin, which contains the starting rating of 1500. Lichess' matchmaking system could contribute to this -- it matches players with similar skill, so games theoretically end up with a roughly equal number of wins and losses.
 
 \subsection{Effect of Rating on Win Rate}
-Next, we investigated the impact of player rating differentials on White's win rate. To begin with, we counted the outcomes of all games, and then counted the outcomes of games when White had a higher rating -- White won 49.69\% of all games, which rose to 53.98\% of games when they had a higher rating than their opponent (as shown in figure \ref{fig:effectOfHigherRatingOnWhiteWinRate} from the appendices). Then, we sought to quantify the impact of rating differential in both absolute and relative terms -- the former was the difference in rating between the two players, and the latter was the difference in rating divided by the average rating of the two players. We used the absolute rating differential because it is more intuitive to understand, and we used the relative rating differential because it is more accurate. We grouped the data by rating differential and calculated the win rate for White. For example, when White is rated 1100 and Black is rated 900, the absolute rating differential is 200, whereas the relative rating differential is 10\%. We focused on the win rate for White because the opening of the game is usually decided by White.
+Next, we investigated the impact of player rating differentials on White's win rate. To begin with, we counted the outcomes of all games, and then counted the outcomes of games when White had a higher rating -- White won 49.69\% of all games, which rose to 53.98\% of games when they had a higher rating than their opponent (as shown in figure \ref{fig:effectOfHigherRatingOnWhiteWinRate} from the appendices). Then, we sought to quantify the impact of rating differential in both absolute and relative terms -- the former was the difference in rating between the two players, and the latter was the difference in rating divided by the mean rating of the two players. We used the absolute rating differential because it is more intuitive to understand, and we used the relative rating differential because it is more accurate. Figure \ref{fig:distributionOfAbsoluteRatingDifference} and figure \ref{fig:distributionOfRelativeRatingDifference} from the appendices show the distribution of the absolute and relative rating differences. We grouped the data by rating differential and calculated the win rate for White. For example, when White is rated 1100 and Black is rated 900, the absolute rating differential is 200, whereas the relative rating differential is 10\%. We focused on the win rate for White because the opening of the game is usually decided by White.
 
 \subsection{Most Popular Openings by Category}
 \begin{figure}[H]
@@ -125,12 +125,26 @@ Delving deeper into the data, we found that the most popular base openings varie
 \section{Additional Outputs}
 \begin{figure}[H]
     \centering
-    \caption{Effect of Higher Rating on White Win Rate}
+    \caption{Effect of Higher Rating on White Win Rate on Lichess in 2022}
     \label{fig:effectOfHigherRatingOnWhiteWinRate}
     \includegraphics[width=0.5\textwidth]{Effect of Higher Rating on White Win Rate.png}
 \end{figure}
 
 \section{Additional Plots}
+\begin{figure}[H]
+    \centering
+    \caption{Distribution of Absolute Rating Difference on Lichess in 2022}
+    \label{fig:distributionOfAbsoluteRatingDifference}
+    \includegraphics[width=\textwidth]{Distribution of Absolute Rating Difference.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribution of Relative Rating Difference on Lichess in 2022}
+    \label{fig:distributionOfRelativeRatingDifference}
+    \includegraphics[width=\textwidth]{Distribution of Relative Rating Difference.png}
+\end{figure}
+
 \begin{figure}[H]
     \centering
     \caption{Most Popular Openings by Category on Lichess in 2022 (Rated 2000 and Above)}
