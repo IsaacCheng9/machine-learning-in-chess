@@ -46,7 +46,10 @@ science and cultural analytics.
 
 ### Python Versions
 
-This project has been developed and tested to work on Python 3.9 onwards.
+This project has been developed and tested to work on Python 3.11, but it should
+work for Python 3.8 onwards. We recommend that you run this project on
+Python 3.11, as it is
+[25% faster than Python 3.10 on average](https://docs.python.org/3/whatsnew/3.11.html#whatsnew311-faster-cpython).
 
 ### Installing Dependencies
 
