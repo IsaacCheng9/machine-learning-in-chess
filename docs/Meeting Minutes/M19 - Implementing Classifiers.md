@@ -1,0 +1,50 @@
+# M19 – Implementing Classifiers (04/04/2023)
+
+## Progress
+- Added a copy of the data sample to the repository to make repeatability easier.
+- Added the following sections to the report:
+	- Introduction
+		- Made further improvements based on your feedback
+	- Project specification
+		- Mention how we’ll start describing this in the design section
+	- Brief mention of manual data exploration with SQLite
+	- Structure of the data
+	- Effect of rating differential on win rate
+- Subsampled the number of games from 40 million to 5 million.
+	- `dask-ml` doesn’t have libraries for decision tree classifiers or random forest classifiers.
+		- Needed to reduce the processing time and memory footprint.
+- Investigated using decision tree and random forest classifiers to predict win rate using `BaseOpening` and a combination of the following other features:
+	- `WhiteElo` and `BlackElo`
+	- `RelativeEloDiff`
+	- `RelativeEloDiffBin`
+		- 5% increments gave the lowest F1 score
+	- `EloDiff`
+	- `EloDiffBin`
+	- `TimeControl`
+- Looked at previous examples of analysis to get inspiration for final report.
+	- [Large-scale Analysis of Chess Games with Chess Engines: A Preliminary Report](https://arxiv.org/pdf/1607.04186.pdf)
+
+## Questions
+- What improvements can I try regarding the classifiers?
+	- Summarise the results with a paragraph or two.
+		- Create a table of results 
+	- Move onto regression analysis.
+		- For games in the rating range >2000, are some openings more likely to win?
+		- Is there a correlation between popularity of an opening and win rate?
+			- Regression of popularity vs. win rate? Try with specific rating ranges?
+				- Popularity may be inversely correlated with win rate.
+- For preliminary research, I plan on narrowing it down to specific subsections from my literature review. Should the tone and intention of the writing be different to the literature review?
+	- Early history of computer chess
+		- Couple of sentences
+	- Modern developments in computer chess
+		- May not be as relevant?
+	- Growth in the popularity of chess
+		- Fast growth gives increasing amounts and better quality data to train on?
+	- Practical uses of chess databases
+		- Link to how results of our studies can contribute to the landscape of chess?
+- How does the structure of my final report look? It seems to be different to Izzy and Matt’s from last year?
+- [FICS Games Database](https://www.ficsgames.org/) provides PGN files with different game metadata, but it isn’t as popular of a platform for playing chess games.
+	- Should I mention alternate databases such as these in the report, and explain why we didn’t use them even if they may have been slightly advantageous (e.g. includes number of moves in each game)?
+		- Both literature review and future work
+		- Literature review – alternative databases and why we didn’t use them
+		- Future work – change pipeline to account for varying data structures
