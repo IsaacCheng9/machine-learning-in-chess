@@ -23,7 +23,6 @@
 	- `TimeControl`
 - Looked at previous examples of analysis to get inspiration for final report.
 	- [Large-scale Analysis of Chess Games with Chess Engines: A Preliminary Report](https://arxiv.org/pdf/1607.04186.pdf)
-
 ## Questions
 - What improvements can I try regarding the classifiers?
 	- Summarise the results with a paragraph or two.
@@ -43,6 +42,7 @@
 	- Practical uses of chess databases
 		- Link to how results of our studies can contribute to the landscape of chess?
 - How does the structure of my final report look? It seems to be different to Izzy and Matt’s from last year?
+	- Structure is fine – mark scheme is only a guidance and markers won’t be too rigid with the sections as long as the content is there
 - [FICS Games Database](https://www.ficsgames.org/) provides PGN files with different game metadata, but it isn’t as popular of a platform for playing chess games.
 	- Should I mention alternate databases such as these in the report, and explain why we didn’t use them even if they may have been slightly advantageous (e.g. includes number of moves in each game)?
 		- Both literature review and future work
