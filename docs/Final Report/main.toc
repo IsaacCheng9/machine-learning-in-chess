@@ -6,13 +6,13 @@
 \contentsline {subsection}{\numberline {2.3}Growth in the Popularity of Chess}{3}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Practical Uses of Chess Databases}{3}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Project Specification}{3}{section.3}%
-\contentsline {section}{\numberline {4}Design, Methods, and Implementation}{3}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Downloading the Data}{3}{subsection.4.1}%
+\contentsline {section}{\numberline {4}Design, Methods, and Implementation}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Downloading the Data}{4}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Data Processing}{4}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Data Exploration}{5}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Structure of Data}{5}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Distribution of Player Ratings}{5}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Effect of Rating Differential on Win Rate}{6}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.2}Distribution of Player Ratings}{6}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Effect of Rating Differential on Win Rate}{7}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Most Popular Openings by Category}{8}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Most Popular Base Openings}{9}{subsection.5.5}%
 \contentsline {section}{\numberline {6}Results and Evaluation}{9}{section.6}%
