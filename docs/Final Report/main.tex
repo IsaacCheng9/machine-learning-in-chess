@@ -58,6 +58,8 @@ IBM made a significant breakthrough with their Deep Blue supercomputer starting 
 \subsection{Modern Developments in Computer Chess}
 Stockfish is the strongest chess engine in the world. Both Lichess and Chess.com use Stockfish to provide game analysis on their platforms, and it is also used by professional players to analyse their games. It was released as a free, open-source chess engine in November 2008 \cite{aboutStockfish}, with volunteers donating CPU time to test improvements to the engine using a distributed framework, Fishtest \cite{fishtestDistributedTestingFramework}. Stockfish uses the alpha-beta pruning search algorithm which improves minimax search \cite{v1928theorie} by avoiding variations that will never be reached in optimal play due to either player redirecting the game \cite{maharaj2022chess}.
 
+However, other chess engines have used different algorithms in recent history. Most notably, DeepMind released AlphaZero in 2017 \cite{silver2017mastering2} based solely on reinforcement learning -- it had no knowledge of chess beyond the basic rules and learned within hours by playing millions of games \cite{strogatz2018one}. AlphaZero used a general-purpose Monte Carlo tree search algorithm, a heuristic search algorithm \cite{silver2017mastering2}. It uses a tree to represent the game state, then randomly selects moves and uses the results of each game to weigh the tree nodes accordingly \cite{chaslot2008monte}. In December 2017, AlphaZero beat Stockfish in a 100-game match with 28 wins, 72 draws, and zero losses \cite{klein2017google}, showing the feasibility of alternative approaches, although Stockfish has since improved.
+
 \subsection{Growth in the Popularity of Chess}
 
 \subsection{Practical Uses of Chess Databases}
