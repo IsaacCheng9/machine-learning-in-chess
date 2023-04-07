@@ -13,12 +13,12 @@
 \contentsline {subsection}{\numberline {5.1}Structure of Data}{6}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Distribution of Player Ratings}{6}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Effect of Rating Differential on Win Rate}{7}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Most Popular Openings by Category}{8}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Most Popular Base Openings}{9}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.4}Most Popular Openings by Category}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Most Popular Base Openings}{10}{subsection.5.5}%
 \contentsline {section}{\numberline {6}Results and Evaluation}{10}{section.6}%
 \contentsline {section}{\numberline {7}Conclusion}{10}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Limitations and Future Work}{10}{subsection.7.1}%
-\contentsline {section}{Appendices}{12}{section*.9}%
-\contentsline {section}{\numberline {A}Additional Outputs}{12}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Additional Plots}{12}{appendix.1.B}%
-\contentsline {section}{\numberline {C}Examples}{15}{appendix.1.C}%
+\contentsline {section}{Appendices}{13}{section*.9}%
+\contentsline {section}{\numberline {A}Additional Outputs}{13}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Additional Plots}{13}{appendix.1.B}%
+\contentsline {section}{\numberline {C}Examples}{16}{appendix.1.C}%
