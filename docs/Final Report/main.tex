@@ -70,6 +70,9 @@ More recently, popular culture has driven a chess boom. As the COVID-19 pandemic
 The fast growth of chess has given us increasing amounts of and better quality data to analyse, which is critical to the success of our project. As previously mentioned, Lichess records tens of millions of games every month, and they make this accessible to the public through their Open Database \cite{lichessOpenDatabase}, which is what our project will use as its data source.
 
 \subsection{Practical Uses of Chess Databases}
+Numerous chess databases have been created over the years, such as the Lichess Open Database \cite{lichessOpenDatabase} and the FICS Games Database \cite{ficsGamesDatabase}. They store chess games in PGN (Portable Game Notation) format, containing metadata on the game via headers including the players involved and the result, as well as the sequence of moves in the game. While PGN is the standard file format, the headers are not standardised. For example, the FICS Games Database records the ply count (the total number of turns the game lasted), whereas Lichess does not.
+
+The practical uses of chess databases has come under scrutiny lately with the Hans Niemann scandal in September 2022, when reigning five-time World Chess Champion Magnus Carlsen withdrew from a tournament and accused Niemann of cheating over the board \cite{niemannCheatingAllegations2}.  
 
 \section{Project Specification}
 I will be investigating the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights in how people play chess? Our project will be broken down into the following objectives:
