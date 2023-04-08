@@ -185,9 +185,9 @@ Delving deeper into the data, we found that the most popular base openings varie
 \section{Results and Evaluation}
 
 \subsection{Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}
-We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} shows highlights of the results we obtained from our models.
+We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1-score. We used F1-score as our evaluation metric because it is a good measure of accuracy for imbalanced data sets such as ours, where there are fewer draws compared to wins and losses for White, as it accounts for a balance between precision and recall. We also used accuracy as a secondary metric to compare the performance of our models.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \caption{Results of Models to Predict the Result of a Game}
     \label{fig:resultsOfModelsToPredictResultOfAGame}
@@ -209,7 +209,7 @@ We sought to predict the result of a game using both decision tree classifiers a
         \hline
         Decision Tree & BaseOpening, WhiteElo, BlackElo & 0.474 & 0.476 \\ 
         \hline
-        Random Forest & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.??? & 0.??? \\ 
+        Random Forest & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.509 & 0.521 \\ 
         \hline
         Random Forest & ECO, RelativeEloDiffBin (5\% Increments) & 0.??? & 0.??? \\ 
         \hline
@@ -221,6 +221,8 @@ We sought to predict the result of a game using both decision tree classifiers a
         \hline
     \end{tabular}
 \end{figure}
+
+While there are some differences in results between the variations of the features, our models generally produced poor F1 scores and accuracy. The best F1-score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
 
 \section{Conclusion}
 
