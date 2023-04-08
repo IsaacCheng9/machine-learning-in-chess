@@ -48,6 +48,20 @@ Chess is one of the oldest and most popular board games globally -- it has a ric
 
 In this dissertation, we explore data mining and machine learning techniques to analyse large-scale data from the Lichess Open Database, which contains monthly records on tens of millions of chess games played by users of various skill levels. Our goal is to discover patterns and insights into how people play chess, which could contribute to further studies in chess such as cheat detection algorithms to improve the integrity of chess tournaments and promote positive growth in the game.
 
+\section{Project Specification}
+I will investigate the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights into how people play chess? Our project has the following objectives:
+
+\begin{itemize}
+    % \setlength\itemsep{-0.5em}
+    \setlength\itemsep{0em}
+    \item Create a data pipeline for downloading and processing the data efficiently
+    \item Explore the data to find interesting patterns and insights
+    \item Implement machine learning to create models based on patterns in chess games
+    \item Analyse and evaluate the usefulness of the models
+\end{itemize}
+
+In the next section, we will explore previous research and how they relate to the motivations for our project, followed by the design section discussing how we will achieve these objectives.
+
 \section{Preliminary Research}
 
 \subsection{Early History of Computer Chess}
@@ -72,21 +86,7 @@ The fast growth of chess has given us increasing amounts of and better quality d
 \subsection{Practical Uses of Chess Databases}
 Numerous chess databases have been created over the years, such as the Lichess Open Database \cite{lichessOpenDatabase} and the FICS Games Database \cite{ficsGamesDatabase}. They store chess games in PGN (Portable Game Notation) format, containing metadata on the game via headers including the players involved and the result, as well as the sequence of moves in the game. While PGN is the standard file format, the headers are not standardised. For example, the FICS Games Database records the ply count (the total number of turns the game lasted), whereas Lichess does not.
 
-The practical uses of chess databases has come under scrutiny lately with the Hans Niemann scandal in September 2022, when reigning five-time World Chess Champion Magnus Carlsen withdrew from a tournament and accused Niemann of cheating over the board \cite{niemannCheatingAllegations2}.  
-
-\section{Project Specification}
-I will be investigating the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights in how people play chess? Our project will be broken down into the following objectives:
-
-\begin{itemize}
-    % \setlength\itemsep{-0.5em}
-    \setlength\itemsep{0em}
-    \item Create a data pipeline for downloading and processing the data efficiently
-    \item Explore the data to find interesting patterns and insights
-    \item Implement machine learning to create models based on patterns in chess games
-    \item Analyse and evaluate the usefulness of the models
-\end{itemize}
-
-In the next section, we will discuss how we will achieve these objectives by downloading the data, processing it, and analysing it.
+The practical uses of chess databases has come under scrutiny lately with the Hans Niemann scandal in September 2022, when reigning five-time World Chess Champion Magnus Carlsen withdrew from a tournament and accused Niemann of cheating over the board \cite{niemannCheatingAllegations2}. Chess.com conducted an investigation using a variety of analytics tools designed for cheat detection, such as comparing the moves he made to the moves recommended by the top chess engines, and found him guilty \cite{niemannCheatingChessComReport}. Similarly, Kenneth Regan, who is paid by the International Chess Federation (FIDE) to monitor tournaments \cite{niemannCheatingReganReport}, concluded that Niemann was likely cheating according to his proprietary cheat detection software that uses a statistical model to output a z-score representing the degree of similarity between the player and chess engines \cite{niemannCheatingReganReport}.
 
 \section{Design, Methods, and Implementation}
 
