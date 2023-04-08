@@ -119,6 +119,9 @@ Figure \ref{fig:dataPipeline} shows an overview of our data pipeline. It shows h
 
 We also created a Python script to convert the CSV file to an SQLite3 database -- this enables us to perform queries on the data over SQL for manual data exploration, which is easier and more interactive than using Dask functions.
 
+\subsection{Subsampling for Machine Learning}
+Machine learning is computationally expensive, so generating and testing machine learning models in a reasonable amount of time would be infeasible. Therefore, we will further subsample the data. We will use a random sample of 12.5\% of the original sample size, which is approximately 5 million games. Since we are not trying to predict rare events and we are still using a large sample, our subsampling should have minimal impact on the representativeness of our insights -- patterns that we identify for 5 million games should also be present in the complete data set.
+
 \section{Data Exploration}
 
 \subsection{Structure of Data}
@@ -182,7 +185,7 @@ Delving deeper into the data, we found that the most popular base openings varie
 \section{Results and Evaluation}
 
 \subsection{Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}
-We sought to predict the result of a game using both decision tree classifiers and random forests with various features.
+We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} shows highlights of the results we obtained from our models.
 
 \begin{figure}
     \centering
@@ -206,7 +209,11 @@ We sought to predict the result of a game using both decision tree classifiers a
         \hline
         Decision Tree & BaseOpening, WhiteElo, BlackElo & 0.474 & 0.476 \\ 
         \hline
-        Random Forest & BaseOpening, RelativeEloDiffBin & 0.509 & 0.521 \\ 
+        Random Forest & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.??? & 0.??? \\ 
+        \hline
+        Random Forest & ECO, RelativeEloDiffBin (5\% Increments) & 0.??? & 0.??? \\ 
+        \hline
+        Random Forest & BaseOpening, RelativeEloDiffBin (10\% Increments) & 0.509 & 0.521 \\ 
         \hline
         Random Forest & BaseOpening, RelativeEloDiff & 0.490 & 0.511 \\ 
         \hline
