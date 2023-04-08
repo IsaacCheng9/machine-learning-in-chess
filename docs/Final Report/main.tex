@@ -181,6 +181,34 @@ Delving deeper into the data, we found that the most popular base openings varie
 
 \section{Results and Evaluation}
 
+\subsection{Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}
+We sought to predict the result of a game using both decision tree classifiers and random forests with various features.
+
+\begin{figure}
+    \centering
+    \caption{Results of Models to Predict the Result of a Game}
+    \label{fig:resultsOfModelsToPredictResultOfAGame}
+    \begin{tabular}{| c | c | c | c |} 
+        \hline
+        \bf{Classifier} & \bf{Features} & \bf{Accuracy} & \bf{F1-Score} \\ [0.5ex] 
+        \hline
+        Decision Tree & BaseOpening, WhiteElo, BlackElo & 0.476 & 0.474 \\ 
+        \hline
+        Decision Tree & BaseOpening, RelativeEloDiff & 0.511 & 0.492 \\
+        \hline
+        Decision Tree & BaseOpening, RelativeEloDiff, Time Control & 0.496 & 0.486 \\
+        \hline
+        Decision Tree & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.521 & 0.510 \\
+        \hline
+        Decision Tree & BaseOpening, EloDiff & 0.519 & 0.495 \\
+        \hline
+        Decision Tree & BaseOpening, EloDiffBin (10 Increments) & 0.525 & 0.498 \\
+        \hline
+        Decision Tree & ECO, RelativeEloDiffBin (5\% Increments) & 0.521 & 0.508 \\
+        \hline
+    \end{tabular}
+\end{figure}
+
 \section{Conclusion}
 
 \subsection{Limitations and Future Work}
