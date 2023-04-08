@@ -190,21 +190,21 @@ We sought to predict the result of a game using both decision tree classifiers a
     \label{fig:resultsOfModelsToPredictResultOfAGame}
     \begin{tabular}{| c | c | c | c |} 
         \hline
-        \bf{Classifier} & \bf{Features} & \bf{Accuracy} & \bf{F1-Score} \\ [0.5ex] 
+        \bf{Classifier} & \bf{Features} & \bf{F1-Score} & \bf{Accuracy} \\ [0.5ex] 
         \hline
-        Decision Tree & BaseOpening, WhiteElo, BlackElo & 0.476 & 0.474 \\ 
+        Decision Tree & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.510 & 0.521 \\
         \hline
-        Decision Tree & BaseOpening, RelativeEloDiff & 0.511 & 0.492 \\
+        Decision Tree & ECO, RelativeEloDiffBin (5\% Increments) & 0.508 & 0.521 \\
         \hline
-        Decision Tree & BaseOpening, RelativeEloDiff, Time Control & 0.496 & 0.486 \\
+        Decision Tree & BaseOpening, EloDiffBin (10 Increments) & 0.498 & 0.525 \\
         \hline
-        Decision Tree & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.521 & 0.510 \\
+        Decision Tree & BaseOpening, EloDiff & 0.495 & 0.519 \\
         \hline
-        Decision Tree & BaseOpening, EloDiff & 0.519 & 0.495 \\
+        Decision Tree & BaseOpening, RelativeEloDiff & 0.492 & 0.511 \\
         \hline
-        Decision Tree & BaseOpening, EloDiffBin (10 Increments) & 0.525 & 0.498 \\
+        Decision Tree & BaseOpening, RelativeEloDiff, Time Control & 0.486 & 0.496 \\
         \hline
-        Decision Tree & ECO, RelativeEloDiffBin (5\% Increments) & 0.521 & 0.508 \\
+        Decision Tree & BaseOpening, WhiteElo, BlackElo & 0.474 & 0.476 \\ 
         \hline
     \end{tabular}
 \end{figure}
