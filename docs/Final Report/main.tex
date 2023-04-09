@@ -211,9 +211,9 @@ We sought to predict the result of a game using both decision tree classifiers a
         \hline
         Random Forest & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.509 & 0.521 \\ 
         \hline
-        Random Forest & ECO, RelativeEloDiffBin (5\% Increments) & 0.??? & 0.??? \\ 
-        \hline
         Random Forest & BaseOpening, RelativeEloDiffBin (10\% Increments) & 0.509 & 0.521 \\ 
+        \hline
+        Random Forest & ECO, RelativeEloDiffBin (5\% Increments) & 0.508 & 0.521 \\ 
         \hline
         Random Forest & BaseOpening, RelativeEloDiff & 0.490 & 0.511 \\ 
         \hline
@@ -224,7 +224,9 @@ We sought to predict the result of a game using both decision tree classifiers a
 
 In the results table, you can see that we denoted the RelativeEloDiffBin and EloDiffBin features with different increments. We previously binned these features to explore the distribution of values, but we wanted to see whether using finer binning would improve the performance of our models. Hence, we tested the same model but with different binning increments, which we did not include in the table for brevity -- the increments included in the table represent those that produced the best F1 score and accuracy.
 
-While there are some differences in results between the variations of the features, our models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
+There was little difference in the performance of our decision tree classifiers and our random forest classifiers -- both of them achieved similar F1 scores and accuracy when using the same features. However, we saw some variation in performance when using different features. We saw an improvement by binning the RelativeEloDiff values instead of using the raw values -- this is likely because it helps to smooth the noise of tiny differences and help extract the general information that varying RelativeEloDiff provides. Using 5\% increments was the sweet spot between binning too finely and thus introducing noise, and binning too broadly and losing the value of information. Meanwhile, using ECO values rather than BaseOpening values resulted in worse performance, likely due to the ECO categories being too vague, with openings in the same category being vastly different in some cases.
+
+While there are some differences in results between the variations of our models, our classification models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
 
 \section{Conclusion}
 
