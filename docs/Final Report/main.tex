@@ -185,7 +185,7 @@ Delving deeper into the data, we found that the most popular base openings varie
 \section{Results and Evaluation}
 
 \subsection{Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}
-We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1-score. We used F1-score as our evaluation metric because it is a good measure of accuracy for imbalanced data sets such as ours, where there are fewer draws compared to wins and losses for White, as it accounts for a balance between precision and recall. We also used accuracy as a secondary metric to compare the performance of our models.
+We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We used F1 score as our evaluation metric because it is a good measure of accuracy for imbalanced data sets such as ours, where there are fewer draws compared to wins and losses for White, as it accounts for a balance between precision and recall. We also used accuracy as a secondary metric to compare the performance of our models.
 
 \begin{figure}[H]
     \centering
@@ -193,7 +193,7 @@ We sought to predict the result of a game using both decision tree classifiers a
     \label{fig:resultsOfModelsToPredictResultOfAGame}
     \begin{tabular}{| c | c | c | c |} 
         \hline
-        \bf{Classifier} & \bf{Features} & \bf{F1-Score} & \bf{Accuracy} \\ [0.5ex] 
+        \bf{Classifier} & \bf{Features} & \bf{F1 Score} & \bf{Accuracy} \\ [0.5ex] 
         \hline
         Decision Tree & BaseOpening, RelativeEloDiffBin (5\% Increments) & 0.510 & 0.521 \\
         \hline
@@ -222,7 +222,9 @@ We sought to predict the result of a game using both decision tree classifiers a
     \end{tabular}
 \end{figure}
 
-While there are some differences in results between the variations of the features, our models generally produced poor F1 scores and accuracy. The best F1-score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
+In the results table, you can see that we denoted the RelativeEloDiffBin and EloDiffBin features with different increments. We previously binned these features to explore the distribution of values, but we wanted to see whether using finer binning would improve the performance of our models. Hence, we tested the same model but with different binning increments, which we did not include in the table for brevity -- the increments included in the table represent those that produced the best F1 score and accuracy.
+
+While there are some differences in results between the variations of the features, our models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
 
 \section{Conclusion}
 
