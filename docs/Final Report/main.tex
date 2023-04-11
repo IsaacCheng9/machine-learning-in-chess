@@ -46,12 +46,13 @@ Signature: \hrulefill
 \tableofcontents
 \newpage
 
-\section{Introduction}
+\section{Project Specification, Motivation, and Aims}
+
+\subsection{Project Specification}
 Chess is one of the oldest and most popular board games globally -- it has a rich history and vast literature dating back centuries, with the first comprehensive book about chess called \textquote{Book of the Chess} appearing in the year 840, discussing chess openings, endings, and hundreds of chess problems \cite{earliestChessBooks,wonning2014short}. However, the large-scale exploration of chess games has only caught on recently -- the most well-known and highest-rated chess engine \cite{computerChessRatingLists}, Stockfish, has used over 9,400 years of CPU time to analyse over 5.6 billion self-play chess games as of April 2023 \cite{stockfishTestingFramework}. Websites such as Lichess and Chess.com have provided an online platform for people to play chess -- users can create a free account and search for a game with other players with various time controls, where their matchmaking system will pair them with a player of a similar skill level. These platforms have made the game accessible to more people in standardised formats -- this has enabled the collection of data on a large scale, which makes it a fascinating domain for data mining and machine learning. Furthermore, chess games involve cognition and human behaviour that we can apply more generally -- there have been studies in areas like social learning theory on other games such as Go \cite{beheim2014strategic}, but they also apply to chess.
 
 In this dissertation, we explore data mining and machine learning techniques to analyse large-scale data from the Lichess Open Database, which contains monthly records on tens of millions of chess games played by users of various skill levels. Our goal is to discover patterns and insights into how people play chess, which could contribute to further studies in chess such as cheat detection algorithms to improve the integrity of chess tournaments and promote positive growth in the game.
 
-\section{Project Specification}
 I will investigate the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights into how people play chess? Our project has the following objectives:
 
 \begin{itemize}
@@ -65,28 +66,28 @@ I will investigate the following question: can we use data mining and machine le
 
 In the next section, we will explore previous research and how they relate to the motivations for our project, followed by the design section discussing how we will achieve these objectives.
 
-\section{Preliminary Research}
+\subsection{Motivation and Aims}
 
-\subsection{Early History of Computer Chess}
+\subsubsection{Early History of Computer Chess}
 Since the first digital computer switched on in 1945, programmers have been interested in using computers to play chess. In 1948, Alan Turing worked with David Champnowne to create the \textquote{Turochamp}, a machine routine for playing chess \cite{copeland2005turing}. Claude Shannon wrote a paper in 1949 describing a computer that could play chess by analysing the seven most likely moves from the current positions and branching these into the seven most likely replies from the opposition continuously until the computer ran out of memory \cite{shannon1950xxii}. Dietrich Prinz eventually implemented the first chess program in November 1951, though it could not complete an entire chess game, and it used exhaustive search to play moves rather than a heuristic \cite{copeland2005turing}.
 
 IBM made a significant breakthrough with their Deep Blue supercomputer starting with their initial prototype in 1995 \cite{hsu1995deep}. It was released in 1996 \cite{hsu1999ibm} and was able to perform 200 million calculations per second \cite{strogatz2018one}. Deep Blue was the first computer to use a heuristic search algorithm, searching for a solution to a problem by evaluating possible solutions and choosing the best one. In 1997, Deep Blue became the first computer to beat a world champion as it defeated Garry Kasparov over a six-game match \cite{seirawan1997implications}, indicating that chess engines were better than human players. However, a lack of a deep understanding of the game was evident -- Deep Blue accepted Kasparov's sacrifice of a rook for a bishop in the first game, only to lose 16 moves later \cite{strogatz2018one}.
 
-\subsection{Modern Developments in Computer Chess}
+\subsubsection{Modern Developments in Computer Chess}
 Stockfish is the strongest chess engine in the world. Both Lichess and Chess.com use Stockfish to provide game analysis on their platforms, and it is also used by professional players to analyse their games. It was released as a free, open-source chess engine in November 2008 \cite{aboutStockfish}, with volunteers donating CPU time to test improvements to the engine using a distributed framework, Fishtest \cite{fishtestDistributedTestingFramework}. Stockfish uses the alpha-beta pruning search algorithm which improves minimax search \cite{v1928theorie} by avoiding variations that will never be reached in optimal play due to either player redirecting the game \cite{maharaj2022chess}.
 
 However, other chess engines have used different algorithms in recent history. Most notably, DeepMind released AlphaZero in 2017 \cite{silver2017mastering2} based solely on reinforcement learning -- it had no knowledge of chess beyond the basic rules and learned within hours by playing millions of games \cite{strogatz2018one}. AlphaZero used a general-purpose Monte Carlo tree search algorithm, a heuristic search algorithm \cite{silver2017mastering2}. It uses a tree to represent the game state, then randomly selects moves and uses the results of each game to weigh the tree nodes accordingly \cite{chaslot2008monte}. In December 2017, AlphaZero beat Stockfish in a 100-game match with 28 wins, 72 draws, and zero losses \cite{klein2017google}, showing the feasibility of alternative approaches, although Stockfish has since improved.
 
 These developments in computer chess demonstrate the potential of big data in chess. While chess engines have gathered a lot of attention from researchers, there has been less attention paid to patterns and insights into how people play chess, which is what our project will focus on.
 
-\subsection{Growth in the Popularity of Chess}
+\subsubsection{Growth in the Popularity of Chess}
 Chess has seen a resurgence in popularity over the last decade. The rise of chess platforms such as Lichess and Chess.com have enabled people to play chess games online with other people globally in seconds. Lichess recorded 121,332 standard-rated games in January 2013, which rose to 103,178,407 games a decade later in January 2023 \cite{lichessOpenDatabase}. 
 
 More recently, popular culture has driven a chess boom. As the COVID-19 pandemic struck in late 2019, people turned to chess to fill their spare time. The release of The Queen's Gambit in October 2020 accelerated people's interest -- Netflix announced that a then-record 62 million households watched the series in its first 28 days \cite{chessIsBooming}. Chess.com saw its monthly active users double from around 8 million to nearly 17 million between October 2020 and April 2022 \cite{chessIsBooming}. It also reported a record for the monthly number of chess games played, with 1 billion games played in February 2023 \cite{chessCom1BillionGamesInFebruary}. Chess was also featured in the most popular social media post in 2022, featuring Cristiano Ronaldo (the most followed user on Instagram) playing chess with Lionel Messi on an Instagram post that has received over 42,800,000 likes as of April 2023 \cite{ronaldoMessiChess}.
 
 The fast growth of chess has given us increasing amounts of and better quality data to analyse, which is critical to the success of our project. As previously mentioned, Lichess records tens of millions of games every month, and they make this accessible to the public through their Open Database \cite{lichessOpenDatabase}, which is what our project will use as its data source.
 
-\subsection{Practical Uses of Chess Databases}
+\subsubsection{Practical Uses of Chess Databases}
 Numerous chess databases have been created and made publicly available, such as the Lichess Open Database \cite{lichessOpenDatabase} and the FICS Games Database \cite{ficsGamesDatabase}. They store chess games in PGN (Portable Game Notation) format, containing metadata via headers such as the players involved and the result, plus the sequence of moves in the game. While PGN is the standard file format, the metadata headers are not standardised. For example, the FICS Games Database records the ply count (the total number of turns the game lasted), whereas Lichess does not.
 
 The practical uses of chess databases have come under scrutiny lately with the Hans Niemann scandal in September 2022, when reigning five-time World Chess Champion Magnus Carlsen withdrew from a tournament and accused Niemann of cheating over the board \cite{niemannCheatingAllegations2}. Chess.com conducted an investigation using a variety of analytics tools designed for cheat detection, such as comparing Niemann's moves to the moves recommended by the top chess engines, leading to them finding Neimann guilty \cite{niemannCheatingChessComReport}. Similarly, Kenneth Regan, often paid by the International Chess Federation (FIDE) to monitor tournaments \cite{niemannCheatingReganReport}, concluded that Niemann was likely cheating according to his proprietary cheat detection software that uses a statistical model to output a z-score representing the degree of similarity between the player and chess engines \cite{niemannCheatingReganReport}.
@@ -122,12 +123,14 @@ Figure \ref{fig:dataPipeline} shows an overview of our data pipeline. It shows h
 
 We also created a Python script to convert the CSV file to an SQLite3 database -- this enables us to perform queries on the data over SQL for manual data exploration, which is easier and more interactive than using Dask functions.
 
-\subsection{Subsampling for Machine Learning}
+\subsection{Subsampling for Machine Learning Models}
 Machine learning is computationally expensive, so generating and testing machine learning models in a reasonable amount of time would be infeasible. Therefore, we will further subsample the data. We will use a random sample of 12.5\% of the original sample size, which is approximately 5 million games. Since we are not trying to predict rare events and we are still using a large sample, our subsampling should have minimal impact on the representativeness of our insights -- patterns that we identify for 5 million games should also be present in the complete data set.
 
-\section{Data Exploration}
 
-\subsection{Structure of Data}
+\section{Project Results and Evaluation}
+\subsection{Data Exploration}
+
+\subsubsection{Structure of Data}
 Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were played on Lichess in 2022. Each game is described by: the datetime of when the game started, what type of game (Rated Blitz or Rapid) it was, the specific time control, outcome of the game (1-0 for a White win, 1/2-1/2 for a draw, and 0-1 for a Black win), how the game ended, ECO category of the opening, the specific opening that was played, who played White and Black, their Lichess ratings, and a URL to the game on Lichess. Figure \ref{fig:structureOfData} shows the head of the DataFrame, which contains the first five games in the data sample.
 
 \begin{figure}[H]
@@ -137,7 +140,7 @@ Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were play
     \includegraphics[width=\textwidth]{Structure of Data.png}
 \end{figure}
 
-\subsection{Distribution of Player Ratings}
+\subsubsection{Distribution of Player Ratings}
 We counted the ratings of players in our data set. Rating systems are designed to predict the outcome of games so that players can be matched fairly. There are various rating systems used in chess -- the most common is the Elo rating system, which is used by various sports. Lichess uses the Glicko 2 rating system, which accounts for volatility amongst other factors to provide better prediction accuracy than the Glicko 1 and Elo rating systems \cite{chessRatingSystems, DeloitteFIDEChessRatingChallenge}. The Glicko 2 rating system starts at 1500, and it is artificially limited to a minimum of 600 in Lichess. We created bins of 200 rating point ranges starting from 600 -- this handles the representation of new players well, as those who have played few games will not have changed their rating significantly and likely get placed in the 1400-1600 bin. Note that the last four bins on the right of the bar chart do exist, but they are difficult to see -- they contain totals of 11,622 for 2800-3000, 382 for 3000-3200, 459 for 3200-3400, and 1 player for 3400-3600. In addition, the counts are based on each game played, so some players may be overrepresented in the data set -- a player who plays 100 games within the year will have 100 entries in the data set, whereas a player who plays 1 game will have 1 entry. However, this is not a significant issue because the data set is large enough to represent the distribution of player ratings well.
 
 \begin{figure}[H]
@@ -149,7 +152,7 @@ We counted the ratings of players in our data set. Rating systems are designed t
 
 Figure \ref{fig:distributionOfPlayerRatings} shows that the distribution of player ratings tends towards a normal distribution. We could explain this based on the concept that a player's performance is similar to a random walk, which states that an object moves randomly with equal probability in different directions. In Lichess ratings, a player's rating can be seen as the result of a series of random walks, where the player's rating constantly changes as they win and lose games. Over time, their rating will tend to stabilise to represent their true skill level. Moreover, the central limit theorem states that the sum of a large number of independent and identically distributed random variables tends towards a normal distribution \cite{le1986central}. In this case, the ratings of individual players can be seen as independent and identically distributed random variables, with each game representing a single trial. Therefore, the central limit theorem predicts that the distribution of ratings will tend towards a normal distribution as the number of games increases. This is supported by how largest bin is the 1400-1600 bin, which contains the starting rating of 1500. Lichess' matchmaking system could contribute to this -- it matches players with similar skill, so games theoretically end up with a roughly equal number of wins and losses.
 
-\subsection{Effect of Rating Differential on Win Rate}
+\subsubsection{Effect of Rating Differential on Win Rate}
 Next, we investigated the impact of player rating differentials on White's win rate. To begin with, we counted the outcomes of all games, and then counted the outcomes of games when White had a higher rating -- White won 49.69\% of all games, which rose to 53.98\% of games when they had a higher rating than their opponent (as shown in figure \ref{fig:effectOfHigherRatingOnWhiteWinRate} from the appendices). Then, we sought to quantify the impact of rating differential in both absolute and relative terms -- the former was the difference in rating between the two players, and the latter was the difference in rating divided by the mean rating of the two players. Figure \ref{fig:distributionOfAbsoluteRatingDifference} and figure \ref{fig:distributionOfRelativeRatingDifference} from the appendices show the distribution of the absolute and relative rating differences. We grouped the data by rating differential and calculated the win rate for White. For example, when White is rated 1100 and Black is rated 900, the absolute rating differential is 200, whereas the relative rating differential is 10\%. We focused on the win rate for White because the opening of the game is usually decided by White.
 
 The results showed that there is a clear positive correlation between rating differential and White's win rate. Both the absolute and relative differential metrics corroborate this, but we saw that relative rating difference highlighted the impact of rating on White's win rate more clearly. Absolute rating differential (shown in figure \ref{fig:meanWhiteWinRateForEachEloDiffBin} from the appendices) is more intuitive to understand, but it is less accurate than relative rating differential (shown in figure \ref{fig:meanWhiteWinRateForEachRelativeEloDiffBin}) because it is not normalised.
@@ -161,7 +164,7 @@ The results showed that there is a clear positive correlation between rating dif
     \includegraphics[width=0.8\textwidth]{Mean White Win Rate for Each RelativeEloDiff Bin.png}
 \end{figure}
 
-\subsection{Most Popular Openings by Category}
+\subsubsection{Most Popular Openings by Category}
 \begin{figure}[H]
     \centering
     \caption{Most Popular Openings by Category on Lichess in 2022}
@@ -173,7 +176,7 @@ We also counted the most popular openings by category in figure \ref{fig:mostPop
 
 Figure \ref{fig:mostPopularOpeningsByCategory} shows that the most popular category of openings are open games and semi-open games, whereas the Indian defences and closed games are the least popular. This makes sense for the general population of games -- the ideas behind these openings are simple and straightforward, as they focus on controlling the centre and developing pieces quickly. However, we see that the pattern is different for players rated 2000 and above -- semi-open games and flank openings are more popular than open games in this category (shown in figure \ref{fig:mostPopularOpeningsByCategoryRated2000Plus} from the appendices). At higher rated games, players often prefer to play more complex and dynamic openings that enable opportunities to create imbalances in the position and therefore gain an advantage at an earlier stage of the game.
 
-\subsection{Most Popular Base Openings}
+\subsubsection{Most Popular Base Openings}
 \begin{figure}[H]
     \centering
     \caption{Most Popular Base Openings on Lichess in 2022}
@@ -184,8 +187,6 @@ Figure \ref{fig:mostPopularOpeningsByCategory} shows that the most popular categ
 The data set also includes a column for the specific opening detected in each game based on Lichess' opening detection. We grouped openings that were different variations of each other into base openings to get a more accurate representation -- figure \ref{fig:examplesOfChessOpenings} from the appendices contains examples of base openings on the chess board. The top 15 most popular base openings account for 61.79\% of all games in our data set. Figure \ref{fig:mostPopularOpenings} shows that the most popular openings are the Sicilian Defence and the Queen's Pawn Game by a significant margin. The Sicilian Defence is the most well-studied response to White moving the king's pawn forward by two, which could explain why it is the most popular opening. However, the Queen's Pawn Game is slightly misleading, as it describes any opening beginning with White moving the queen's pawn where they do not play the Queen's Gambit and therefore encompasses a large number of openings such as the London System which are not labelled separately.
 
 Delving deeper into the data, we found that the most popular base openings varied by rating groups. The top players rated 2000 and above strongly preferred the Sicilian Defense compared to other openings (shown in figure \ref{fig:mostPopularOpeningsRated2000Plus} from the appendices). This may be because the Sicilian Defense is a complex opening that requires a lot of preparation due to the number of variations, and it is unanimously accepted as the best response to White opening with the king's pawn. Conversely, the Sicilian Defense becomes much less popular for players rated 1200 and below for the same reasons. Figure \ref{fig:mostPopularOpeningsRated1200Minus} from the appendices shows that the two most popular base openings for this group are the Queen's Pawn Game and the King's Pawn Game, which represent generic openings starting with the queen's pawn and the king's pawn respectively -- this is likely because they are simple and easy for beginners to play.
-
-\section{Results and Evaluation}
 
 \subsection{Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}
 We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Based on the previous section, we focused on features related to player rating and opening. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We used F1 score as our evaluation metric because it is a good measure of accuracy for imbalanced data sets such as ours, where there are fewer draws compared to wins and losses for White, as it accounts for a balance between precision and recall. We also used accuracy as a secondary metric to compare the performance of our models.
@@ -231,7 +232,9 @@ There was little difference in the performance of our decision tree classifiers 
 
 While there are some differences in results between the variations of our models, our classification models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
 
-\section{Conclusion}
+\section{Project Discussion and Conclusion}
+
+\subsection{Project Outcomes}
 
 \subsection{Limitations and Future Work}
 
