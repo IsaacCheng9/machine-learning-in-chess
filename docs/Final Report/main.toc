@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {3.1}Data Exploration}{8}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Structure of Data}{8}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Distribution of Player Ratings}{8}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Effect of Rating Differential on Win Rate}{9}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3}Effect of Rating Difference on Win Rate}{9}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Most Popular Openings by Category}{10}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Most Popular Base Openings}{11}{subsubsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.2}Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}{12}{subsection.3.2}%
