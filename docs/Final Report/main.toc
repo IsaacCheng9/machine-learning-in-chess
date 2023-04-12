@@ -20,7 +20,8 @@
 \contentsline {subsection}{\numberline {3.2}Predicting the Result of a Game Using Decision Tree Classifiers and Random Forests}{12}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Project Discussion and Conclusion}{13}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Project Outcomes}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Limitations and Future Work}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Limitations}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Future Work}{13}{subsection.4.3}%
 \contentsline {section}{Appendices}{15}{section*.10}%
 \contentsline {section}{\numberline {A}Additional Outputs}{15}{appendix.1.A}%
 \contentsline {section}{\numberline {B}Additional Plots}{15}{appendix.1.B}%
