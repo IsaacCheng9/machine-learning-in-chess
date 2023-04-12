@@ -131,13 +131,13 @@ Machine learning is computationally expensive, so generating and testing machine
 \subsection{Data Exploration}
 
 \subsubsection{Structure of Data}
-Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were played on Lichess in 2022. Each game is described by: the datetime of when the game started, what type of game (Rated Blitz or Rapid) it was, the specific time control, outcome of the game (1-0 for a White win, 1/2-1/2 for a draw, and 0-1 for a Black win), how the game ended, ECO category of the opening, the specific opening that was played, who played White and Black, their Lichess ratings, and a URL to the game on Lichess. Figure \ref{fig:structureOfData} shows the head of the DataFrame, which contains the first five games in the data sample.
+Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were played on Lichess in 2022. Each game is described by: the datetime of when the game started, what type of game (Rated Blitz or Rapid) it was, the specific time control, outcome of the game (1-0 for a White win, 1/2-1/2 for a draw, and 0-1 for a Black win), how the game ended, ECO category of the opening, the specific opening that was played, who played White and Black, their Lichess ratings, and a URL to the game on Lichess. Figure \ref{fig:structureOfData} shows the head of the DataFrame, which contains the first two games in the data sample -- note that this has been transposed to maintain readability.
 
 \begin{figure}[H]
     \centering
     \caption{Structure of Data}
     \label{fig:structureOfData}
-    \includegraphics[width=\textwidth]{Structure of Data.png}
+    \includegraphics[width=\textwidth]{Structure of Data Transposed.png}
 \end{figure}
 
 \subsubsection{Distribution of Player Ratings}
