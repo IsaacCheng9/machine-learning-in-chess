@@ -1,5 +1,40 @@
 # P3 – Final Report and Demonstration Plan
 
+## Final Report Plan
+### Project Specification, Motivations, and Aims
+#### Project Specification
+- Essentially a summary of the introduction
+#### Motivation and Aims
+- Contain a subset of literature review alongside new findings during development
+- Early history of computer chess
+	- Couple of sentences
+- Modern developments in computer chess
+	- May not be as relevant – keep it short
+- Growth in the popularity of chess
+	- Fast growth gives increasing amounts and better quality data to train on
+- Practical uses of chess databases
+	- Link to how results of our studies can contribute to the landscape of chess
+	- [FICS Games Database](https://www.ficsgames.org/) provides PGN files with different game metadata, but it isn’t as popular of a platform for playing chess games
+### Design, Methods, and Implementation
+- Downloading the data
+- Data processing
+- Subsampling for ML models
+### Project Results and Evaluation
+- Development → results → evaluation for each finding
+### Project Discussion and Conclusion
+- ~3 pages
+#### Project Outcomes
+- What worked
+#### Limitations
+- What didn't work
+- Challenges in collecting and parsing data – may be difficult for future work
+#### Future Work
+- Change pipeline to account for different database such as FICS Games Database
+- What we didn't explore but could be useful in the future
+### References
+### Appendices
+- Examples of things like chess openings
+
 ## Submission
 - Deadline of 3rd May
 - Final report and slides in a .zip file
@@ -56,30 +91,3 @@
 8. Critical assessment of the project as a whole
 9. Conclusion
 
-## Final Report Plan
-- Change this to be similar to the structure of the literature review
-	- Provided structure is more for software engineering projects
-- Introduce methods at the start vs. introduce methods as they're used
-	- Whatever is easier to navigate
-
-### Introduction – Background and Aim
-
-### Preliminary Research
-- How much should this differ from the literature review?
-	- Should it contain a subset of this, alongside new findings during development?
-### Analysis of Requirements
-- How much should this differ from the literature review?
-	- Include new findings about difficulties with big data
-### Design
-- How does this work? In our case, how does it differ from analysis of requirements?
-### Development
-
-### Evaluation
-
-### Conclusions
-- Limitations
-	- Challenges in collecting and parsing data – may be difficult for future work
-- What worked
-- What didn't work
-- What we didn't explore but could be useful in the future
-### References/Appendices

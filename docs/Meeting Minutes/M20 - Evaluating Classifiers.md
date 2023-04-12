@@ -13,7 +13,8 @@
 	- K-means clustering of BaseOpening by result.
 		- Somewhat successful – silhouette score of 0.478 after testing different number of clusters.
 	- Linear regression of BaseOpening popularity and White win rate / Black win rate / draw rate.
-		- Unsuccessful – no real trend. Popularity of a opening is more complex than just the success rates, otherwise this strategy would be used by every player thus causing an equilibrium?
+		- Unsuccessful – no real trend. 
+		- Popularity of a opening is more complex than just the success rates, otherwise this strategy would be used by every player thus causing an equilibrium?
 			- Future work – time series of win rate for specific openings, as we only have data from a specific year
 		- Games are also long enough that the opening may not matter as much / to a limited extent
 

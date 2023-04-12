@@ -2,60 +2,40 @@
 
 ## To Do
 ### In Progress
-- Review cells with `elo_diff_wins` – are they implemented correctly?
-	- Do I need to use `count()` instead of `sum()`?
-### Backlog
-- Explain how the most popular opening categories and most popular base openings vary by rating.
-- Write about the impact of rating differential on White win rate.
-- Write about manual data exploration in the report (at the end of the design section?).
-- Complete introduction section of the final report (see [[P3 - Final Report and Demonstration Plan]]).
-- Look into merging the first pages of the original template with my own template.
-### Ideas
-#### Machine Learning
+- Explain process of evaluation at the start of the project results section.
+- Redo figure 2 to make it clearer – consider rewriting it.
+- Consider using elbow method to justify number of clusters.
+- Explain the outliers in the regression plot and why they might be more popular.
+- Investigate opening vs. win rate.
+	- For games in the rating range >2000, are some openings more likely to win?
+- Cluster openings based on various metrics:
+	- Results and popularity – some openings may be more popular because they lead to more/less open games?
 - How does the win rate of openings vary with ratings?
 	- x-axis – rating bins
 	- y-axis – popularity of a specific opening when it wins/loses
 		- Split colour of the bar to show win/loss rate?
-	- Predict whether someone will win based on three factors:
-		- Their ELO (numerical)
-		- Opponent’s rating (numerical)
-		- Opening (categorical – may need to encode to numerical)
-			- 100 dimensional vector for 100 possible openings
-				- 0s represent opening not played, single 1 to represent opening played
-				- May be limited as we don’t know how many openings there are, but can’t predict with new openings with other methods either
-					- Cold start problem
-			- Decision trees
-				- [R2D3 Visual Intro to ML](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
-				- scikit-learn identifies entropy for me
-				- Count outcomes from each leave to determine probability
-			- Random forest – trains ensemble of trees to classify
-				- StatQuest: [part 1](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ), [part 2](https://www.youtube.com/watch?v=sQ870aTKqiM)
-				- More transparent classifier
-				- Shorter trees – 1-3 levels deep
-				- Train several trees and get the average of them
-				- Can also draw a heat map or MDS plot to show the samples are related to each other
-			- Win rate differential between base win rate and win rate for opening (feature engineering – makes model less of a black box)
-		- Alternatively, try just the opening
-		- Regular test-train split or stratified test-train split
-			- Stratified on rating bins?
-		- Confidence of prediction may differ between rating and opening
-			- Initial hypothesis – opening matters more at lower ratings
 	- Use it to create a regression to predict win rate given these scenarios?
 		- Game theory
 			- Table
 			- Decision tree?
 		- Nash equilibrium?
 	- Probability of a win as a function of EloDiff using logistic regression
+### Backlog
+### Ideas
+#### Machine Learning
 - Investigate variations of the same opening
 	- Do variations share the same performance curves as rating changes?
 	- Distance metric for similarity
+		- Metrics such as result – openings like Sicilian Opening may be more likely to draw
+			- Scatter plot between two factors (win and draw?) – how does this change with rating bins?
 		- Distances between bars in the performance curves
 		- Use agglomerative clustering instead of K-means
 	- Cluster openings that perform the same
 		- Openings that often result in draws vs. wins
 		- No train-test split – cluster and then perform clustering validation
 			- Silhouette – tightness of clusters
-- SHAP values – feature importance
+- SHAP values – transparency tool for feature importance
+	- Not as useful for transparent methods like decision trees and random forests
 	- Strength of input values on output
 	- How do various features increase the likelihood of a player winning
 	- Potential features:
@@ -76,7 +56,31 @@
 - Try getting Elo distribution of unique players (take highest or lowest Elo for each player).
 - Investigate whether we can use the additional fields from chess-openings repository to work with Scoutfish.
 	- UCI notation to sub-FEN?
-
+### Old Ideas
+- Predict whether someone will win based on three factors:
+	- Their ELO (numerical)
+	- Opponent’s rating (numerical)
+	- Opening (categorical – may need to encode to numerical)
+		- 100 dimensional vector for 100 possible openings
+			- 0s represent opening not played, single 1 to represent opening played
+			- May be limited as we don’t know how many openings there are, but can’t predict with new openings with other methods either
+				- Cold start problem
+		- Decision trees
+			- [R2D3 Visual Intro to ML](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+			- scikit-learn identifies entropy for me
+			- Count outcomes from each leave to determine probability
+		- Random forest – trains ensemble of trees to classify
+			- StatQuest: [part 1](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ), [part 2](https://www.youtube.com/watch?v=sQ870aTKqiM)
+			- More transparent classifier
+			- Shorter trees – 1-3 levels deep
+			- Train several trees and get the average of them
+			- Can also draw a heat map or MDS plot to show the samples are related to each other
+		- Win rate differential between base win rate and win rate for opening (feature engineering – makes model less of a black box)
+	- Alternatively, try just the opening
+	- Regular test-train split or stratified test-train split
+		- Stratified on rating bins?
+	- Confidence of prediction may differ between rating and opening
+		- Initial hypothesis – opening matters more at lower ratings
 ## Metadata Analysis
 ### High-Level
 #### Probability of Chess Piece Positions
