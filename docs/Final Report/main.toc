@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {2.1}Downloading the Data}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Data Processing}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Subsampling for Machine Learning Models}{7}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Project Results and Evaluation}{8}{section.3}%
+\contentsline {section}{\numberline {3}Project Results and Evaluation}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Data Exploration}{8}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Structure of Data}{8}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Distribution of Player Ratings}{8}{subsubsection.3.1.2}%
