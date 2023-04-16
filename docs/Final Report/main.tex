@@ -235,9 +235,11 @@ There was little difference in the performance of our decision tree classifiers 
 While there are some differences in results between the variations of our models, our classification models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the rating difference bins, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. 
 
 \subsection{Clustering Base Openings by Probability of Game Results}
+Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by the probability of game results. Accurate clusters would allow us to identify base openings that are more likely to result in a certain outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
 
+\subsubsection{Calculating Probability of Game Results Per Base Opening}
+Before applying our clustering algorithm, we needed to aggregate the data to obtain the probability of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. For our analysis of games across all ratings, we required a minimum of 10,000 games, whereas for high, middle, and low rated players we required a minimum of 1,000 games. Figure \ref{fig:probabilityOfGameResultsForTop15BaseOpenings} shows the probability of game results for the top 15 base openings, sorted in descending order of the number of games.
 
-\subsubsection{Probability of Game Results Per Base Opening}
 \begin{figure}[H]
     \centering
     \caption{Probability of Game Results for Top 15 Base Openings}
@@ -245,7 +247,7 @@ While there are some differences in results between the variations of our models
     \includegraphics[width=0.8\textwidth]{Probability of Game Results for Top 15 Base Openings.png}
 \end{figure}
 
-\subsubsection{K-Means Clustering}
+\subsubsection{Implementing K-Means Clustering}
 \begin{figure}[H]
     \centering
     \caption{Base Openings Clustered by Probability of Game Results}

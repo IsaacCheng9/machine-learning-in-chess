@@ -19,14 +19,14 @@
 \contentsline {subsubsection}{\numberline {3.1.5}Most Popular Base Openings}{11}{subsubsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.2}Predicting Game Results Using Decision Tree and Random Forest Classifiers}{12}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Clustering Base Openings by Probability of Game Results}{13}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Probability of Game Results Per Base Opening}{13}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}K-Means Clustering}{13}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.1}Calculating Probability of Game Results Per Base Opening}{13}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Implementing K-Means Clustering}{14}{subsubsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.4}Regression Analysis of Base Opening Popularity}{14}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Project Discussion and Conclusion}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Project Outcomes}{14}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Limitations}{14}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Future Work}{14}{subsection.4.3}%
-\contentsline {section}{Appendices}{17}{section*.14}%
-\contentsline {section}{\numberline {A}Additional Outputs}{17}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Additional Plots}{17}{appendix.1.B}%
-\contentsline {section}{\numberline {C}Examples}{20}{appendix.1.C}%
+\contentsline {section}{\numberline {4}Project Discussion and Conclusion}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Project Outcomes}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Limitations}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Future Work}{15}{subsection.4.3}%
+\contentsline {section}{Appendices}{18}{section*.14}%
+\contentsline {section}{\numberline {A}Additional Outputs}{18}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Additional Plots}{18}{appendix.1.B}%
+\contentsline {section}{\numberline {C}Examples}{21}{appendix.1.C}%
