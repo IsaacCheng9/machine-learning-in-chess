@@ -21,12 +21,12 @@
 \contentsline {subsection}{\numberline {3.3}Clustering Base Openings by Probability of Game Results}{13}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Probability of Game Results Per Base Opening}{13}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}K-Means Clustering}{13}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Regression Analysis of Base Opening Popularity}{13}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Project Discussion and Conclusion}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Project Outcomes}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Limitations}{13}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Future Work}{13}{subsection.4.3}%
-\contentsline {section}{Appendices}{16}{section*.10}%
-\contentsline {section}{\numberline {A}Additional Outputs}{16}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Additional Plots}{16}{appendix.1.B}%
-\contentsline {section}{\numberline {C}Examples}{19}{appendix.1.C}%
+\contentsline {subsection}{\numberline {3.4}Regression Analysis of Base Opening Popularity}{14}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Project Discussion and Conclusion}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Project Outcomes}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Limitations}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Future Work}{14}{subsection.4.3}%
+\contentsline {section}{Appendices}{17}{section*.14}%
+\contentsline {section}{\numberline {A}Additional Outputs}{17}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Additional Plots}{17}{appendix.1.B}%
+\contentsline {section}{\numberline {C}Examples}{20}{appendix.1.C}%
