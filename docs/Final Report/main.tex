@@ -238,7 +238,7 @@ While there are some differences in results between the variations of our models
 Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by game results. Accurate clusters would allow us to identify base openings that are more likely to result in a certain outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
 
 \subsubsection{Calculating Proportion of Game Results Per Base Opening}
-Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. For our analysis of games across all ratings, we required a minimum of 10,000 games, whereas for high, middle, and low rated players we required a minimum of 1,000 games. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
+Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
 
 \begin{figure}[H]
     \centering
@@ -257,7 +257,34 @@ We decided to use K-means clustering over alternatives such as hierarchical aggl
     \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
 \end{figure}
 
-Additionally, we recorded the silhouette score for each number of clusters to validate our choice. The silhouette score is a measure of how similar an object is to its own cluster compared to other clusters -- it ranges from -1.0 to 1.0, where a higher score is good and indicates that the object is well-matched to its own cluster and poorly-matched to neighbouring clusters.
+Additionally, we recorded the silhouette score for each number of clusters to validate our choice. The silhouette score is a measure of how similar an object is to its own cluster compared to other clusters -- it ranges from -1.0 to 1.0, where a higher score is good and indicates that the object is well-matched to its own cluster and poorly-matched to neighbouring clusters. Figure \ref{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults} shows the silhouette score for each number of clusters from 3 to 10 -- it confirms that the optimal number of clusters is four, with the best silhouette score of 0.478.
+
+\begin{figure}[H]
+    \centering
+    \caption{Silhouette Scores for K-Means Clustering of Base Openings by Game Results}
+    \label{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults}
+    \begin{tabular}{| l | l |} 
+        \hline
+        \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
+        \hline
+        3 & 0.441 \\
+        \hline
+        4 & 0.478 \\
+        \hline
+        5 & 0.457 \\
+        \hline
+        6 & 0.432 \\
+        \hline
+        7 & 0.427 \\
+        \hline
+        8 & 0.439 \\
+        \hline
+        9 & 0.440 \\
+        \hline
+        10 & 0.432 \\
+        \hline
+    \end{tabular}
+\end{figure}
 
 \begin{figure}[H]
     \centering
