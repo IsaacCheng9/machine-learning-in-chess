@@ -248,9 +248,20 @@ Before applying our clustering algorithm, we needed to aggregate the data to obt
 \end{figure}
 
 \subsubsection{Implementing K-Means Clustering}
+We decided to use K-means clustering over alternatives such as hierarchical agglomerative clustering because it is easy to implement and interpret, and our underlying data is relatively simple. We used the percentages of each game result for our features and we used the elbow method to determine the optimal number of clusters. The elbow method involves plotting the explained variation (also known as the within-cluster sum of squares -- WCSS) as a function of the number of clusters, and then choosing the number of clusters at the elbow of the curve. Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByGameResults} shows the elbow method for our data -- we can see that the elbow occurs at four clusters.
+
 \begin{figure}[H]
     \centering
-    \caption{Base Openings Clustered by Game Results}
+    \caption{Elbow Method for K-Means Clustering of Base Openings by Game Results}
+    \label{fig:elbowMethodForBaseOpeningsClusteredByGameResults}
+    \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
+\end{figure}
+
+Additionally, we recorded the silhouette score for each number of clusters to validate our choice. The silhouette score is a measure of how similar an object is to its own cluster compared to other clusters -- it ranges from -1.0 to 1.0, where a higher score is good and indicates that the object is well-matched to its own cluster and poorly-matched to neighbouring clusters.
+
+\begin{figure}[H]
+    \centering
+    \caption{Base Openings K-Means Clustered by Game Results}
     \label{fig:baseOpeningsClusteredByProbabilityOfGameResults}
     \includegraphics[width=0.6\textwidth]{Base Openings Clustered by Game Results.png}
 \end{figure}
