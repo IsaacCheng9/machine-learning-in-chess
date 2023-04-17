@@ -286,11 +286,20 @@ Additionally, we recorded the silhouette score for each number of clusters to va
     \end{tabular}
 \end{figure}
 
+Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. The top-left cluster contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, the bottom-right cluster contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. The middle two clusters are less distinct, but we can see that the top-middle cluster shows openings with a slight advantage for Black, while the bottom-middle cluster shows openings with a slight advantage for White. Our clustering algorithm was overall successful in differentiating between the base openings based on whether White or Black won.
+
 \begin{figure}[H]
     \centering
     \caption{Base Openings K-Means Clustered by Game Results}
-    \label{fig:baseOpeningsClusteredByProbabilityOfGameResults}
-    \includegraphics[width=0.6\textwidth]{Base Openings Clustered by Game Results.png}
+    \label{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack}
+    \includegraphics[width=0.6\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Black Win Rate).png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Base Openings K-Means Clustered by Game Results}
+    \label{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw}
+    \includegraphics[width=0.6\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Draw Rate).png}
 \end{figure}
 
 \subsection{Regression Analysis of Base Opening Popularity}
