@@ -23,12 +23,12 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Implementing K-Means Clustering}{13}{subsubsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.4}Interpreting the Clusters}{14}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Evaluating the Clusters}{15}{subsubsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.5}Regression Analysis of Base Opening Popularity}{16}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5}Regression Analysis of Base Opening Popularity and Game Results}{15}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Project Discussion and Conclusion}{16}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Project Outcomes}{16}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Limitations}{16}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Future Work}{16}{subsection.4.3}%
-\contentsline {section}{Appendices}{19}{section*.16}%
-\contentsline {section}{\numberline {A}Additional Outputs}{19}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Additional Plots}{19}{appendix.1.B}%
-\contentsline {section}{\numberline {C}Examples}{22}{appendix.1.C}%
+\contentsline {section}{Appendices}{18}{section*.15}%
+\contentsline {section}{\numberline {A}Additional Outputs}{18}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Additional Plots}{18}{appendix.1.B}%
+\contentsline {section}{\numberline {C}Examples}{21}{appendix.1.C}%

@@ -315,19 +315,24 @@ Overall, our clustering algorithm was successful in differentiating between the 
 
 However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- this could be improved in the future using a different feature set, such as the number of moves played in each game. If we were able to generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win, or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
 
-\subsection{Regression Analysis of Base Opening Popularity}
-\begin{figure}[H]
-    \centering
-    \caption{Popularity of Base Opening vs. White Win Rate (All Rated Players)}
-    \label{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers}
-    \includegraphics[width=0.6\textwidth]{Popularity of Base Opening vs. White Win Rate (All Rated Players).png}
-\end{figure}
+\subsection{Regression Analysis of Base Opening Popularity and Game Results}
 
 \begin{figure}[H]
     \centering
-    \caption{Popularity of Base Opening vs. Black Win Rate (All Rated Players)}
-    \label{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers}
-    \includegraphics[width=0.6\textwidth]{Popularity of Base Opening vs. Black Win Rate (All Rated Players).png}
+    \caption{Popularity of Base Opening vs. Win Rates}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{Popularity of Base Opening vs. White Win Rate}
+        \label{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers}
+        \includegraphics[width=\textwidth]{Popularity of Base Opening vs. White Win Rate (All Rated Players).png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{Popularity of Base Opening vs. Black Win Rate}
+        \label{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers}
+        \includegraphics[width=\textwidth]{Popularity of Base Opening vs. Black Win Rate (All Rated Players).png}
+    \end{subfigure}
 \end{figure}
 
 \section{Project Discussion and Conclusion}
