@@ -290,7 +290,7 @@ Additionally, we recorded the silhouette score for each number of clusters to va
     \end{tabular}
 \end{figure}
 
-\subsubsection{Interpreting the Clusters}
+\subsubsection{Results and Evaluating the Clusters}
 Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
 
 Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
@@ -313,7 +313,6 @@ Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} sh
     \end{subfigure}
 \end{figure}
 
-\subsubsection{Evaluating the Clusters}
 Overall, our clustering algorithm was successful in differentiating between the base openings based on whether White or Black won. Our clusters may be used in analysing the opening preferences of players -- lower rated players who play openings that are highly successful for White may need to reconsider the understanding of the openings they play, as they may be losing games despite having a slight advantage in theory. On the other hand, higher rated players who play openings that are theoretically less successful for White could be investigated further, as it indicates that they may be playing these openings in a different way to make them more successful than expected.
 
 However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- this could be improved in the future using a different feature set, such as the number of moves played in each game. If we were able to generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win, or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
@@ -324,7 +323,7 @@ Next, we investigated the relationship between the popularity of a base opening 
 \subsubsection{Implementing the Linear Regression Models}
 We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, from which we included base openings with more than 10,000 games. When we later filtered the data to investigate trends for high, middle, and low rated players, we included base openings with more than 1,000 games. To evaluate the models, we used the R2 score, which is the proportion of the variance in the dependent variable that is predictable from the independent variable. The R2 score ranges from 0 to 1 -- an R2 score of 1 means that the model explains all the variability in the dependent variable, while an R2 score of 0 means that the model explains none of the variability. We also used the mean absolute error, which is the average absolute difference between the predicted and actual values -- the lower the mean absolute error, the better the fit. We chose the mean absolute error over the more common mean squared error because it is more robust to outliers, which is important as we can later evaluate outliers qualitatively within the context of the game.
 
-\subsubsection{Results of the Linear Regression Model for All Players}
+\subsubsection{Results and Evaluating the Linear Regression Model for All Players}
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R2 score of 0.00184 and a mean absolute error of 68208.454, while our model in figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R2 score of 0.000938 and a mean absolute error of 68212.921. The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- in the case that every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
 \begin{figure}[H]
@@ -346,7 +345,7 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear re
     \end{subfigure}
 \end{figure}
 
-\subsubsection{Results of the Linear Regression Model for Different Rating Groups}
+\subsubsection{Results and Evaluating the Linear Regression Models for Different Rating Groups}
 When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. Figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults} shows a comparison table showing the R2 score and mean absolute error for each one. However, we noticed that at the low rating group, the R2 scores and mean absolute errors were significantly better.
 
 \begin{figure}[H]
@@ -398,9 +397,6 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the line
         \includegraphics[width=\textwidth]{Popularity of Base Opening vs. Black Win Rate (Rated 1200-).png}
     \end{subfigure}
 \end{figure}
-
-\subsubsection{Evaluating the Linear Regression Models}
-
 
 \section{Project Discussion and Conclusion}
 
