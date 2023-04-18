@@ -271,27 +271,27 @@ Additionally, we recorded the silhouette score for each number of clusters to va
         \hline
         \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
         \hline
-        3 & 0.441 \\
+        3 & 0.444 \\
         \hline
-        4 & 0.478 \\
+        4 & 0.479 \\
         \hline
-        5 & 0.457 \\
+        5 & 0.459 \\
         \hline
-        6 & 0.432 \\
+        6 & 0.448 \\
         \hline
-        7 & 0.427 \\
+        7 & 0.449 \\
         \hline
-        8 & 0.439 \\
+        8 & 0.451 \\
         \hline
-        9 & 0.440 \\
+        9 & 0.468 \\
         \hline
-        10 & 0.432 \\
+        10 & 0.426 \\
         \hline
     \end{tabular}
 \end{figure}
 
 \subsubsection{Results and Evaluating the Clusters}
-Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
+Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. It has a silhouette score of 0.479 and a within-cluster sum of squares of 50.827. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
 
 Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
 
@@ -324,7 +324,7 @@ Next, we investigated the relationship between the popularity of a base opening 
 We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, from which we included base openings with more than 10,000 games. When we later filtered the data to investigate trends for high, middle, and low rated players, we included base openings with more than 1,000 games. To evaluate the models, we used the R\textsuperscript{2} score, which is the proportion of the variance in the dependent variable that is predictable from the independent variable. The R\textsuperscript{2} score ranges from 0 to 1 -- an R\textsuperscript{2} score of 1 means that the model explains all the variability in the dependent variable, while an R\textsuperscript{2} score of 0 means that the model explains none of the variability. We also used the mean absolute error, which is the average absolute difference between the predicted and actual values -- the lower the mean absolute error, the better the fit. We chose the mean absolute error over the more common mean squared error because it is more robust to outliers, which is important as we can later evaluate outliers qualitatively within the context of the game.
 
 \subsubsection{Results and Evaluating the Linear Regression Model for All Players}
-Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R\textsuperscript{2} score of 0.00184 and a mean absolute error of 68208.454, while our model in figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R\textsuperscript{2} score of 0.000938 and a mean absolute error of 68212.921. There are some notable outliers in the plot; for example, the top-left point of figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} represents the Sicilian Defense. This has many variations and is considered to be the best reply to openings starting with the White king's pawn on e4, but unlike most other openings, it is decided by Black's moves. Thus, it is not surprising that it has a relatively low win rate for White yet is still very popular. The same explanation applies to other defensive openings such as the French Defense, which is also a very popular opening despite having a relatively low win rate for White.
+Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R\textsuperscript{2} score of 0.00476 and a mean absolute error of 59245.291, while our model in figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R\textsuperscript{2} score of 0.00434 and a mean absolute error of 59350.082. There are some notable outliers in the plot; for example, the top-left point of figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} represents the Sicilian Defense. This has many variations and is considered to be the best reply to openings starting with the White king's pawn on e4, but unlike most other openings, it is decided by Black's moves. Thus, it is not surprising that it has a relatively low win rate for White yet is still very popular. The same explanation applies to other defensive openings such as the French Defense, which is also a very popular opening despite having a relatively low win rate for White.
 
 The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- in the case that every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
@@ -358,23 +358,23 @@ When we generated the linear regression models for each rating group, we found t
         \hline
         \bf{Rating Group} & \bf{Game Result} & \bf{R\textsuperscript{2} Score} & \bf{Mean Absolute Error} \\ [0.5ex] 
         \hline
-        High (2000+) & White Win & 0.00134 & 10623.934 \\
+        High (2000+) & White Win & 0.000233 & 10014.448 \\
         \hline
-        High (2000+) & Black Win & 0.00559 & 10531.659 \\
+        High (2000+) & Black Win & 0.00219 & 9964.941 \\
         \hline
-        High (2000+) & Draw & 0.00443 & 10542.148 \\
+        High (2000+) & Draw & 0.00296 & 9959.435 \\
         \hline
-        Mid (1201-1999) & White Win & 0.00000118 & 38913.699 \\
+        Mid (1201-1999) & White Win & 0.00236 & 34197.744 \\
         \hline
-        Mid (1201-1999) & Black Win & 0.000800 & 38743.278 \\
+        Mid (1201-1999) & Black Win & 0.00113 & 34230.073 \\
         \hline
-        Mid (1201-1999) & Draw & 0.0191 & 38029.307 \\
+        Mid (1201-1999) & Draw & 0.0158 & 33360.013 \\
         \hline
-        Low (1200-) & White Win & 0.0258 & 9236.129 \\
+        Low (1200-) & White Win & 0.0451 & 6668.558 \\
         \hline
-        Low (1200-) & Black Win & 0.0262 & 9262.451 \\
+        Low (1200-) & Black Win & 0.0367 & 6722.418 \\
         \hline
-        Low (1200-) & Draw & 0.00189 & 9475.881 \\
+        Low (1200-) & Draw & 0.0260 & 6793.426 \\
         \hline
     \end{tabular}
 \end{figure}
