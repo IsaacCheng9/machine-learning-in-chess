@@ -63,9 +63,8 @@ I will investigate the following question: can we use data mining and machine le
     \item Analyse and evaluate the usefulness of the models
 \end{itemize}
 
-In the next section, we will explore previous research and how they relate to the motivations for our project, followed by the design section discussing how we will achieve these objectives.
-
 \subsection{Motivation and Aims}
+In this subsection, we will explore previous research and how they relate to the motivations for our project to provide specific aims. It will provide context for the subsequent design section focusing on how we will achieve these objectives.
 
 \subsubsection{Early History of Computer Chess}
 Since the first digital computer switched on in 1945, programmers have been interested in using computers to play chess. In 1948, Alan Turing worked with David Champnowne to create the \textquote{Turochamp}, a machine routine for playing chess \cite{copeland2005turing}. Claude Shannon wrote a paper in 1949 describing a computer that could play chess by analysing the seven most likely moves from the current positions and branching these into the seven most likely replies from the opposition continuously until the computer ran out of memory \cite{shannon1950xxii}. Dietrich Prinz eventually implemented the first chess program in November 1951, though it could not complete an entire chess game, and it used exhaustive search to play moves rather than a heuristic \cite{copeland2005turing}.
@@ -94,6 +93,7 @@ The practical uses of chess databases have come under scrutiny lately with the H
 Our project will seek to provide insights into patterns in chess games, which could contribute to improvements in cheat detection algorithms and ultimately improve the integrity of chess tournaments and the broader chess landscape.
 
 \section{Design, Methods, and Implementation}
+This section will describe data collection, processing, and preparation steps for our project. Additionally, we will mention the tools and general methods we used to analyse the data. However, we will discuss data exploration and the development of the machine-learning models in the subsequent project results and evaluation section.
 
 \subsection{Downloading the Data}
 Collecting the data correctly was paramount to the success of our project, and it was important to use a large sample size to ensure that our insights represent the general population of chess games. We used the Lichess Open Database \cite{lichessOpenDatabase} of standard rated games for our data source -- they upload tens of millions of games every month in PGN format, and they are easily accessible to the public. We decided to focus on games in 2022, as this enables me to capture the latest trends in chess.
