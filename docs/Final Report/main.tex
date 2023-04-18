@@ -242,7 +242,7 @@ While there are some differences in results between the variations of our models
 Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by game results. Accurate clusters would allow us to identify base openings that are more likely to result in a certain outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
 
 \subsubsection{Calculating Proportion of Game Results Per Base Opening}
-Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
+Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
 
 \begin{figure}[H]
     \centering
@@ -348,7 +348,6 @@ The plots and the metrics both show that the popularity of a base opening has a 
 \end{figure}
 
 \subsubsection{Results and Evaluating the Linear Regression Models for Different Rating Groups}
-When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. Figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults} shows a comparison table showing the R\textsuperscript{2} score and mean absolute error for each one. However, we noticed that at the low rating group, the R\textsuperscript{2} scores and mean absolute errors were significantly better.
 
 \begin{figure}[H]
     \centering
@@ -379,7 +378,11 @@ When we generated the linear regression models for each rating group, we found t
     \end{tabular}
 \end{figure}
 
-Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the linear regression for White and Black win rates across games where White was rated 1200 or below. It is clear that there are stronger positive and negative correlation between White and Black win rate and the number of games played for each base opening. There is a notable change in the x-axes here that shows a broader range of win rates for White and Black -- this makes sense, as newer players tend to be more willing to try different strategies. While the fitness of the linear regression models is still not great, it is better than the models for other rating groups, which suggests that there is a greater element of social learning in the low rating group. As lower rated players typically have less experience, they may not have strong preferences for the type of openings they play, and thus may be more likely to follow the trends of other players according to the general win rates of each opening.
+Next, we generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. However, we noticed that at the low rating group, the R\textsuperscript{2} scores and mean absolute errors were significantly better.
+
+Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the linear regression for White and Black win rates across games where White was rated 1200 or below. It is clear that there are stronger positive and negative correlation between White and Black win rate and the number of games played for each base opening. There is a notable change in the x-axes here that shows a broader range of win rates for White and Black -- this makes sense, as newer players tend to be more willing to try different strategies.
+
+Although our linear regression models were not successful in isolation, comparing the results of the models for different rating groups provided insight into the role of social learning in the game of chess. While the fitness of the linear regression models is still not great, it is better than the models for other rating groups, which suggests that there is a greater element of social learning in the low rating group. As lower rated players typically have less experience, they may not have strong preferences for the type of openings they play, and thus may be more likely to follow the trends of other players according to the general win rates of each opening.
 
 \begin{figure}[H]
     \centering
