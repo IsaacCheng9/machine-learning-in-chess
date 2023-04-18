@@ -47,17 +47,16 @@ Signature: \hrulefill
 \newpage
 
 \section{Project Specification, Motivation, and Aims}
-
-\subsection{Project Specification}
 Chess is one of the oldest and most popular board games globally -- it has a rich history and vast literature dating back centuries, with the first comprehensive book about chess called \textquote{Book of the Chess} appearing in the year 840, discussing chess openings, endings, and hundreds of chess problems \cite{earliestChessBooks,wonning2014short}. However, the large-scale exploration of chess games has only caught on recently -- the most well-known and highest-rated chess engine \cite{computerChessRatingLists}, Stockfish, has used over 9,400 years of CPU time to analyse over 5.6 billion self-play chess games as of April 2023 \cite{stockfishTestingFramework}. Websites such as Lichess and Chess.com have provided an online platform for people to play chess -- users can create a free account and search for a game with other players with various time controls, where their matchmaking system will pair them with a player of a similar skill level. These platforms have made the game accessible to more people in standardised formats -- this has enabled the collection of data on a large scale, which makes it a fascinating domain for data mining and machine learning. Furthermore, chess games involve cognition and human behaviour that we can apply more generally -- there have been studies in areas like social learning theory on other games such as Go \cite{beheim2014strategic}, but they also apply to chess.
 
-In this dissertation, we explore data mining and machine learning techniques to analyse large-scale data from the Lichess Open Database, which contains monthly records on tens of millions of chess games played by users of various skill levels. Our goal is to discover patterns and insights into how people play chess, which could contribute to further studies in chess such as cheat detection algorithms to improve the integrity of chess tournaments and promote positive growth in the game.
+\subsection{Project Specification}
+In this dissertation, we will explore data mining and machine learning techniques to analyse large-scale data from the Lichess Open Database, which contains monthly records on tens of millions of chess games played by users of various skill levels. Our goal is to discover patterns and insights into how people play chess, which could contribute to further studies in chess such as cheat detection algorithms to improve the integrity of chess tournaments and promote positive growth in the game.
 
 I will investigate the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights into how people play chess? Our project has the following objectives:
 
 \begin{itemize}
-    % \setlength\itemsep{-0.5em}
-    \setlength\itemsep{0em}
+    \setlength\itemsep{-0.25em}
+    % \setlength\itemsep{0em}
     \item Create a data pipeline for downloading and processing the data efficiently
     \item Explore the data to find interesting patterns and insights
     \item Implement machine learning to create models based on patterns in chess games
@@ -167,6 +166,7 @@ The results showed that there is a clear positive correlation between rating dif
 \end{figure}
 
 \subsubsection{Most Popular Openings by Category}
+
 \begin{figure}[H]
     \centering
     \caption{Most Popular Openings by Category on Lichess in 2022}
@@ -179,6 +179,7 @@ We also counted the most popular openings by category in figure \ref{fig:mostPop
 Figure \ref{fig:mostPopularOpeningsByCategory} shows that the most popular category of openings are open games and semi-open games, whereas the Indian defences and closed games are the least popular. This makes sense for the general population of games -- the ideas behind these openings are simple and straightforward, as they focus on controlling the centre and developing pieces quickly. However, we see that the pattern is different for players rated 2000 and above -- semi-open games and flank openings are more popular than open games in this category (shown in figure \ref{fig:mostPopularOpeningsByCategoryRated2000Plus} from the appendices). At higher rated games, players often prefer to play more complex and dynamic openings that enable opportunities to create imbalances in the position and therefore gain an advantage at an earlier stage of the game.
 
 \subsubsection{Most Popular Base Openings}
+
 \begin{figure}[H]
     \centering
     \caption{Most Popular Base Openings on Lichess in 2022}
@@ -191,6 +192,7 @@ The data set also includes a column for the specific opening detected in each ga
 Delving deeper into the data, we found that the most popular base openings varied by rating groups. The top players rated 2000 and above strongly preferred the Sicilian Defense compared to other openings (shown in figure \ref{fig:mostPopularOpeningsRated2000Plus} from the appendices). This may be because the Sicilian Defense is a complex opening that requires a lot of preparation due to the number of variations, and it is unanimously accepted as the best response to White opening with the king's pawn. Conversely, the Sicilian Defense becomes much less popular for players rated 1200 and below for the same reasons. Figure \ref{fig:mostPopularOpeningsRated1200Minus} from the appendices shows that the two most popular base openings for this group are the Queen's Pawn Game and the King's Pawn Game, which represent generic openings starting with the queen's pawn and the king's pawn respectively -- this is likely because they are simple and easy for beginners to play.
 
 \subsection{Predicting Game Results Using Classifiers}
+
 \subsubsection{Implementing the Decision Tree and Random Forest Classifiers}
 We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Based on the previous section, we focused on features related to player rating and opening. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We used F1 score as our evaluation metric because it is a good measure of accuracy for imbalanced data sets such as ours, where there are fewer draws compared to wins and losses for White, as it accounts for a balance between precision and recall. We also used accuracy as a secondary metric to compare the performance of our models.
 
@@ -289,7 +291,6 @@ Additionally, we recorded the silhouette score for each number of clusters to va
 \end{figure}
 
 \subsubsection{Interpreting the Clusters}
-
 Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
 
 Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
@@ -318,14 +319,12 @@ Overall, our clustering algorithm was successful in differentiating between the 
 However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- this could be improved in the future using a different feature set, such as the number of moves played in each game. If we were able to generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win, or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
 
 \subsection{Regression Analysis of Base Opening Popularity and Game Results}
-
 Next, we investigated the relationship between the popularity of a base opening and their game results. Our initial hypothesis is that the higher the win rate for White for a base oepning, the more popular it will be -- this is because the opening is mostly decided by White, and they want to maximise their chances of winning. Identifying clear trends could form the foundation for future investigations into how social learning theory can be applied to chess openings and how much other people's preferences affect our own when we play chess.
 
 \subsubsection{Implementing the Linear Regression Models}
 We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, from which we included base openings with more than 10,000 games. When we later filtered the data to investigate trends for high, middle, and low rated players, we included base openings with more than 1,000 games. To evaluate the models, we used the R2 score, which is the proportion of the variance in the dependent variable that is predictable from the independent variable. The R2 score ranges from 0 to 1 -- an R2 score of 1 means that the model explains all the variability in the dependent variable, while an R2 score of 0 means that the model explains none of the variability. We also used the mean absolute error, which is the average absolute difference between the predicted and actual values -- the lower the mean absolute error, the better the fit. We chose the mean absolute error over the more common mean squared error because it is more robust to outliers, which is important as we can later evaluate outliers qualitatively within the context of the game.
 
 \subsubsection{Results of the Linear Regression Model for All Players}
-
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R2 score of 0.00184 and a mean absolute error of 68208.454, while our model in figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R2 score of 0.000938 and a mean absolute error of 68212.921. The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- in the case that every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
 \begin{figure}[H]
@@ -348,7 +347,6 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear re
 \end{figure}
 
 \subsubsection{Results of the Linear Regression Model for Different Rating Groups}
-
 When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. Figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults} shows a comparison table showing the R2 score and mean absolute error for each one. However, we noticed that at the low rating group, the R2 scores and mean absolute errors were significantly better.
 
 \begin{figure}[H]
