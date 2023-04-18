@@ -17,13 +17,18 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Effect of Rating Difference on Win Rate}{9}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Most Popular Openings by Category}{10}{subsubsection.3.1.4}%
 \contentsline {subsubsection}{\numberline {3.1.5}Most Popular Base Openings}{11}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}Predicting Game Results Using Decision Tree and Random Forest Classifiers}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Predicting Game Results Using Classifiers}{12}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Implementing the Decision Tree and Random Forest Classifiers}{12}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Results of the Decision Tree and Random Forest Classifiers}{12}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}Clustering Base Openings by Game Results}{13}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Calculating Proportion of Game Results Per Base Opening}{13}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Implementing K-Means Clustering}{13}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Interpreting the Clusters}{14}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}Evaluating the Clusters}{15}{subsubsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.4}Regression Analysis of Base Opening Popularity and Game Results}{15}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Implementing the Linear Regression Models}{15}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Results of the Linear Regression Model for All Players}{16}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Results of the Linear Regression Model for Different Rating Groups}{16}{subsubsection.3.4.3}%
 \contentsline {section}{\numberline {4}Project Discussion and Conclusion}{17}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Project Outcomes}{17}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Limitations}{17}{subsection.4.2}%
