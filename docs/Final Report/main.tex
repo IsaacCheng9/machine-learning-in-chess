@@ -319,7 +319,7 @@ However, our clustering algorithm was unsuccessful in differentiating between th
 
 Next, we investigated the relationship between the popularity of a base opening and their game results. Our initial hypothesis is that the higher the win rate for White for a base oepning, the more popular it will be -- this is because the opening is mostly decided by White, and they want to maximise their chances of winning. Identifying clear trends could form the foundation for future investigations into how social learning theory can be applied to chess openings and how much other people's preferences affect our own when we play chess.
 
-We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, and we later filtered the data to investigate trends for high, middle, and low rated players. To evaluate the models, we used the R2 score, which is the proportion of the variance in the dependent variable that is predictable from the independent variable. The R2 score ranges from 0 to 1 -- an R2 score of 1 means that the model explains all the variability in the dependent variable, while an R2 score of 0 means that the model explains none of the variability. We also used the mean absolute error, which is the average absolute difference between the predicted and actual values -- the lower the mean absolute error, the better the fit. We chose the mean absolute error over the more common mean squared error because it is more robust to outliers, which is important as we can later evaluate outliers qualitatively within the context of the game.
+We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, from which we included base openings with more than 10,000 games. When we later filtered the data to investigate trends for high, middle, and low rated players, we included base openings with more than 1,000 games. To evaluate the models, we used the R2 score, which is the proportion of the variance in the dependent variable that is predictable from the independent variable. The R2 score ranges from 0 to 1 -- an R2 score of 1 means that the model explains all the variability in the dependent variable, while an R2 score of 0 means that the model explains none of the variability. We also used the mean absolute error, which is the average absolute difference between the predicted and actual values -- the lower the mean absolute error, the better the fit. We chose the mean absolute error over the more common mean squared error because it is more robust to outliers, which is important as we can later evaluate outliers qualitatively within the context of the game.
 
 \begin{figure}[H]
     \centering
@@ -362,13 +362,36 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear re
         \hline
         Mid (1201-1999) & Draw & 0.0191 & 38029.307 \\
         \hline
-        Low (1201-) & White Win & 0.0258 & 9236.129 \\
+        Low (1200-) & White Win & 0.0258 & 9236.129 \\
         \hline
-        Low (1201-) & Black Win & 0.0262 & 9262.451 \\
+        Low (1200-) & Black Win & 0.0262 & 9262.451 \\
         \hline
-        Low (1201-) & Draw & 0.00189 & 9475.881 \\
+        Low (1200-) & Draw & 0.00189 & 9475.881 \\
         \hline
     \end{tabular}
+\end{figure}
+
+When we generated the linear regression models for each rating range, we found that there were similarly bad metrics for the high and mid rating ranges. Figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults} shows a comparison table showing the R2 score and mean absolute error for each one. However, we noticed that at the low rating range, the R2 scores and mean absolute errors were significantly better.
+
+Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the linear regression for White and Black win rates across games where White was rated 1200 or below. It is clear that there are stronger positive and negative correlation between White and Black win rate and the number of games played for each base opening. There is a notable change in the x-axes here that shows a broader range of win rates for White and Black -- this makes sense, as newer players tend to be more willing to try different strategies. While the fitness of the linear regression models is still not great, it is better than the models for other rating ranges, which suggests that there is a greater element of social learning in the low rating ranges. As lower rated players typically have less experience, they may not have strong preferences for the type of openings they play, and thus may be more likely to follow the trends of other players according to the general win rates of each opening.
+
+\begin{figure}[H]
+    \centering
+    \caption{Popularity of Base Opening vs. Win Rates (Players Rated 1200 and Below)}
+    \label{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{Popularity of Base Opening vs. White Win Rate}
+        \label{fig:popularityOfBaseOpeningVsWhiteWinRateLowRatedPlayers}
+        \includegraphics[width=\textwidth]{Popularity of Base Opening vs. White Win Rate (Rated 1200-).png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{Popularity of Base Opening vs. Black Win Rate}
+        \label{fig:popularityOfBaseOpeningVsBlackWinRateLowRatedPlayers}
+        \includegraphics[width=\textwidth]{Popularity of Base Opening vs. Black Win Rate (Rated 1200-).png}
+    \end{subfigure}
 \end{figure}
 
 \section{Project Discussion and Conclusion}
