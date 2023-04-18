@@ -21,9 +21,9 @@
 \contentsline {subsection}{\numberline {3.3}Clustering Base Openings by Game Results}{13}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Calculating Proportion of Game Results Per Base Opening}{13}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Implementing K-Means Clustering}{13}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Interpreting the Clusters}{14}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Evaluating the Clusters}{15}{subsubsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.5}Regression Analysis of Base Opening Popularity and Game Results}{15}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.3}Interpreting the Clusters}{14}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Evaluating the Clusters}{15}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}Regression Analysis of Base Opening Popularity and Game Results}{15}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Project Discussion and Conclusion}{16}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Project Outcomes}{16}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Limitations}{16}{subsection.4.2}%

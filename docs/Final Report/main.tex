@@ -286,7 +286,7 @@ Additionally, we recorded the silhouette score for each number of clusters to va
     \end{tabular}
 \end{figure}
 
-\subsection{Interpreting the Clusters}
+\subsubsection{Interpreting the Clusters}
 
 Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
 
@@ -319,7 +319,7 @@ However, our clustering algorithm was unsuccessful in differentiating between th
 
 \begin{figure}[H]
     \centering
-    \caption{Popularity of Base Opening vs. Win Rates}
+    \caption{Popularity of Base Opening vs. Win Rates (All Players)}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \caption{Popularity of Base Opening vs. White Win Rate}
