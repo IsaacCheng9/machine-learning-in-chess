@@ -139,7 +139,7 @@ Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were play
     \centering
     \caption{Structure of Data}
     \label{fig:structureOfData}
-    \includegraphics[width=\textwidth]{Structure of Data Transposed.png}
+    \includegraphics[width=0.9\textwidth]{Structure of Data Transposed.png}
 \end{figure}
 
 \subsubsection{Distribution of Player Ratings}
@@ -288,9 +288,9 @@ Additionally, we recorded the silhouette score for each number of clusters to va
 
 \subsection{Interpreting the Clusters}
 
-Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. The top-left cluster contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, the bottom-right cluster contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. The middle two clusters are less distinct, but we can see that the top-middle cluster shows openings with a slight advantage for Black, while the bottom-middle cluster shows openings with a slight advantage for White. Our clustering algorithm was overall successful in differentiating between the base openings based on whether White or Black won.
+Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
 
-Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
+Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
 
 \begin{figure}[H]
     \centering
@@ -309,6 +309,11 @@ Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} sh
         \includegraphics[width=\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Draw Rate).png}
     \end{subfigure}
 \end{figure}
+
+\subsubsection{Evaluating the Clusters}
+Overall, our clustering algorithm was successful in differentiating between the base openings based on whether White or Black won. Our clusters may be used in analysing the opening preferences of players -- lower rated players who play openings that are highly successful for White may need to reconsider the understanding of the openings they play, as they may be losing games despite having a slight advantage in theory. On the other hand, higher rated players who play openings that are theoretically less successful for White could be investigated further, as it indicates that they may be playing these openings in a different way to make them more successful than expected.
+
+However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- this could be improved in the future using a different feature set, such as the number of moves played in each game. If we were able to generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win, or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
 
 \subsection{Regression Analysis of Base Opening Popularity}
 \begin{figure}[H]
