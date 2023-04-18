@@ -324,6 +324,7 @@ We analysed this relationship using a linear regression model to find the relati
 \begin{figure}[H]
     \centering
     \caption{Popularity of Base Opening vs. Win Rates (All Players)}
+    \label{fig:popularityOfBaseOpeningVsWinRatesAllPlayers}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \caption{Popularity of Base Opening vs. White Win Rate}
@@ -338,6 +339,8 @@ We analysed this relationship using a linear regression model to find the relati
         \includegraphics[width=\textwidth]{Popularity of Base Opening vs. Black Win Rate (All Rated Players).png}
     \end{subfigure}
 \end{figure}
+
+Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R2 score of 0.00184 and a mean absolute error of 68208.454, while our model in figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R2 score of 0.000938 and a mean absolute error of 68212.921. The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- in the case that every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
 \section{Project Discussion and Conclusion}
 
