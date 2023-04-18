@@ -317,6 +317,10 @@ However, our clustering algorithm was unsuccessful in differentiating between th
 
 \subsection{Regression Analysis of Base Opening Popularity and Game Results}
 
+Next, we investigated the relationship between the popularity of a base opening and their game results. Our initial hypothesis is that the higher the win rate for White for a base oepning, the more popular it will be -- this is because the opening is mostly decided by White, and they want to maximise their chances of winning. Identifying clear trends could form the foundation for future investigations into how social learning theory can be applied to chess openings and how much other people's preferences affect our own when we play chess.
+
+We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, and we later filtered the data to investigate trends for high, middle, and low rated players. To evaluate the models, we used the R2 score, which is the proportion of the variance in the dependent variable that is predictable from the independent variable. The R2 score ranges from 0 to 1 -- an R2 score of 1 means that the model explains all the variability in the dependent variable, while an R2 score of 0 means that the model explains none of the variability. We also used the mean absolute error, which is the average absolute difference between the predicted and actual values -- the lower the mean absolute error, the better the fit. We chose the mean absolute error over the more common mean squared error because it is more robust to outliers, which is important as we can later evaluate outliers qualitatively within the context of the game.
+
 \begin{figure}[H]
     \centering
     \caption{Popularity of Base Opening vs. Win Rates (All Players)}
