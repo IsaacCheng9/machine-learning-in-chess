@@ -128,7 +128,7 @@ Machine learning is computationally expensive, so generating and testing machine
 
 
 \section{Project Results and Evaluation}
-In this section, we will present the results of our data analysis and evaluate their insights on a cyclical basis -- this enables us to scrutinise our findings and probe new directions accordingly. We will start by exploring the data to understand the data set better before implementing machine learning models to uncover patterns in how people play chess.
+In this section, we will start by exploring the data to understand the data set better before implementing machine learning models to uncover patterns in how people play chess. We will explain our motive and the development of each machine-learning model before discussing the results and evaluating their insights.
 
 \subsection{Data Exploration}
 
@@ -194,7 +194,7 @@ Delving deeper into the data, we found that the most popular base openings varie
 \subsubsection{Implementing the Decision Tree and Random Forest Classifiers}
 We sought to predict the result of a game using both decision tree classifiers and random forests with various features. Based on the previous section, we focused on features related to player rating and opening. Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We used F1 score as our evaluation metric because it is a good measure of accuracy for imbalanced data sets such as ours, where there are fewer draws compared to wins and losses for White, as it accounts for a balance between precision and recall. We also used accuracy as a secondary metric to compare the performance of our models.
 
-\subsubsection{Results of the Decision Tree and Random Forest Classifiers}
+\subsubsection{Results and Evaluating the Decision Tree and Random Forest Classifiers}
 In the results table in figure \ref{fig:resultsOfModelsToPredictResultOfAGame}, you can see that we denoted the RelativeEloDiffBin and EloDiffBin features with different increments. We previously binned these features to explore the distribution of values, but we wanted to see whether using finer binning would improve the performance of our models. Hence, we tested the same model but with different binning increments, which we did not include in the table for brevity -- the increments included in the table represent those that produced the best F1 score and accuracy.
 
 \begin{figure}[H]
@@ -380,7 +380,6 @@ When we generated the linear regression models for each rating group, we found t
     \end{tabular}
 \end{figure}
 
-
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the linear regression for White and Black win rates across games where White was rated 1200 or below. It is clear that there are stronger positive and negative correlation between White and Black win rate and the number of games played for each base opening. There is a notable change in the x-axes here that shows a broader range of win rates for White and Black -- this makes sense, as newer players tend to be more willing to try different strategies. While the fitness of the linear regression models is still not great, it is better than the models for other rating groups, which suggests that there is a greater element of social learning in the low rating group. As lower rated players typically have less experience, they may not have strong preferences for the type of openings they play, and thus may be more likely to follow the trends of other players according to the general win rates of each opening.
 
 \begin{figure}[H]
@@ -401,6 +400,9 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the line
         \includegraphics[width=\textwidth]{Popularity of Base Opening vs. Black Win Rate (Rated 1200-).png}
     \end{subfigure}
 \end{figure}
+
+\subsubsection{Evaluating the Linear Regression Models}
+
 
 \section{Project Discussion and Conclusion}
 
