@@ -90,7 +90,9 @@ Numerous chess databases have been created and made publicly available, such as 
 
 The practical uses of chess databases have come under scrutiny lately with the Hans Niemann scandal in September 2022, when reigning five-time World Chess Champion Magnus Carlsen withdrew from a tournament and accused Niemann of cheating over the board \cite{niemannCheatingAllegations2}. Chess.com conducted an investigation using a variety of analytics tools designed for cheat detection, such as comparing Niemann's moves to the moves recommended by the top chess engines, leading to them finding Neimann guilty \cite{niemannCheatingChessComReport}. Similarly, Kenneth Regan, often paid by the International Chess Federation (FIDE) to monitor tournaments \cite{niemannCheatingReganReport}, concluded that Niemann was likely cheating according to his proprietary cheat detection software that uses a statistical model to output a z-score representing the degree of similarity between the player and chess engines \cite{niemannCheatingReganReport}.
 
-Our project will seek to provide insights into patterns in chess games, which could contribute to improvements in cheat detection algorithms and ultimately improve the integrity of chess tournaments and the broader chess landscape.
+There are also tools that enable people to analyse chess games. Scoutfish is a tool written with C++ for querying chess databases that enables fast queries on very large chess databases \cite{scoutfish}. For example, we can query a database to find all games where a board state is a certain position using the FEN (Forsyth-Edwards Notation) of the position, which is the standard string used in chess to represent the board state -- this may be useful for finding occurrences of a specific variation of an opening. It provides the offset line number of each matching game in the PGN file, which we can use to find more information about the game. However, Scoutfish queries are not intuitive to write, so it can take a lot of effort to get insights using this tool. Therefore, we will focus on high-level analysis of game metadata using Dask DataFrames.
+
+Our project will seek to provide insights into patterns in chess games by analysing the metadata of games, which could contribute to improvements in cheat detection algorithms and ultimately improve the integrity of chess tournaments and the broader chess landscape.
 
 \section{Design, Methods, and Implementation}
 This section will describe data collection, processing, and preparation steps for our project. Additionally, we will mention the tools and general methods we used to analyse the data. However, we will discuss data exploration and the development of the machine-learning models in the subsequent project results and evaluation section.
@@ -109,8 +111,6 @@ Thus, we wrote our own Python script to convert each PGN file into a single CSV 
 
 Once we had a CSV for each month, we combined them into a single CSV file containing our final data set. We converted this CSV to a folder of Parquet files using Dask \cite{dask}, which is a library for parallel computing in Python and extends common interfaces like pandas \cite{pandas} to handle big data in a larger-than-memory environment. This significantly reduced the load time for the data, and it meant we could use the Dask library to perform parallel computations on the data.
 
-For low-level, turn-based analysis of games, we created a .scout file using Scoutfish (a tool for querying chess databases written with C++) \cite{scoutfish} to enable fast queries. For example, we can query the database to find all games where the board state is a certain position using the FEN (Forsyth-Edwards Notation) of the position, which is the standard string used in chess to represent the board state -- this may be useful for finding occurrences of a specific variation of an opening. It provides the offset line number of each matching game in the PGN file, which we can use to find more information about the game. However, Scoutfish queries are not intuitive to write, so it can take a lot of effort to get insights using this tool. Therefore, we will primarily focus on high-level analysis of game metadata using Dask DataFrames.
-
 \begin{figure}[H]
     \centering
     \caption{Diagram of the Data Pipeline}
@@ -118,7 +118,7 @@ For low-level, turn-based analysis of games, we created a .scout file using Scou
     \includegraphics[width=0.8\textwidth]{Data Pipeline.png}
 \end{figure}
 
-Figure \ref{fig:dataPipeline} shows an overview of our data pipeline. It shows how we used the Lichess Open Database to collect the data over 12 months. To analyse game metadata, we aggregated the data into a single CSV file, and converted it to a folder of Parquet files to query with Dask. Meanwhile, to perform more detailed analysis of game scenarios, we used this data to create a Scout index to enable fast queries.
+Figure \ref{fig:dataPipeline} shows an overview of our data pipeline. It shows how we used the Lichess Open Database to collect the data over 12 months. To analyse game metadata, we aggregated the data into a single CSV file, and converted it to a folder of Parquet files to query with Dask.
 
 We also created a Python script to convert the CSV file to an SQLite3 database -- this enables us to perform queries on the data over SQL for manual data exploration, which is easier and more interactive than using Dask functions.
 
@@ -348,6 +348,7 @@ The plots and the metrics both show that the popularity of a base opening has a 
 \end{figure}
 
 \subsubsection{Results and Evaluating the Linear Regression Models for Different Rating Groups}
+Next, we generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. However, we noticed that at the low rating group, the R\textsuperscript{2} scores and mean absolute errors were significantly better.
 
 \begin{figure}[H]
     \centering
@@ -377,8 +378,6 @@ The plots and the metrics both show that the popularity of a base opening has a 
         \hline
     \end{tabular}
 \end{figure}
-
-Next, we generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. However, we noticed that at the low rating group, the R\textsuperscript{2} scores and mean absolute errors were significantly better.
 
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the linear regression for White and Black win rates across games where White was rated 1200 or below. It is clear that there are stronger positive and negative correlation between White and Black win rate and the number of games played for each base opening. There is a notable change in the x-axes here that shows a broader range of win rates for White and Black -- this makes sense, as newer players tend to be more willing to try different strategies.
 
