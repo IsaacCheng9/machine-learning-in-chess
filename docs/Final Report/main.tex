@@ -342,6 +342,35 @@ We analysed this relationship using a linear regression model to find the relati
 
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R2 score of 0.00184 and a mean absolute error of 68208.454, while our model in figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R2 score of 0.000938 and a mean absolute error of 68212.921. The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- in the case that every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
+\begin{figure}[H]
+    \centering
+    \caption{Metrics for Linear Regression Models of Popularity of Base Opening vs. Game Results}
+    \label{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}
+    \begin{tabular}{| l | l | l | l |} 
+        \hline
+        \bf{Rating Range} & \bf{Game Result} & \bf{R2 Score} & \bf{MAE} \\ [0.5ex] 
+        \hline
+        High (2000+) & White Win & 0.00134 & 10623.934 \\
+        \hline
+        High (2000+) & Black Win & 0.00559 & 10531.659 \\
+        \hline
+        High (2000+) & Draw & 0.00443 & 10542.148 \\
+        \hline
+        Mid (1201-1999) & White Win & 0.00000118 & 38913.699 \\
+        \hline
+        Mid (1201-1999) & Black Win & 0.000800 & 38743.278 \\
+        \hline
+        Mid (1201-1999) & Draw & 0.0191 & 38029.307 \\
+        \hline
+        Low (1201-) & White Win & 0.0258 & 9236.129 \\
+        \hline
+        Low (1201-) & Black Win & 0.0262 & 9262.451 \\
+        \hline
+        Low (1201-) & Draw & 0.00189 & 9475.881 \\
+        \hline
+    \end{tabular}
+\end{figure}
+
 \section{Project Discussion and Conclusion}
 
 \subsection{Project Outcomes}
