@@ -407,6 +407,7 @@ Although our linear regression models were not successful in isolation, comparin
 \subsection{Project Outcomes}
 
 \subsection{Limitations}
+A significant limitation of our project is that we only used the metadata of games. As we did not consider the move sequences in each game, we missed out on information such as the number of blunders made by each player. Thus, our project focused on high-level analysis of games, whereas low-level analysis could have provided different insights. For example, how does the number of blunders vary by player rating? Can we predict a player's rating based on how often they blunder? Given the number of blunders made by a player and the average rating of players in a game, can we predict the outcome of the game?
 
 \subsection{Future Work}
 We could expand our data pipeline to include more data sources, such as the FICS Games Database that we mentioned earlier, to gain access to different metadata. For example, the FICS Games Database records the number of moves in the game, which could be a strong feature to use in our classification models and regression models. Our initial hypothesis is that the number of moves in the game is a strong indicator of the game result, as longer games are more likely to end in a draw due to lack of material to capture the opponent's king. However, we did not have enough time to explore this hypothesis in detail.
