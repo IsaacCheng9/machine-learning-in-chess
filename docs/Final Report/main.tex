@@ -409,6 +409,9 @@ Although our linear regression models were not successful in isolation, comparin
 \subsection{Limitations}
 
 \subsection{Future Work}
+We could expand our data pipeline to include more data sources, such as the FICS Games Database that we mentioned earlier, to gain access to different metadata. For example, the FICS Games Database records the number of moves in the game, which could be a strong feature to use in our classification models and regression models. Our initial hypothesis is that the number of moves in the game is a strong indicator of the game result, as longer games are more likely to end in a draw due to lack of material to capture the opponent's king. However, we did not have enough time to explore this hypothesis in detail.
+
+Scoutfish could be used to perform low-level analysis of chess games beyond the metadata. For example, it could look at endgame move sequences to determine which endgames are most popular and which subsequences are likely to lead to a win. As endgames are not categorised like openings, this could provide unique insights into the game of chess. Furthermore, the importance of moves in the endgame is likely more influential on the outcome of the game, as there are fewer moves to consider. Therefore, it could prove valuable in determining patterns in how people play chess. As it is written in C++, it is also more capable of handling larger data sets compared to our data pipeline based on Python. The main problem with Scoutfish is that it is difficult to form queries, but we could have worked around this if we had more time.
 
 \bibliography{main.bib}
 \bibliographystyle{ieeetr.bst}
