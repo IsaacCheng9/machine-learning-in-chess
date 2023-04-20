@@ -28,6 +28,10 @@
 \contentsline {subsubsection}{\numberline {3.4.1}Implementing the Linear Regression Models}{16}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Results and Evaluating the Linear Regression Model for All Players}{16}{subsubsection.3.4.2}%
 \contentsline {subsubsection}{\numberline {3.4.3}Results and Evaluating the Linear Regression Models for Different Rating Groups}{17}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Clustering Base Openings by Average Similarity of Game Results in Variations}{18}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Calculating Average Similarity of Game Results in Opening Variations}{18}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Implementing K-Means Clustering}{18}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Results and Evaluating the Clusters}{18}{subsubsection.3.5.3}%
 \contentsline {section}{\numberline {4}Project Discussion and Conclusion}{18}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Project Outcomes}{18}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Limitations}{18}{subsection.4.2}%
