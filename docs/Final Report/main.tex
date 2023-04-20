@@ -402,17 +402,62 @@ Although our linear regression models were not successful in isolation, comparin
     \end{subfigure}
 \end{figure}
 
-\subsection{Clustering Base Openings by Average Similarity of Game Results in Variations}
+\subsection{Clustering Base Openings by Average Difference of Game Results in Variations}
 
 
-\subsubsection{Calculating Average Similarity of Game Results in Opening Variations}
+\subsubsection{Calculating Average Difference of Game Results in Opening Variations}
 
+\begin{figure}[H]
+    \centering
+    \caption{Top 15 Openings with the Biggest Difference of Results in Variations}
+    \label{fig:top15LowestAverageDifferenceOfBaseOpenings}
+    \includegraphics[width=0.4\textwidth]{Top 15 Openings with Biggest Average Difference in Variations.png}
+\end{figure}
 
 \subsubsection{Implementing K-Means Clustering}
 
+\begin{figure}[H]
+    \centering
+    \caption{Elbow Method for K-Means Clustering of Base Openings by Average Difference of Results in Variations}
+    \label{fig:elbowMethodForBaseOpeningsClusteredByDifferenceInVariations}
+    \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Silhouette Scores for K-Means Clustering of Base Openings by Average Difference of Results in Variations}
+    \label{fig:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations}
+    \begin{tabular}{| l | l |} 
+        \hline
+        \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
+        \hline
+        3 & 0.444 \\
+        \hline
+        4 & 0.479 \\
+        \hline
+        5 & 0.459 \\
+        \hline
+        6 & 0.448 \\
+        \hline
+        7 & 0.449 \\
+        \hline
+        8 & 0.451 \\
+        \hline
+        9 & 0.468 \\
+        \hline
+        10 & 0.426 \\
+        \hline
+    \end{tabular}
+\end{figure}
 
 \subsubsection{Results and Evaluating the Clusters}
 
+\begin{figure}[H]
+    \centering
+    \caption{Base Openings Clustered by Difference of Results in Variations}
+    \label{fig:baseOpeningsClusteredByDifferenceOfResultsInVariations}
+    \includegraphics[width=\textwidth]{Base Openings Clustered by Difference in Variations.png}
+\end{figure}
 
 \section{Project Discussion and Conclusion}
 
