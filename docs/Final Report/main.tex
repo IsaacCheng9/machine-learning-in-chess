@@ -348,7 +348,7 @@ The plots and the metrics both show that the popularity of a base opening has a 
 \end{figure}
 
 \subsubsection{Results and Evaluating the Linear Regression Models for Different Rating Groups}
-Next, we generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. However, we noticed that at the low rating group, the R\textsuperscript{2} scores and mean absolute errors were significantly better.
+We also generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we generated the linear regression models for each rating group, we found that there were similarly bad metrics for the high and mid rating groups. However, we noticed that at the low rating group, the R\textsuperscript{2} scores and mean absolute errors were significantly better.
 
 \begin{figure}[H]
     \centering
@@ -403,7 +403,7 @@ Although our linear regression models were not successful in isolation, comparin
 \end{figure}
 
 \subsection{Clustering Base Openings by Average Difference of Game Results in Variations}
-Our final investigation sought to cluster base openings by the average difference of the game results between their variations. For example, the Sicilian Defense famously has a number of variations, including the Najdorf Variation, the Dragon Variation, and the French Variation. We hypothesised that base openings would have varying degrees of difference in outcomes between their variations -- more passive openings such as the Indian Defense would see little difference because their moves depend less on their opponent, whereas more aggressive openings such as the Four Knights Game would see more difference due to a greater number of viable moves.
+Our final investigation sought to cluster base openings by the average difference of the game results between their variations. For example, the Sicilian Defense famously has a number of variations, including the Najdorf Variation, the Dragon Variation, and the French Variation. We hypothesised that base openings would have varying degrees of difference in outcomes between their variations -- more passive openings such as the Indian Defense would see little difference because their moves depend less on their opponent, whereas more aggressive openings such as the Four Knights Game would see more difference due to a greater number of viable moves. Accurate clusters would provide a way to quantify how passive or aggressive a base opening is, whereas the chess community traditionally relies on intuition and experience to make these assessments qualitatively.
 
 \subsubsection{Calculating Average Difference of Game Results in Opening Variations}
 
