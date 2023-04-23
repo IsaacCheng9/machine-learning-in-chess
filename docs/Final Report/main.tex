@@ -246,7 +246,7 @@ Before applying our clustering algorithm, we needed to aggregate the data to obt
 
 \begin{figure}[H]
     \centering
-    \caption{Proportion of Game Results for Top 15 Base Openings}
+    \caption{Proportion of Game Results for the Top 15 Most Played Base Openings}
     \label{fig:proportionOfGameResultsForTop15BaseOpenings}
     \includegraphics[width=0.8\textwidth]{Proportion of Game Results for Top 15 Base Openings.png}
 \end{figure}
@@ -402,7 +402,7 @@ Although our linear regression models were not successful in isolation, comparin
     \end{subfigure}
 \end{figure}
 
-\subsection{Clustering Base Openings by Average Difference of Game Results in Variations}
+\subsection{Clustering Base Openings by the Average Difference of Game Results in Variations}
 Our final investigation sought to cluster base openings by the average difference of the game results between their variations. For example, the Sicilian Defense famously has a number of variations, including the Najdorf Variation, the Dragon Variation, and the French Variation. We hypothesised that base openings would have varying degrees of difference in outcomes between their variations -- more passive openings such as the Indian Defense would see little difference because their moves depend less on their opponent, whereas more aggressive openings such as the Four Knights Game would see more difference due to a greater number of viable moves. Accurate clusters would provide a way to quantify how passive or aggressive a base opening is, whereas the chess community traditionally relies on intuition and experience to make these assessments qualitatively.
 
 \subsubsection{Calculating the Mean Difference of Game Results in Opening Variations}
@@ -432,14 +432,14 @@ Similar to previous analyses, we calculated the proportion of game results, but 
 
 \begin{figure}[H]
     \centering
-    \caption{Elbow Method for K-Means Clustering of Base Openings by Average Difference of Results in Variations}
+    \caption{Elbow Method for K-Means Clustering of Base Openings by the Average Difference of Results in Variations}
     \label{fig:elbowMethodForBaseOpeningsClusteredByDifferenceInVariations}
     \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \caption{Silhouette Scores for K-Means Clustering of Base Openings by Mean Difference of Results in Variations}
+    \caption{Silhouette Scores for K-Means Clustering of Base Openings by the Mean Difference of Results in Variations}
     \label{fig:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations}
     \begin{tabular}{| l | l |} 
         \hline
@@ -468,7 +468,7 @@ Similar to previous analyses, we calculated the proportion of game results, but 
 
 \begin{figure}[H]
     \centering
-    \caption{Base Openings Clustered by Difference of Results in Variations}
+    \caption{Base Openings Clustered by the Difference of Results in Variations}
     \label{fig:baseOpeningsClusteredByDifferenceOfResultsInVariations}
     \includegraphics[width=\textwidth]{Base Openings Clustered by Difference in Variations.png}
 \end{figure}
