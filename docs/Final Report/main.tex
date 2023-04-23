@@ -430,12 +430,16 @@ Similar to previous analyses, we calculated the proportion of game results, but 
 
 \subsubsection{Implementing K-Means Clustering}
 
+We implemented k-means clustering to see if we could find meaningful clusters based on the average difference of game results in variations -- this method was the most appropriate for our data because we wanted easily interpretable clusters. We used the elbow method to determine the number of clusters -- figure \ref{fig:elbowMethodForBaseOpeningsClusteredByDifferenceInVariations} suggests that the elbow occurs with four clusters, which suggests that this is the optimal number of clusters.
+
 \begin{figure}[H]
     \centering
     \caption{Elbow Method for K-Means Clustering of Base Openings by the Average Difference of Results in Variations}
     \label{fig:elbowMethodForBaseOpeningsClusteredByDifferenceInVariations}
-    \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
+    \includegraphics[width=0.8\textwidth]{Elbow Method for Clustering of Base Opening by Difference in Variations.png}
 \end{figure}
+
+Furthermore, we used the silhouette method to evaluate the quality of our clusters. Figure \ref{fig:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations} shows that the best silhouette score of 0.810 is achieved with two clusters. However, three clusters achieves a similar silhouette score of 0.712, and both of these scores are significantly higher than the others. Hence, considering the elbow method and the silhouette scores holistically, we decided to use three clusters, as this would provide us with more information than two clusters.
 
 \begin{figure}[H]
     \centering
@@ -445,13 +449,15 @@ Similar to previous analyses, we calculated the proportion of game results, but 
         \hline
         \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
         \hline
-        3 & 0.810 \\
+        2 & 0.810 \\
         \hline
-        4 & 0.712 \\
+        3 & 0.712 \\
         \hline
-        5 & 0.578 \\
+        4 & 0.578 \\
         \hline
-        6 & 0.555 \\
+        5 & 0.555 \\
+        \hline
+        6 & 0.578 \\
         \hline
         7 & 0.587 \\
         \hline
