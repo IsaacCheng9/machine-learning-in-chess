@@ -407,8 +407,6 @@ Our final investigation sought to cluster base openings by the average differenc
 
 \subsubsection{Calculating the Mean Difference of Game Results in Opening Variations}
 
-Similar to previous analyses, we calculated the proportion of game results, but we split this by opening variation. Once we had this data, we filtered it to only include variations that had over 5,000 games to ensure that variations were representative of the base opening -- this reduced the data to 182 variations amongst 32 base openings. Based on this, we used the Euclidean distance formula to quantify the difference between the game results of each variation. We then calculated the average difference of the game results between each variation of a base opening. Figure \ref{fig:top15BiggestAndSmallestMeanDifferenceOfBaseOpenings} shows the top 10 base openings that showed the biggest and smallest differences in their variations.
-
 \begin{figure}[H]
     \centering
     \caption{Top 10 Openings with the Biggest and Smallest Differences of Results in Variations}
@@ -427,6 +425,8 @@ Similar to previous analyses, we calculated the proportion of game results, but 
         \includegraphics[width=\textwidth]{Top 10 Openings with Smallest Mean Difference in Variations.png}
     \end{subfigure}
 \end{figure}
+
+Similar to previous analyses, we calculated the proportion of game results, but we split this by opening variation. Once we had this data, we filtered it to only include variations that had over 5,000 games to ensure that variations were representative of the base opening -- this reduced the data to 182 variations amongst 32 base openings. Based on this, we used the Euclidean distance formula to quantify the difference between the game results of each variation. We then calculated the average difference of the game results between each variation of a base opening. Figure \ref{fig:top15BiggestAndSmallestMeanDifferenceOfBaseOpenings} shows the top 10 base openings that showed the biggest and smallest differences in their variations. There are signs in figure \ref{fig:top15BiggestMeanDifferenceOfBaseOpenings} that our hypothesis about more aggressive openings like the King's Gambit Accepted having bigger differences being true, and likewise for the Sicilian Defense in figure \ref{fig:top15SmallestMeanDifferenceOfBaseOpenings}.
 
 \subsubsection{Implementing K-Means Clustering}
 
