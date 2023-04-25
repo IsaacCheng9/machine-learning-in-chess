@@ -32,11 +32,11 @@
 \contentsline {subsubsection}{\numberline {3.5.1}Calculating the Mean Difference of Game Results in Opening Variations}{18}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Implementing K-Means Clustering}{19}{subsubsection.3.5.2}%
 \contentsline {subsubsection}{\numberline {3.5.3}Results and Evaluating the Clusters}{20}{subsubsection.3.5.3}%
-\contentsline {section}{\numberline {4}Project Discussion and Conclusion}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Project Outcomes}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Limitations}{20}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Future Work}{20}{subsection.4.3}%
-\contentsline {section}{Appendices}{24}{section*.21}%
+\contentsline {section}{\numberline {4}Project Discussion and Conclusion}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Project Outcomes}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Limitations}{21}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Future Work}{21}{subsection.4.3}%
+\contentsline {section}{Appendices}{24}{section*.22}%
 \contentsline {section}{\numberline {A}Additional Outputs}{24}{appendix.1.A}%
 \contentsline {section}{\numberline {B}Additional Plots}{24}{appendix.1.B}%
 \contentsline {section}{\numberline {C}Examples}{27}{appendix.1.C}%

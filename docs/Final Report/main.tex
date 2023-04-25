@@ -409,6 +409,25 @@ Our final investigation sought to cluster base openings by the average differenc
 
 \begin{figure}[H]
     \centering
+    \caption{Examples of Euclidean Distances for Opening Variations}
+    \label{fig:euclideanDistancesForOpeningVariations}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{Euclidean Distances for Russian Game Variations}
+        \includegraphics[width=\textwidth]{Euclidean Distances for Russian Game.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{Euclidean Distances for Slav Defense Variations}
+        \includegraphics[width=\textwidth]{Euclidean Distances for Slav Defense.png}
+    \end{subfigure}
+\end{figure}
+
+Similar to previous analyses, we calculated the proportion of game results, but we split this by opening variation. Once we had this data, we filtered it to only include variations that had over 5,000 games to ensure that variations were representative of the base opening -- this reduced the data to 182 variations amongst 32 base openings. Based on this, we used the Euclidean distance formula to quantify the difference between the game results of each variation. Figure \ref{fig:euclideanDistancesForOpeningVariations} shows examples of the Euclidean distances for the Russian Game and the Slav Defense openings. We then calculated the average difference of the game results between each variation of a base opening. Figure \ref{fig:top15BiggestAndSmallestMeanDifferenceOfBaseOpenings} shows the top 10 base openings that showed the biggest and smallest differences in their variations. There are signs in figure \ref{fig:top15BiggestMeanDifferenceOfBaseOpenings} that our hypothesis about more aggressive openings like the King's Gambit Accepted having bigger differences being true, and likewise for the Sicilian Defense in figure \ref{fig:top15SmallestMeanDifferenceOfBaseOpenings}.
+
+\begin{figure}[H]
+    \centering
     \caption{Top 10 Openings with the Biggest and Smallest Differences of Results in Variations}
     \label{fig:top15BiggestAndSmallestMeanDifferenceOfBaseOpenings}
     \begin{subfigure}{0.49\textwidth}
@@ -426,7 +445,7 @@ Our final investigation sought to cluster base openings by the average differenc
     \end{subfigure}
 \end{figure}
 
-Similar to previous analyses, we calculated the proportion of game results, but we split this by opening variation. Once we had this data, we filtered it to only include variations that had over 5,000 games to ensure that variations were representative of the base opening -- this reduced the data to 182 variations amongst 32 base openings. Based on this, we used the Euclidean distance formula to quantify the difference between the game results of each variation. We then calculated the average difference of the game results between each variation of a base opening. Figure \ref{fig:top15BiggestAndSmallestMeanDifferenceOfBaseOpenings} shows the top 10 base openings that showed the biggest and smallest differences in their variations. There are signs in figure \ref{fig:top15BiggestMeanDifferenceOfBaseOpenings} that our hypothesis about more aggressive openings like the King's Gambit Accepted having bigger differences being true, and likewise for the Sicilian Defense in figure \ref{fig:top15SmallestMeanDifferenceOfBaseOpenings}.
+
 
 \subsubsection{Implementing K-Means Clustering}
 
