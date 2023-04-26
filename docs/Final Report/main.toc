@@ -36,7 +36,7 @@
 \contentsline {subsection}{\numberline {4.1}Project Outcomes}{21}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Limitations}{21}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Future Work}{21}{subsection.4.3}%
-\contentsline {section}{Appendices}{24}{section*.22}%
-\contentsline {section}{\numberline {A}Additional Outputs}{24}{appendix.1.A}%
-\contentsline {section}{\numberline {B}Additional Plots}{24}{appendix.1.B}%
-\contentsline {section}{\numberline {C}Examples}{27}{appendix.1.C}%
+\contentsline {section}{Appendices}{25}{section*.22}%
+\contentsline {section}{\numberline {A}Additional Outputs}{25}{appendix.1.A}%
+\contentsline {section}{\numberline {B}Additional Plots}{25}{appendix.1.B}%
+\contentsline {section}{\numberline {C}Examples}{28}{appendix.1.C}%
