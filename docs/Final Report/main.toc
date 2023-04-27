@@ -20,14 +20,14 @@
 \contentsline {subsection}{\numberline {3.2}Predicting Game Results Using Classifiers}{13}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Implementing the Decision Tree and Random Forest Classifiers}{13}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Results and Evaluating the Decision Tree and Random Forest Classifiers}{13}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Clustering Base Openings by Game Results}{14}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Calculating Proportion of Game Results Per Base Opening}{14}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Implementing K-Means Clustering}{15}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Results and Evaluating the Clusters}{16}{subsubsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.4}Regression Analysis of Base Opening Popularity and Game Results}{17}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Implementing the Linear Regression Models}{17}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Results and Evaluating the Linear Regression Model for All Players}{17}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Results and Evaluating the Linear Regression Models for Different Rating Groups}{18}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.3}Regression Analysis of Base Opening Popularity and Game Results}{14}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Implementing the Linear Regression Models}{14}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Results and Evaluating the Linear Regression Model for All Players}{15}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Results and Evaluating the Linear Regression Models for Different Rating Groups}{15}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Clustering Base Openings by Game Results}{16}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Calculating Proportion of Game Results Per Base Opening}{16}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Implementing K-Means Clustering}{17}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Results and Evaluating the Clusters}{18}{subsubsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.5}Clustering Base Openings by the Average Difference of Game Results in Variations}{19}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Calculating the Mean Difference of Game Results in Opening Variations}{19}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Implementing K-Means Clustering}{20}{subsubsection.3.5.2}%

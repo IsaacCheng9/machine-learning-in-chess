@@ -245,85 +245,6 @@ There was little difference in the performance of our decision tree classifiers 
 
 While there are some differences in results between the variations of our models, our classification models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the bins representing larger rating differences, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. Our results show that it is difficult to predict the outcome of a game using the additional features that we explored, and that the rating system used by platforms like Lichess is a good predictor -- we do not have any evidence to suggest how it can be improved.
 
-\subsection{Clustering Base Openings by Game Results}
-Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by game results. Accurate clusters would allow us to identify base openings that are more likely to result in a certain outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
-
-\subsubsection{Calculating Proportion of Game Results Per Base Opening}
-Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
-
-\begin{figure}[H]
-    \centering
-    \caption{Proportion of Game Results for the Top 15 Most Played Base Openings}
-    \label{fig:proportionOfGameResultsForTop15BaseOpenings}
-    \includegraphics[width=0.8\textwidth]{Proportion of Game Results for Top 15 Base Openings.png}
-\end{figure}
-
-\subsubsection{Implementing K-Means Clustering}
-We decided to use K-means clustering over alternatives such as hierarchical agglomerative clustering because it is easy to implement and interpret, and our underlying data is relatively simple. We used the percentages of each game result for our features and we used the elbow method to determine the optimal number of clusters. The elbow method involves plotting the explained variation (also known as the within-cluster sum of squares -- WCSS) as a function of the number of clusters, and then choosing the number of clusters at the elbow of the curve. Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByGameResults} shows the elbow method for our data -- we can see that the elbow occurs at four clusters.
-
-\begin{figure}[H]
-    \centering
-    \caption{Elbow Method for K-Means Clustering of Base Openings by Game Results}
-    \label{fig:elbowMethodForBaseOpeningsClusteredByGameResults}
-    \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
-\end{figure}
-
-Additionally, we recorded the silhouette score for each number of clusters to validate our choice. The silhouette score is a measure of how similar an object is to its own cluster compared to other clusters -- it ranges from -1.0 to 1.0, where a higher score is good and indicates that the object is well-matched to its own cluster and poorly-matched to neighbouring clusters. Figure \ref{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults} shows the silhouette score for each number of clusters from 3 to 10 -- it confirms that the optimal number of clusters is four, with the best silhouette score of 0.478.
-
-\begin{figure}[H]
-    \centering
-    \caption{Silhouette Scores for K-Means Clustering of Base Openings by Game Results}
-    \label{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults}
-    \begin{tabular}{| l | l |} 
-        \hline
-        \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
-        \hline
-        3 & 0.444 \\
-        \hline
-        4 & 0.479 \\
-        \hline
-        5 & 0.459 \\
-        \hline
-        6 & 0.448 \\
-        \hline
-        7 & 0.449 \\
-        \hline
-        8 & 0.451 \\
-        \hline
-        9 & 0.468 \\
-        \hline
-        10 & 0.426 \\
-        \hline
-    \end{tabular}
-\end{figure}
-
-\subsubsection{Results and Evaluating the Clusters}
-Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. It has a silhouette score of 0.479 and a within-cluster sum of squares of 50.827. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
-
-Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
-
-\begin{figure}[H]
-    \centering
-    \caption{Base Openings K-Means Clustered by Game Results}
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{White Win Rate vs. Black Win Rate}
-        \label{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack}
-        \includegraphics[width=\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Black Win Rate).png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \caption{White Win Rate vs. Draw Rate}
-        \label{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw}
-        \includegraphics[width=\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Draw Rate).png}
-    \end{subfigure}
-\end{figure}
-
-Overall, our clustering algorithm was successful in differentiating between the base openings based on whether White or Black won. Our clusters may be used in analysing the opening preferences of players -- lower rated players who play openings that are highly successful for White may need to reconsider the understanding of the openings they play, as they may be losing games despite having a slight advantage in theory. On the other hand, higher rated players who play openings that are theoretically less successful for White could be investigated further, as it indicates that they may be playing these openings in a different way to make them more successful than expected.
-
-However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- this could be improved in the future using a different feature set, such as the number of moves played in each game. If we were able to generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win, or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
-
 \subsection{Regression Analysis of Base Opening Popularity and Game Results}
 Next, we investigated the relationship between the popularity of a base opening and their game results. Our initial hypothesis is that the higher the win rate for White for a base oepning, the more popular it will be -- this is because the opening is mostly decided by White, and they want to maximise their chances of winning. Identifying clear trends could form the foundation for future investigations into how social learning theory can be applied to chess openings and how much other people's preferences affect our own when we play chess.
 
@@ -408,6 +329,85 @@ Although our linear regression models were not successful in isolation, comparin
         \includegraphics[width=\textwidth]{Popularity of Base Opening vs. Black Win Rate (Rated 1200-).png}
     \end{subfigure}
 \end{figure}
+
+\subsection{Clustering Base Openings by Game Results}
+Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by game results. Accurate clusters would allow us to identify base openings that are more likely to result in a certain outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
+
+\subsubsection{Calculating Proportion of Game Results Per Base Opening}
+Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
+
+\begin{figure}[H]
+    \centering
+    \caption{Proportion of Game Results for the Top 15 Most Played Base Openings}
+    \label{fig:proportionOfGameResultsForTop15BaseOpenings}
+    \includegraphics[width=0.8\textwidth]{Proportion of Game Results for Top 15 Base Openings.png}
+\end{figure}
+
+\subsubsection{Implementing K-Means Clustering}
+We decided to use K-means clustering over alternatives such as hierarchical agglomerative clustering because it is easy to implement and interpret, and our underlying data is relatively simple. We used the percentages of each game result for our features and we used the elbow method to determine the optimal number of clusters. The elbow method involves plotting the explained variation (also known as the within-cluster sum of squares -- WCSS) as a function of the number of clusters, and then choosing the number of clusters at the elbow of the curve. Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByGameResults} shows the elbow method for our data -- we can see that the elbow occurs at four clusters.
+
+\begin{figure}[H]
+    \centering
+    \caption{Elbow Method for K-Means Clustering of Base Openings by Game Results}
+    \label{fig:elbowMethodForBaseOpeningsClusteredByGameResults}
+    \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
+\end{figure}
+
+Additionally, we recorded the silhouette score for each number of clusters to validate our choice. The silhouette score is a measure of how similar an object is to its own cluster compared to other clusters -- it ranges from -1.0 to 1.0, where a higher score is good and indicates that the object is well-matched to its own cluster and poorly-matched to neighbouring clusters. Figure \ref{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults} shows the silhouette score for each number of clusters from 3 to 10 -- it confirms that the optimal number of clusters is four, with the best silhouette score of 0.478.
+
+\begin{figure}[H]
+    \centering
+    \caption{Silhouette Scores for K-Means Clustering of Base Openings by Game Results}
+    \label{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults}
+    \begin{tabular}{| l | l |} 
+        \hline
+        \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
+        \hline
+        3 & 0.444 \\
+        \hline
+        4 & 0.479 \\
+        \hline
+        5 & 0.459 \\
+        \hline
+        6 & 0.448 \\
+        \hline
+        7 & 0.449 \\
+        \hline
+        8 & 0.451 \\
+        \hline
+        9 & 0.468 \\
+        \hline
+        10 & 0.426 \\
+        \hline
+    \end{tabular}
+\end{figure}
+
+\subsubsection{Results and Evaluating the Clusters}
+Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. It has a silhouette score of 0.479 and a within-cluster sum of squares of 50.827. Note that the axes for the win rates of either side are different, yet this is appropriate because White is generally expected to win more games than Black due to first mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they resulted in a win rate that was similar to White's win rate. Conversely, cluster 2 contains openings that were highly successful to White, with a much greater delta between White's win rate and Black's win rate than expected. Clusters 3 and 0 are less distinct, but we can see that cluster 3 shows openings with a slight advantage for Black, while cluster 0 shows openings with a slight advantage for White.
+
+\begin{figure}[H]
+    \centering
+    \caption{Base Openings K-Means Clustered by Game Results}
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{White Win Rate vs. Black Win Rate}
+        \label{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack}
+        \includegraphics[width=\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Black Win Rate).png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \centering
+        \caption{White Win Rate vs. Draw Rate}
+        \label{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw}
+        \includegraphics[width=\textwidth]{Base Openings Clustered by Game Results (White Win Rate vs Draw Rate).png}
+    \end{subfigure}
+\end{figure}
+
+Meanwhile, figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, and thus the effect is not strong enough to be picked up by our clustering algorithm.
+
+Overall, our clustering algorithm was successful in differentiating between the base openings based on whether White or Black won. Our clusters may be used in analysing the opening preferences of players -- lower rated players who play openings that are highly successful for White may need to reconsider the understanding of the openings they play, as they may be losing games despite having a slight advantage in theory. On the other hand, higher rated players who play openings that are theoretically less successful for White could be investigated further, as it indicates that they may be playing these openings in a different way to make them more successful than expected.
+
+However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- this could be improved in the future using a different feature set, such as the number of moves played in each game. If we were able to generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win, or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
 
 \subsection{Clustering Base Openings by the Average Difference of Game Results in Variations}
 Our final investigation sought to cluster base openings by the average difference of the game results between their variations. For example, the Sicilian Defense famously has a number of variations, including the Najdorf Variation, the Dragon Variation, and the French Variation. Our initial hypothesis is that base openings will have varying degrees of difference in outcomes between their variations -- more passive openings such as the Indian Defense will have little difference because their moves depend less on their opponent, whereas more aggressive openings such as the King's Gambit Accepted will have bigger differences due to a more open centre and thus a greater number of viable moves. Accurate clusters would provide a way to quantify how passive or aggressive a base opening is, whereas the chess community traditionally relies on intuition and experience to make these assessments qualitatively.
