@@ -135,7 +135,7 @@ Machine learning is computationally expensive, so generating and testing machine
 \section{Project Results and Evaluation}
 In this section, we will start by exploring the data to understand the data set better before implementing machine learning models to uncover patterns in how people play chess. We will explain our motive and the development of each machine-learning model before discussing the results and evaluating their insights.
 
-\subsection{Data Exploration}
+\subsection{Exploring the Data}
 
 \subsubsection{Structure of Data}
 Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were played on Lichess in 2022. Each game is described by: the datetime of when the game started, what type of game (Rated Blitz or Rapid) it was, the specific time control, outcome of the game (1-0 for a White win, 1/2-1/2 for a draw, and 0-1 for a Black win), how the game ended, ECO category of the opening, the specific opening that was played, who played White and Black, their Lichess ratings, and a URL to the game on Lichess. Figure \ref{fig:structureOfData} shows the head of the DataFrame, which contains the first two games in the data sample -- note that this has been transposed to maintain readability.
