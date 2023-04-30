@@ -45,3 +45,6 @@ mainNotes.bib
 *.exe
 *.out
 *.app
+
+# PowerPoint image folder
+docs/Demonstration/Images
