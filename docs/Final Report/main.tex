@@ -46,30 +46,11 @@ Signature: \hrulefill
 \tableofcontents
 \newpage
 
-\section{Project Specification, Motivation, and Aims}
+\section{Motivation, Aims, and Project Specification}
 Chess is one of the oldest and most popular board games globally -- it has a rich history and vast literature dating back centuries, with the first comprehensive book about chess called \textquote{Book of the Chess} appearing in the year 840, discussing chess openings, endings, and hundreds of chess problems \cite{earliestChessBooks,wonning2014short}. However, the large-scale exploration of chess games has only caught on recently -- the most well-known and highest-rated chess engine \cite{computerChessRatingLists}, Stockfish, has used over 9,400 years of CPU time to analyse over 5.6 billion self-play chess games as of April 2023 \cite{stockfishTestingFramework}. Websites such as Lichess and Chess.com have provided an online platform for people to play chess -- users can create a free account and search for a game with other players with various time controls, where their matchmaking system will pair them with a player of a similar skill level. These platforms have made the game accessible to more people in standardised formats -- this has enabled the collection of data on a large scale, which makes it a fascinating domain for data mining and machine learning. Furthermore, chess games involve cognition and human behaviour that we can apply more generally -- there have been studies in areas like social learning theory on other games such as Go \cite{beheim2014strategic}, but they also apply to chess.
 
-\subsection{Project Specification}
-In this dissertation, we will explore data mining and machine learning techniques to analyse large-scale data from the Lichess Open Database, which contains monthly records on tens of millions of chess games played by users of various skill levels. Our goal is to discover patterns and insights into how people play chess, which could contribute to further studies in chess such as cheat detection algorithms to improve the integrity of chess tournaments and promote positive growth in the game.
-
-I will investigate the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights into how people play chess? Our project has the following objectives:
-
-\begin{itemize}
-    % \setlength\itemsep{-0.25em}
-    \setlength\itemsep{0em}
-    \item Create a data pipeline for downloading and processing the data efficiently
-    \item Explore the data to understand the features and distribution of the data
-    \item Perform feature engineering to extract additional useful information from the data
-    \item Implement classification models to predict the outcome of chess games
-    \item Implement a regression model to investigate the relationship between the popularity of openings and their outcomes in chess games
-    \item Perform clustering to group openings by their outcomes
-    \item Perform clustering to group openings by the mean difference of the outcomes in their variations
-    \item Analyse the results of the models and clusters to determine their usefulness in isolation
-    \item Evaluate the models and clusters to determine their usefulness in providing insights into patterns in chess games -- how successful were they, what were their limitations, and how can we improve them?
-\end{itemize}
-
 \subsection{Motivation and Aims}
-In this subsection, we will explore previous research and how they relate to the motivations for our project to provide specific aims. It will provide context for the subsequent design section focusing on how we will achieve these objectives.
+In this subsection, we will explore previous research and how they relate to the motivations for our project to provide specific objectives for our project.
 
 \subsubsection{Early History of Computer Chess}
 Since the first digital computer switched on in 1945, programmers have been interested in using computers to play chess. In 1948, Alan Turing worked with David Champnowne to create the \textquote{Turochamp}, a machine routine for playing chess \cite{copeland2005turing}. Claude Shannon wrote a paper in 1949 describing a computer that could play chess by analysing the seven most likely moves from the current positions and branching these into the seven most likely replies from the opposition continuously until the computer ran out of memory \cite{shannon1950xxii}. Dietrich Prinz eventually implemented the first chess program in November 1951, though it could not complete an entire chess game, and it used exhaustive search to play moves rather than a heuristic \cite{copeland2005turing}.
@@ -100,6 +81,40 @@ The practical uses of chess databases have come under scrutiny lately with the H
 There are also tools that enable people to analyse chess games. Scoutfish is a tool written with C++ that enables fast queries on very large chess databases \cite{scoutfish}. For example, we can query a database to find all games where a board state is a certain position using the FEN (Forsyth-Edwards Notation) of the position, which is the standard string used in chess to represent the board state -- this may be useful for finding occurrences of a specific variation of an opening. It provides the offset line number of each matching game in the PGN file, which we can use to find more information about the game. However, Scoutfish queries are not intuitive to write, so it can take a lot of effort to get insights using this tool. Therefore, we will focus on high-level analysis of game metadata using Dask DataFrames.
 
 Our project will seek to provide insights into patterns in chess games by analysing the metadata of games, which could contribute to improvements in cheat detection algorithms and ultimately improve the integrity of chess tournaments and the broader chess landscape.
+
+\subsection{Project Specification}
+In this dissertation, we will explore data mining and machine learning techniques to analyse large-scale data from the Lichess Open Database, which contains monthly records on tens of millions of chess games played by users of various skill levels. Our goal is to discover patterns and insights into how people play chess, which could contribute to further studies in chess such as cheat detection algorithms to improve the integrity of chess tournaments and promote positive growth in the game.
+
+I will investigate the following question: can we use data mining and machine learning techniques on historical data to discover patterns and insights into how people play chess? Our project has the following objectives:
+
+% \paragraph{Data Collection and Processing}
+\begin{itemize}
+    \setlength\itemsep{-0.25em}
+    % \setlength\itemsep{0em}
+    \item Create a data pipeline for downloading and processing the data efficiently
+    \item Explore the data to understand the features and distribution of the data
+    \item Perform feature engineering to extract additional useful information from the data
+% \end{itemize}
+% \vspace{-1em}
+% \paragraph{Machine Learning}
+% \begin{itemize}
+    % \setlength\itemsep{-0.25em}
+    % \setlength\itemsep{0em}
+    \item Implement classification models to predict the outcome of chess games
+    \item Implement a regression model to investigate the relationship between the popularity of openings and their outcomes in chess games
+    \item Perform clustering to group openings by their outcomes
+    \item Perform clustering to group openings by the mean difference of the outcomes in their variations
+% \end{itemize}
+% \vspace{-1em}
+% \paragraph{Analysis and Evaluation}
+% \begin{itemize}
+    % \setlength\itemsep{-0.25em}
+    % \setlength\itemsep{0em}
+    \item Analyse the results of the models and clusters to determine their usefulness in isolation
+    \item Evaluate the models and clusters to determine their usefulness in providing insights into patterns in chess games -- how successful were they, what were their limitations, and how can we improve them?
+\end{itemize}
+
+
 
 \section{Design, Methods, and Implementation}
 This section will describe data collection, processing, and preparation steps for our project. Additionally, we will mention the tools and general methods we used to analyse the data. However, we will discuss data exploration and the development of the machine-learning models in the subsequent project results and evaluation section.
