@@ -7,7 +7,7 @@
 \contentsline {subsubsection}{\numberline {1.1.4}Practical Uses of Chess Databases}{5}{subsubsection.1.1.4}%
 \contentsline {subsection}{\numberline {1.2}Project Specification}{6}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Design, Methods, and Implementation}{6}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Downloading the Data}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Data Collection}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Data Processing}{7}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Subsampling for Machine Learning Models}{8}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Project Results and Evaluation}{8}{section.3}%
