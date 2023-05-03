@@ -8,7 +8,7 @@ import os
 
 import chess.pgn
 
-from merge_csv_files import convert_csv_to_parquet, merge_csv_files
+from merge_csv_files import merge_csv_files
 
 
 def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> str:
