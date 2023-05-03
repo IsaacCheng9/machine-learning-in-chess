@@ -171,7 +171,7 @@ you can follow these steps to reproduce the results:
    - See the section above for detailed instructions:
      [Splitting a PGN File with pgn-extract](#splitting-a-pgn-file-with-pgn-extract)
 4. Extract the game metadata from PGN files to a CSV file and a folder of
-   Parquet files by running [convert_pgn_to_csv.py](/src/convert_pgn_to_csv.py)
+   Parquet files by running [convert_pgn_to_parquet.py](/src/convert_pgn_to_parquet.py)
    and providing the name of the original PGN file (before it was split, e.g.
    `lichess_db_standard_rated_2022-01.pgn`).
    - This will output a folder of Parquet files, as well as a CSV file that
