@@ -274,6 +274,17 @@ While there are some differences in results between the variations of our models
 \subsection{Investigating the Relationship Between Base Opening Popularity and Game Results Using Linear Regression}
 Next, we investigated the relationship between the popularity of a base opening and their game results. Our initial hypothesis is that the higher the win rate for White for a base oepning, the more popular it will be -- this is because the opening is mostly decided by White, and they want to maximise their chances of winning. Identifying clear trends could form the foundation for future investigations into how social learning theory can be applied to chess openings and how much other people's preferences affect our own when we play chess.
 
+\subsubsection{Calculating Proportion of Game Results Per Base Opening}
+
+\begin{figure}[H]
+    \centering
+    \caption{Proportion of Game Results for the Top 15 Most Played Base Openings}
+    \label{fig:proportionOfGameResultsForTop15BaseOpenings}
+    \includegraphics[width=0.8\textwidth]{Proportion of Game Results for Top 15 Base Openings.png}
+\end{figure}
+
+Before applying our linear regression models, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
+
 \subsubsection{Implementing the Linear Regression Models}
 We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable, and the game result was the dependent variable. The models were trained on the subsample of approximately 5 million games, from which we included base openings with more than 10,000 games. When we later filtered the data to investigate trends for high, middle, and low rated players, we included base openings with more than 1,000 games.
 
@@ -358,17 +369,6 @@ Although our linear regression models were not successful in isolation, comparin
 
 \subsection{Clustering Base Openings by Game Results}
 Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by game results. Accurate clusters would allow us to identify base openings that are more likely to result in a certain outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
-
-\subsubsection{Calculating Proportion of Game Results Per Base Opening}
-
-\begin{figure}[H]
-    \centering
-    \caption{Proportion of Game Results for the Top 15 Most Played Base Openings}
-    \label{fig:proportionOfGameResultsForTop15BaseOpenings}
-    \includegraphics[width=0.8\textwidth]{Proportion of Game Results for Top 15 Base Openings.png}
-\end{figure}
-
-Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
 
 \subsubsection{Optimising K-Means Clustering}
 We used the percentages of each game result for our features and we used the elbow method to determine the optimal number of clusters. Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByGameResults} shows the elbow method for our data -- we can see that the elbow occurs at four clusters.
