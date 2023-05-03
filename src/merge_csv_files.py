@@ -7,6 +7,7 @@ import csv
 from time import perf_counter
 from typing import List
 
+import dask.dataframe as dd
 from tqdm import tqdm
 
 
@@ -48,6 +49,42 @@ def merge_csv_files(output_file_name: str, csv_files: List[str]) -> str:
     return output_file_name
 
 
+def convert_csv_to_parquet(csv_file: str) -> str:
+    """
+    Convert a CSV file to a folder of Parquet files to be read as a Dask
+    DataFrame.
+
+    Args:
+        csv_file: The path to the CSV file.
+
+    Returns:
+        The path of the folder of Parquet files.
+    """
+    # Remove the .csv extension for the name of the folder of .parquet files.
+    parquet_folder = csv_file.replace(".csv", "")
+    print(f"\nConverting the following CSV file to Parquet files: {csv_file}")
+    df = dd.read_csv(
+        csv_file,
+        parse_dates={"UTCDateTime": ["UTCDate", "UTCTime"]},
+        dtype={
+            "Event": "category",
+            "TimeControl": "string[pyarrow]",
+            "Result": "category",
+            "Termination": "category",
+            "ECO": "string[pyarrow]",
+            "Opening": "string[pyarrow]",
+            "White": "string[pyarrow]",
+            "Black": "string[pyarrow]",
+            "WhiteElo": "int16",
+            "BlackElo": "int16",
+            "Site": "string[pyarrow]",
+        },
+    )
+    df.to_parquet(parquet_folder)
+    print(f"Converted CSV file to Parquet files: {parquet_folder}")
+    return parquet_folder
+
+
 if __name__ == "__main__":
     OUTPUT_FILE = ""
     if not OUTPUT_FILE:
@@ -62,4 +99,7 @@ if __name__ == "__main__":
             break
         SPLIT_CSV_FILES.append(str(csv_file))
 
-    merge_csv_files(f"{OUTPUT_FILE}.csv", SPLIT_CSV_FILES)
+    # Merge the split CSV files into one.
+    combined_csv = merge_csv_files(f"{OUTPUT_FILE}.csv", SPLIT_CSV_FILES)
+    # Convert the CSV file to a folder of Parquet files.
+    convert_csv_to_parquet(combined_csv)

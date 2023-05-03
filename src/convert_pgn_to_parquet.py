@@ -8,9 +8,8 @@ import os
 from time import perf_counter
 
 import chess.pgn
-import dask.dataframe as dd
 
-from merge_csv_files import merge_csv_files
+from merge_csv_files import convert_csv_to_parquet, merge_csv_files
 
 
 def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> str:
@@ -101,42 +100,6 @@ def convert_pgn_metadata_to_csv_file(pgn_file: str, whitelisted_events: set) -> 
 
     print(f"Created split CSV file: {csv_file_path} in {end - start:.3f} seconds")
     return csv_file_path
-
-
-def convert_csv_to_parquet(csv_file: str) -> str:
-    """
-    Convert a CSV file to a folder of Parquet files to be read as a Dask
-    DataFrame.
-
-    Args:
-        csv_file: The path to the CSV file.
-
-    Returns:
-        The path of the folder of Parquet files.
-    """
-    # Remove the .csv extension for the name of the folder of .parquet files.
-    parquet_folder = csv_file.replace(".csv", "")
-    print(f"\nConverting the following CSV file to Parquet files: {csv_file}")
-    df = dd.read_csv(
-        csv_file,
-        parse_dates={"UTCDateTime": ["UTCDate", "UTCTime"]},
-        dtype={
-            "Event": "category",
-            "TimeControl": "string[pyarrow]",
-            "Result": "category",
-            "Termination": "category",
-            "ECO": "string[pyarrow]",
-            "Opening": "string[pyarrow]",
-            "White": "string[pyarrow]",
-            "Black": "string[pyarrow]",
-            "WhiteElo": "int16",
-            "BlackElo": "int16",
-            "Site": "string[pyarrow]",
-        },
-    )
-    df.to_parquet(parquet_folder)
-    print(f"Converted CSV file to Parquet files: {parquet_folder}")
-    return parquet_folder
 
 
 if __name__ == "__main__":
