@@ -120,7 +120,7 @@ if __name__ == "__main__":
         csv_file_paths = pool.starmap(
             convert_pgn_metadata_to_csv_file,
             [
-                (f"{BASE_FILE_PATH}.{i}.pgn", WHITELISTED_EVENTS)
+                (f"{BASE_FILE_PATH}_{i}.pgn", WHITELISTED_EVENTS)
                 for i in range(1, 1 + NUM_SPLIT_FILES)
             ],
         )
