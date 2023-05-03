@@ -127,16 +127,23 @@ We started by downloading the PGN files for each month, which introduced difficu
 
 \begin{figure}[H]
     \centering
-    \caption{Diagram of the Data Pipeline}
-    \label{fig:dataPipeline}
-    \includegraphics[width=0.79\textwidth]{Data Pipeline.png}
+    \caption{Snippet of a PGN File}
+    \label{fig:snippetOfPgnFile}
+    \includegraphics[width=0.65\textwidth]{Snippet of PGN File.png}
 \end{figure}
 
-PGN (Portable Game Notation) files are a standard format for recording chess games -- each game has headers containing information like the White player, Black player, their ratings, and the result of the game. In addition, it stores a list of all the moves in each game. While PGN files are well-structured, they are not easy to process. The pgn2data Python library \cite{pgn2dataGitHub} provides a simple way to convert PGN files into CSV files, but it exported both the moves and the metadata of each game in separate CSV files. We did not need the moves, so it was using up unnecessary space and taking a long time to process each game. It was also designed for generic PGN files so it did not include additional useful metadata provided by Lichess such as the opening of the game.
+PGN (Portable Game Notation) files are a standard format for recording chess games -- each game has headers containing information like the White player, Black player, their ratings, and the result of the game. In addition, it stores a list of all the moves in each game, as shown in figure \ref{fig:snippetOfPgnFile}. While PGN files are well-structured, they are not easy to process. The pgn2data Python library \cite{pgn2dataGitHub} provides a simple way to convert PGN files into CSV files, but it exported both the moves and the metadata of each game in separate CSV files. We did not need the moves, so it was using up unnecessary space and taking a long time to process each game. It was also designed for generic PGN files so it did not include additional useful metadata provided by Lichess such as the opening of the game.
 
 Thus, we wrote our own Python script to convert each PGN file into a single CSV file containing only the metadata of each game. We used the python-chess library to parse the PGN files and iterate over each game, skipping Rated Bullet games, Rated Classical games, games that involved a non-human player, and games that were abandoned. Our sample reduced from 60 million games to slightly over 40 million games after filtering it. To optimise performance, we split each month's PGN into six files each containing 1 million games with pgn-extract (a PGN manipulator written in C) \cite{pgnExtractGitHub}, and we used Python's multiprocessing library to process each month in parallel -- this reduced the processing time from 120 minutes to 20 minutes for each month on my Apple M1 Max chip.
 
 Once we had a CSV for each month, we combined them into a single CSV file containing our final data set. We converted this CSV to a folder of Parquet files using Dask \cite{dask}, which is a library for parallel computing in Python and extends common interfaces like pandas \cite{pandas} to handle big data in a larger-than-memory environment. This significantly reduced the load time for the data, and it meant we could use the Dask library to perform parallel computations on the data.
+
+\begin{figure}[H]
+    \centering
+    \caption{Diagram of the Data Pipeline}
+    \label{fig:dataPipeline}
+    \includegraphics[width=0.8\textwidth]{Data Pipeline.png}
+\end{figure}
 
 Figure \ref{fig:dataPipeline} shows an overview of our data pipeline. It shows how we used the Lichess Open Database to collect the data over 12 months. To analyse game metadata, we aggregated the data into a single CSV file, and converted it to a folder of Parquet files to query with Dask.
 
@@ -158,7 +165,6 @@ In this section, we will start by exploring the data to understand the data set 
 \subsection{Exploring the Data}
 
 \subsubsection{Structure of Data}
-Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were played on Lichess in 2022. Each game is described by: the datetime of when the game started, what type of game (Rated Blitz or Rapid) it was, the specific time control, outcome of the game (1-0 for a White win, 1/2-1/2 for a draw, and 0-1 for a Black win), how the game ended, ECO category of the opening, the specific opening that was played, who played White and Black, their Lichess ratings, and a URL to the game on Lichess. Figure \ref{fig:structureOfData} shows the head of the DataFrame, which contains the first two games in the data sample -- note that this has been transposed to maintain readability.
 
 \begin{figure}[H]
     \centering
@@ -166,6 +172,8 @@ Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were play
     \label{fig:structureOfData}
     \includegraphics[width=0.6\textwidth]{Structure of Data Transposed.png}
 \end{figure}
+
+Our data consists of 40,121,728 Rated Blitz and Rated Rapid games that were played on Lichess in 2022. Each game is described by: the datetime of when the game started, what type of game (Rated Blitz or Rapid) it was, the specific time control, outcome of the game (1-0 for a White win, 1/2-1/2 for a draw, and 0-1 for a Black win), how the game ended, ECO category of the opening, the specific opening that was played, who played White and Black, their Lichess ratings, and a URL to the game on Lichess. Figure \ref{fig:structureOfData} shows the head of the DataFrame, which contains the first two games in the data sample -- note that this has been transposed to maintain readability.
 
 \subsubsection{Distribution of Player Ratings}
 We counted the ratings of players in our data set. Rating systems are designed to predict the outcome of games so that players can be matched fairly. There are various rating systems used in chess -- the most common is the Elo rating system, which is used by various sports. Lichess uses the Glicko 2 rating system, which accounts for volatility amongst other factors to provide better prediction accuracy than the Glicko 1 and Elo rating systems \cite{chessRatingSystems, DeloitteFIDEChessRatingChallenge}. The Glicko 2 rating system starts at 1500, and it is artificially limited to a minimum of 600 in Lichess. We created bins of 200 rating point groups starting from 600 -- this handles the representation of new players well, as those who have played few games will not have changed their rating significantly and likely get placed in the 1400-1600 bin. Note that the last four bins on the right of the bar chart do exist, but they are difficult to see -- they contain totals of 11,622 for 2800-3000, 382 for 3000-3200, 459 for 3200-3400, and 1 player for 3400-3600. In addition, the counts are based on each game played, so some players may be overrepresented in the data set -- a player who plays 100 games within the year will have 100 entries in the data set, whereas a player who plays 1 game will have 1 entry. However, this is not a significant issue because the data set is large enough to represent the distribution of player ratings well.
