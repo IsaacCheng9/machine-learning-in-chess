@@ -370,7 +370,7 @@ Following our earlier exploration of the most popular base openings, we investig
 
 Before applying our clustering algorithm, we needed to aggregate the data to obtain the proportion of game results per base openings. This involved counting the number of outcomes for each base opening, and then calculating the proportions of each outcome. Note that we filtered the data to only include base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million games. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
 
-\subsubsection{Implementing K-Means Clustering}
+\subsubsection{Optimising K-Means Clustering}
 We used the percentages of each game result for our features and we used the elbow method to determine the optimal number of clusters. Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByGameResults} shows the elbow method for our data -- we can see that the elbow occurs at four clusters.
 
 \begin{figure}[H]
@@ -479,7 +479,7 @@ Similar to previous analyses, we calculated the proportion of game results, but 
     \end{subfigure}
 \end{figure}
 
-\subsubsection{Implementing K-Means Clustering}
+\subsubsection{Optimising K-Means Clustering}
 We implemented k-means clustering to see if we could find meaningful clusters based on the mean difference of game results in variations. We used the elbow method to determine the number of clusters -- figure \ref{fig:elbowMethodForBaseOpeningsClusteredByDifferenceInVariations} suggests that the elbow occurs with four clusters, which suggests that this is the optimal number of clusters.
 
 \begin{figure}[H]
