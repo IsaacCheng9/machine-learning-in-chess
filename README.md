@@ -59,44 +59,6 @@ Python 3.11, as it is
 
 ## External Libraries
 
-### Scoutfish
-
-[Scoutfish](https://github.com/mcostalba/scoutfish) is a tool written in C++
-that is used to query chess databases (formatted as PGN files) with very high
-speed.
-
-#### Compiling Scoutfish
-
-1. Download the source code from the
-   [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
-2. Open the terminal and navigate to the `src` directory in the source code for
-   Scoutfish: `cd src`
-3. Compile the program by running: `make build ARCH=x86-64`
-4. Scoutfish should now be compiled and ready to use via the `scoutfish` file in
-   the `src` directory.
-
-#### Creating a Scoutfish Index
-
-Before Scoutfish can be used to query a chess database, we must first create a
-Scoutfish index for that database:
-
-1. Open the terminal and navigate to the `src` directory in the source code for
-   Scoutfish: `cd src`
-2. Run the following command, where `<PGN_FILE>` is the absolute file path to
-   the PGN:
-
-   ```shell
-   ./scoutfish make "<PGN_FILE>"
-   ```
-
-3. The Scoutfish index will be created in the same directory as the PGN file as
-   a `.scout` file (e.g. the index for `lichess_db_standard_rated_2022-01.pgn`
-   will be saved as `lichess_db_standard_rated_2022-01.scout`).
-
-We can use the Scoutfish index to perform various queries. Further information
-and examples can be found on the
-[Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
-
 ### pgn-extract
 
 [pgn-extract](https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/) is a
@@ -149,6 +111,7 @@ process the smaller PGN files in parallel.
 ## Usage and Reproducing the Results
 
 ### Analysis of Provided Data Set
+
 For convenience, we have pre-processed a data set of 40,121,728 standard rated
 games on Lichess from January 2022 to December 2022 (inclusive) and provided it
 in the [resources/lichess_db_standard_rated_2022](/resources/lichess_db_standard_rated_2022)
@@ -159,6 +122,7 @@ To run the analysis on the provided data set, run the code in
 [analyse_chess_data.ipynb](/src/analyse_chess_data.ipynb).
 
 ### Analysis of Different Data Sets
+
 If you would like to use a different data set from the Lichess Open Database,
 you can follow these steps to reproduce the results:
 
@@ -198,3 +162,43 @@ and sorting, as the CSV file outputs may be too large to view directly.
 3. View the output SQLite3 file (e.g. `lichess_db_standard_rated_2022-01.db`) in
    the database browser of your choice
    (e.g. [DB Browser for SQLite](https://sqlitebrowser.org/)).
+
+## Future Work
+
+### Scoutfish
+
+[Scoutfish](https://github.com/mcostalba/scoutfish) is a tool written in C++
+that is used to query chess databases (formatted as PGN files) with very high
+speed.
+
+#### Compiling Scoutfish
+
+1. Download the source code from the
+   [Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
+2. Open the terminal and navigate to the `src` directory in the source code for
+   Scoutfish: `cd src`
+3. Compile the program by running: `make build ARCH=x86-64`
+4. Scoutfish should now be compiled and ready to use via the `scoutfish` file in
+   the `src` directory.
+
+#### Creating a Scoutfish Index
+
+Before Scoutfish can be used to query a chess database, we must first create a
+Scoutfish index for that database:
+
+1. Open the terminal and navigate to the `src` directory in the source code for
+   Scoutfish: `cd src`
+2. Run the following command, where `<PGN_FILE>` is the absolute file path to
+   the PGN:
+
+   ```shell
+   ./scoutfish make "<PGN_FILE>"
+   ```
+
+3. The Scoutfish index will be created in the same directory as the PGN file as
+   a `.scout` file (e.g. the index for `lichess_db_standard_rated_2022-01.pgn`
+   will be saved as `lichess_db_standard_rated_2022-01.scout`).
+
+We can use the Scoutfish index to perform various queries. Further information
+and examples can be found on the
+[Scoutfish GitHub repository](https://github.com/mcostalba/scoutfish).
