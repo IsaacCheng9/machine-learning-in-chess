@@ -28,7 +28,7 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Implementing the Linear Regression Models}{15}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Results and Evaluating the Linear Regression Model for All Players}{15}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}Results and Evaluating the Linear Regression Models for Different Rating Groups}{16}{subsubsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.4}Clustering Base Openings by Game Results}{17}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Clustering Base Openings by Game Results}{16}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Optimising K-Means Clustering}{17}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Results and Evaluating the Clusters}{17}{subsubsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.5}Clustering Base Openings by the Mean Difference of Game Results in Variations}{18}{subsection.3.5}%
