@@ -8,40 +8,23 @@ Supervisor: Chico Camargo
 
 ## Project Description
 
-Chess is a very good game for data mining. Computational databases containing
-pre-calculated exhaustive analyses of chess endgame positions – known as endgame
-tables – have become powerful analytical tools, profoundly advancing the chess
-community's understanding of the space of possible solutions for a game. Modern
-chess has also been supported by servers such as Lichess, an open-source
-Internet chess server which includes a database containing over 3 billion chess
-games, in a wide range of player abilities, recording both the moves of the game
-and related metadata, such as the names of the players, the winner/loser, and
-the date the game was played. While the literature on chess openings, endgames,
-and other features is centuries-old, the terabyte-scale exploration of different
-games is much more recent.
-
-The aim of this project is to apply data mining and machine learning tools to
-chess databases such as Lichess mentioned above, to understand patterns in how
-people play chess, and how the game works at the scale of millions or billions
-of matches.
-
-Questions we might ask include:
-
-- What are the most common openings and the most common endgames?
-- Do particular openings often lead to particular endgames?
-- Which strategies work, and which ones do not?
-- How does the popularity of different styles change over time?
-- What's the best counter against a particular strategy?
-- Is it possible to cluster similar chess matches?
-- Does that match the classification into openings and endings?
-- How does one do dimensionality reduction and classification on a chess match?
-
-This project will require some basic knowledge of chess (or interest in picking
-up that knowledge), but most of all, interest in data mining and machine
-learning. In addition to providing a good opportunity for the development and
-application of data science tools, this project should make a contribution to
-the understanding of chess endgames, but also to studies of computational social
-science and cultural analytics.
+Chess, one of the oldest and most popular board games, has recently seen
+large-scale exploration driven by online platforms like Lichess and Chess.com.
+This study uses data mining and machine learning techniques to analyse millions
+of games from the Lichess Open Database to uncover patterns and insights into
+how people play chess. We created a data pipeline for efficient processing,
+explored data features and distribution, and performed feature engineering. We
+implemented classification models to predict game outcomes, a regression model
+to investigate opening popularity and game outcomes, and k-means clustering to
+group openings by game outcomes and mean differences in their variations. Our
+models and clusters were analysed for their usefulness and evaluated for their
+ability to provide insights into chess game patterns. Through this evaluation,
+we assessed their success, limitations, and potential improvements. This study
+demonstrates the potential of data mining and machine learning techniques in
+uncovering patterns and insights in chess, contributing to growing research. By
+understanding how people play chess, we can develop better tools, strategies,
+and educational resources, enhancing fairness and enjoyment for players
+worldwide.
 
 ## Installation
 
