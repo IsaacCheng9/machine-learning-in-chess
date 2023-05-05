@@ -46,9 +46,10 @@ Signature: \hrulefill
 \tableofcontents
 \newpage
 
-\section{Motivation, Aims, and Project Specification}
+\section{Introduction}
 Chess is one of the oldest and most popular board games globally -- it has a rich history and vast literature dating back centuries, with the first comprehensive book about chess called \textquote{Book of the Chess} appearing in the year 840, discussing chess openings, endings, and hundreds of chess problems \cite{earliestChessBooks,wonning2014short}. However, the large-scale exploration of chess games has only caught on recently -- the most well-known and highest-rated chess engine \cite{computerChessRatingLists}, Stockfish, has used over 9,400 years of CPU time to analyse over 5.6 billion self-play chess games as of April 2023 \cite{stockfishTestingFramework}. Websites such as Lichess and Chess.com have provided an online platform for people to play chess -- users can create a free account and search for a game with other players with various time controls, where their matchmaking system will pair them with a player of a similar skill level. These platforms have made the game accessible to more people in standardised formats -- this has enabled the collection of data on a large scale, which makes it a fascinating domain for data mining and machine learning. Furthermore, chess games involve cognition and human behaviour that we can apply more generally -- there have been studies in areas like social learning theory on other games such as Go \cite{beheim2014strategic}, but they also apply to chess.
 
+\section{Motivation, Aims, and Project Specification}
 \subsection{Motivation and Aims}
 In this subsection, we will explore previous research and how they relate to the motivations for our project to provide specific objectives for our project.
 
@@ -149,7 +150,7 @@ Figure \ref{fig:dataPipeline} shows an overview of our data pipeline. It shows h
 
 We also created a Python script to convert the CSV file to an SQLite3 database -- this enables us to perform queries on the data over SQL for manual data exploration, which is easier and more interactive than Dask functions.
 
-\subsection{Subsampling for Machine Learning Models}
+\subsection{Subsampling Methods for Machine Learning Models}
 Machine learning is computationally expensive, so generating and testing machine learning models in a reasonable amount of time would be infeasible. Therefore, we will further subsample the data. We will use a random sample of 12.5\% of the original sample size, approximately 5 million games. Since we are not trying to predict rare events and are still using a large sample, our subsampling should have minimal impact on the representativeness of our insights -- patterns that we identify for 5 million games should also be present in the complete data set.
 
 \subsection{Machine Learning Techniques}
@@ -162,7 +163,7 @@ For clustering base openings by game results and the mean difference of the game
 \section{Project Results and Evaluation}
 In this section, we will start by exploring the data to understand the data set better before implementing machine learning models to uncover patterns in how people play chess. We will explain our motive and the development of each machine-learning model before discussing the results and evaluating their insights.
 
-\subsection{Exploring the Data}
+\subsection{Data Exploration}
 
 \subsubsection{Structure of Data}
 
@@ -226,10 +227,10 @@ The data set also includes a column for the specific opening detected in each ga
 
 Delving deeper into the data, we found that the most popular base openings varied by rating groups. The top players rated 2000 and above strongly preferred the Sicilian Defence over other openings (shown in Figure \ref{fig:mostPopularOpeningsRated2000Plus} from the appendices). This result may be because the Sicilian Defence is a complex opening that requires rigorous preparation due to the number of variations. It is also unanimously accepted as the best response to White opening with the king's pawn. Conversely, the Sicilian Defence becomes much less popular for players rated 1200 and below for the same reasons. Figure \ref{fig:mostPopularOpeningsRated1200Minus} from the appendices shows that the two most popular base openings for this group are the Queen's Pawn Game and the King's Pawn Game, which represent generic openings starting with the queen's pawn and the king's pawn -- this is likely because they are simple and easy for beginners to play.
 
-\subsection{Predicting Game Results Using Classifiers}
+\subsection{Prediction of Game Results Using Classifiers}
 We sought to predict the result of a game using classifiers based on some of the features we explored in the previous subsection related to player rating and opening. Accurate predictions would provide insights into what factors are the most important in determining the outcome of a game -- this could help platforms like Lichess improve their rating system to calculate more appropriate rating changes after each game, thus making the rating system fairer and improving the user experience.
 
-\subsubsection{Results and Evaluating the Decision Tree and Random Forest Classifiers}
+\subsubsection{Evaluation of Decision Tree and Random Forest Classifier Results}
 Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We denoted the RelativeEloDiffBin and EloDiffBin features with different increments. We previously binned these features to explore the distribution of values, but we wanted to see whether using finer binning would improve the performance of our models. Hence, we tested the same model but with different binning increments, which we did not include in the table for brevity -- the increments included in the table represent those that produced the best F1 score and accuracy.
 
 \begin{figure}[H]
@@ -271,10 +272,10 @@ There was little difference in the performance of our decision tree classifiers 
 
 While there are some differences in results between the variations of our models, our classification models generally produced poor F1 scores and accuracy. The best F1 score was 0.510 while the best accuracy was 0.525 -- this indicates that our features were not good predictors of the result of a game. Lichess' matchmaking system pairs opponents of similar skill levels. Thus, the difference in rating between players is often minimal, resulting in a small sample size for the bins representing larger rating differences, which may have contributed to the poor performance. Furthermore, the outcome of a chess game is highly dependent on how the players perform in the game, which is subject to variation, especially in lower-rated games due to human nature -- these are not features that we have in our data set, nor are they features that we can feasibly obtain. Our results show that it is difficult to predict the outcome of a game using the additional features that we explored and that the rating system used by platforms like Lichess is a good predictor -- we do not have any evidence to suggest how it can be improved.
 
-\subsection{Investigating the Relationship Between Base Opening Popularity and Game Results Using Linear Regression}
+\subsection{Regression Analysis of the Relationship Between Opening Popularity and Game Results}
 Next, we investigated the relationship between the popularity of a base opening and their game results. Our initial hypothesis is that the higher the win rate for White for a base opening, the more popular it will be. Our justification is that White usually dictates the opening, and they want to maximise their chances of winning. Identifying clear trends could form the foundation for future investigations into how social learning theory applies to chess openings and how much other people's preferences affect our own when we play chess.
 
-\subsubsection{Calculating Proportion of Game Results Per Base Opening}
+\subsubsection{Calculation of Proportions of Game Results Per Base Opening}
 
 \begin{figure}[H]
     \centering
@@ -285,10 +286,10 @@ Next, we investigated the relationship between the popularity of a base opening 
 
 Before applying our linear regression models, we needed to aggregate the data to obtain the proportion of game results per base openings. Our preparation involved counting the number of outcomes for each base opening and then calculating the proportions of each outcome. Note that we only included base openings with a significant sample size to remove outliers and thus improve the quality of our clustering. We required a minimum of 10,000 games, which was reasonable for the subsample of approximately 5 million. Furthermore, we filtered out the King's Pawn Game and the Queen's Pawn Game, as these openings are too generic and would add unwanted noise. Figure \ref{fig:proportionOfGameResultsForTop15BaseOpenings} shows the proportion of game results for the top 15 base openings, sorted in descending order of the number of games.
 
-\subsubsection{Implementing the Linear Regression Models}
+\subsubsection{Implementation of Linear Regression Models}
 We analysed this relationship using a linear regression model to find the relationship between the popularity of a base opening and each game result (White win, Black win, or draw) -- the popularity of a base opening was the independent variable and the game result was the dependent variable. We trained the models on the subsample of approximately 5 million games. When we later filtered the data to investigate trends for high, middle, and low rated players, we only included base openings with more than 1,000 games.
 
-\subsubsection{Results and Evaluating the Linear Regression Model for All Players}
+\subsubsection{Evaluation of the Linear Regression Model for All Players}
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear regression for White and Black win rates across all games within our subsample. Our model in Figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} has an R\textsuperscript{2} score of 0.00476 and a mean absolute error of 59245.291, while our model in Figure \ref{fig:popularityOfBaseOpeningVsBlackWinRateAllPlayers} has an R\textsuperscript{2} score of 0.00434 and a mean absolute error of 59350.082. There are some notable outliers in the plot; for example, the top-left point of Figure \ref{fig:popularityOfBaseOpeningVsWhiteWinRateAllPlayers} represents the Sicilian Defence. This opening has many variations and is considered the best reply to openings starting with the White king's pawn on e4. However, unlike most other openings, it is decided by Black's moves. Thus, it is not surprising that it has a relatively low win rate for White yet is still very popular. The same explanation applies to other defensive openings such as the French Defence, a very popular opening despite having a relatively low win rate for White.
 
 \begin{figure}[H]
@@ -312,7 +313,7 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear re
 
 The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This result suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- if every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
-\subsubsection{Results and Evaluating the Linear Regression Models for Different Rating Groups}
+\subsubsection{Evaluation of Linear Regression Models for Different Rating Groups}
 We also generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in Figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we created the linear regression models for each rating group, we found similarly poor metrics for the high and mid rating groups. However, we noticed that the low rating group had R\textsuperscript{2} scores and mean absolute errors that were significantly better.
 
 \begin{figure}[H]
@@ -367,10 +368,10 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the line
 
 Although our linear regression models were not successful in isolation, comparing the results of the models for different rating groups provided insight into the role of social learning in chess. While the fitness of the linear regression models is still not great, it is better than the models for other rating groups, suggesting a larger element of social learning in the low rating group. As lower rated players typically have less experience, they may not have strong preferences for the type of openings they play and are more likely to follow the trends of other players according to the general win rates of each opening.
 
-\subsection{Clustering Base Openings by Game Results}
+\subsection{Cluster Analysis of Openings by Game Results}
 Following our earlier exploration of the most popular base openings, we investigated whether we could cluster them by game results. Accurate clusters would allow us to identify base openings that are more likely to result in a particular outcome -- this could be useful in determining someone's style of play, thus opening the possibility for more fine-tuned analysis of match-ups between players.
 
-\subsubsection{Optimising K-Means Clustering}
+\subsubsection{Optimisation of K-Means Clustering}
 We used the percentages of each game result for our features and the elbow method to determine the optimal number of clusters. Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByGameResults} shows the elbow method for our data -- we can see that the elbow occurs at four clusters.
 
 \begin{figure}[H]
@@ -409,7 +410,7 @@ Additionally, we recorded the silhouette score for each number of clusters to va
     \end{tabular}
 \end{figure}
 
-\subsubsection{Results and Evaluating the Clusters}
+\subsubsection{Evaluation of Clusters}
 Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. It has a silhouette score of 0.479 and a within-cluster sum of squares of 50.827. Note that the axes for the win rates of either side are different, yet this is appropriate because White generally wins more games than Black due to their first-mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they result in a win rate similar to White's win rate. Conversely, Cluster 2 contains the openings highly successful for White, with a much greater delta between White's win rate and Black's win rate than expected. Cluster 3 and Cluster 0 are less distinct, but we can see that Cluster 3 shows openings with a slight advantage for Black, while Cluster 0 shows openings with a slight advantage for White.
 
 Meanwhile, Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusDraw} shows the clustering based on the win rate for White against the draw rate. It highlights the limitations of our clustering algorithm -- the clusters in this figure are much less distinct compared to the previous figure, with some slight overlap between the clusters. The draw rate does not appear to have much of an effect on the clusters -- this is likely because the draw rate is relatively low, which leaves little room for variation, meaning the effect is not strong enough to be picked up by our clustering algorithm.
@@ -436,10 +437,10 @@ In summary, our clustering algorithm was successful in differentiating between t
 
 However, our clustering algorithm was unsuccessful in differentiating between the base openings based on draw rate -- we could improve this using a different feature set, such as the number of moves played in each game. If we could generate better clusters for draw rate, we could use this to analyse whether players prefer to play more aggressive games that are more likely to end in a win or more passive games that are more likely to end in a draw. Online platforms like Lichess could account for this in their matchmaking system to ensure that players are matched with opponents of varying play styles to make player ratings more accurate over time.
 
-\subsection{Clustering Base Openings by the Mean Difference of Game Results in Variations}
+\subsection{Cluster Analysis of Openings by the Mean Difference of Game Results in Variations}
 Our final investigation sought to cluster base openings by the mean difference of the game results between their variations. For example, the Sicilian Defence notably has several variations, including the Najdorf Variation, the Dragon Variation, and the French Variation. Our initial hypothesis is that base openings will have varying degrees of difference in the outcomes between their variations. More passive openings like the Indian Defence will have little difference because their moves depend less on their opponent. Meanwhile, aggressive openings such as the King's Gambit Accepted will have bigger differences due to a more open centre, resulting in more viable moves. Accurate clusters would provide a way to quantify how passive or aggressive a base opening is -- the chess community traditionally relies on intuition and experience to make these assessments qualitatively. 
 
-\subsubsection{Calculating the Mean Difference of Game Results in Opening Variations}
+\subsubsection{Calculation of Mean Difference of Game Results in Opening Variations}
 
 \begin{figure}[H]
     \centering
@@ -479,7 +480,7 @@ Similar to previous analyses, we calculated the proportion of game results, but 
     \end{subfigure}
 \end{figure}
 
-\subsubsection{Optimising K-Means Clustering}
+\subsubsection{Optimisation of K-Means Clustering}
 We implemented k-means clustering to see if we could find meaningful clusters based on the mean difference of game results in variations. We used the elbow method to determine the number of clusters -- Figure \ref{fig:elbowMethodForBaseOpeningsClusteredByDifferenceInVariations} shows that the elbow occurs with four clusters, suggesting that this is the optimal number.
 
 \begin{figure}[H]
@@ -520,7 +521,7 @@ Furthermore, we used the silhouette method to evaluate the quality of our cluste
     \end{tabular}
 \end{figure}
 
-\subsubsection{Results and Evaluating the Clusters}
+\subsubsection{Evaluation of Clusters}
 
 \begin{figure}[H]
     \centering
