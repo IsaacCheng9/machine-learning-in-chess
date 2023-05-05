@@ -33,7 +33,7 @@
 \contentsline {subsubsection}{\numberline {4.4.1}Optimisation of K-Means Clustering}{17}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Evaluation of Clusters}{17}{subsubsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.5}Cluster Analysis of Openings by the Mean Difference of Game Results in Variations}{18}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Calculation of Mean Difference of Game Results in Opening Variations}{19}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1}Calculation of Mean Differences of Game Results in Opening Variations}{19}{subsubsection.4.5.1}%
 \contentsline {subsubsection}{\numberline {4.5.2}Optimisation of K-Means Clustering}{19}{subsubsection.4.5.2}%
 \contentsline {subsubsection}{\numberline {4.5.3}Evaluation of Clusters}{20}{subsubsection.4.5.3}%
 \contentsline {section}{\numberline {5}Project Discussion}{22}{section.5}%
