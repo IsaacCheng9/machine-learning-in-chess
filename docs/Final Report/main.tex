@@ -231,12 +231,12 @@ Delving deeper into the data, we found that the most popular base openings varie
 We sought to predict the result of a game using classifiers based on some of the features we explored in the previous subsection related to player rating and opening. Accurate predictions would provide insights into what factors are the most important in determining the outcome of a game -- this could help platforms like Lichess improve their rating system to calculate more appropriate rating changes after each game, thus making the rating system fairer and improving the user experience.
 
 \subsubsection{Evaluation of Decision Tree and Random Forest Classifier Results}
-Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We denoted the RelativeEloDiffBin and EloDiffBin features with different increments. We previously binned these features to explore the distribution of values, but we wanted to see whether using finer binning would improve the performance of our models. Hence, we tested the same model but with different binning increments, which we did not include in the table for brevity -- the increments included in the table represent those that produced the best F1 score and accuracy.
+Table \ref{table:resultsOfModelsToPredictResultOfAGame} summarises the results we obtained from our models, grouped by type of classifier and sorted by F1 score. We denoted the RelativeEloDiffBin and EloDiffBin features with different increments. We previously binned these features to explore the distribution of values, but we wanted to see whether using finer binning would improve the performance of our models. Hence, we tested the same model but with different binning increments, which we did not include in the table for brevity -- the increments included in the table represent those that produced the best F1 score and accuracy.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
     \caption{Results of Models to Predict the Result of a Game}
-    \label{fig:resultsOfModelsToPredictResultOfAGame}
+    \label{table:resultsOfModelsToPredictResultOfAGame}
     \begin{tabular}{| l | l | l | l |} 
         \hline
         \bf{Classifier} & \bf{Features} & \bf{F1 Score} & \bf{Accuracy} \\ [0.5ex] 
@@ -266,7 +266,7 @@ Figure \ref{fig:resultsOfModelsToPredictResultOfAGame} summarises the results we
         Random Forest & BaseOpening, RelativeEloDiff, TimeControl & 0.484 & 0.497 \\ 
         \hline
     \end{tabular}
-\end{figure}
+\end{table}
 
 There was little difference in the performance of our decision tree classifiers and our random forest classifiers -- both of them achieved similar F1 scores and accuracy when using the same features. However, we saw some variation in performance when using different features. We saw an improvement by binning the RelativeEloDiff values instead of using the raw values -- this is likely because it helps to smooth the noise of tiny differences and help extract the general information that varying RelativeEloDiff provides. Using 5\% increments was the sweet spot between binning too finely and thus introducing noise, and binning too broadly and losing the value of information. Meanwhile, using ECO values rather than BaseOpening values resulted in worse performance, likely due to the ECO categories being too vague, with openings in the same category being vastly different in some cases.
 
@@ -314,12 +314,12 @@ Figure \ref{fig:popularityOfBaseOpeningVsWinRatesAllPlayers} shows the linear re
 The plots and the metrics both show that the popularity of a base opening has a very weak relationship with the win rate for White and Black. This result suggests that players choose to play openings based on more complex factors than just the win rates, such as the difficulty, the length, and the number of variations of the opening. Intuitively, this makes sense -- if every player picked the opening with the highest win rate, it could cause an equilibrium where the win rate for each opening ends up being the same, thus making the strategy ineffective.
 
 \subsubsection{Evaluation of Linear Regression Models for Different Rating Groups}
-We also generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in Figure \ref{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we created the linear regression models for each rating group, we found similarly poor metrics for the high and mid rating groups. However, we noticed that the low rating group had R\textsuperscript{2} scores and mean absolute errors that were significantly better.
+We also generated linear regression models for each rating group and compared their R\textsuperscript{2} scores and mean absolute errors, as shown in Table \ref{table:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}. When we created the linear regression models for each rating group, we found similarly poor metrics for the high and mid rating groups. However, we noticed that the low rating group had R\textsuperscript{2} scores and mean absolute errors that were significantly better.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
     \caption{Metrics for Linear Regression Models of Popularity of Base Opening vs. Game Results}
-    \label{fig:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}
+    \label{table:metricsForLinearRegressionModelsOfPopularityOfBaseOpeningVsGameResults}
     \begin{tabular}{| l | l | l | l |} 
         \hline
         \bf{Rating Group} & \bf{Game Result} & \bf{R\textsuperscript{2} Score} & \bf{Mean Absolute Error} \\ [0.5ex] 
@@ -343,7 +343,7 @@ We also generated linear regression models for each rating group and compared th
         Low (1200-) & Draw & 0.0260 & 6793.426 \\
         \hline
     \end{tabular}
-\end{figure}
+\end{table}
 
 Figure \ref{fig:popularityOfBaseOpeningVsWinRatesLowRatedPlayers} shows the linear regression for White and Black win rates across games where White was rated 1200 or below. It is clear that there are stronger positive and negative correlation between White and Black win rate and the number of games played for each base opening. The notable change in the x-axes shows a broader range of win rates for White and Black -- this makes sense, as newer players tend to be more willing to try different strategies.
 
@@ -381,12 +381,12 @@ We used the percentages of each game result for our features and the elbow metho
     \includegraphics[width=0.6\textwidth]{Elbow Method for Clustering of Base Opening by Results.png}
 \end{figure}
 
-Additionally, we recorded the silhouette score for each number of clusters to validate our choice. Figure \ref{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults} shows the silhouette score for each number of clusters from three to ten -- it confirms that the optimal number of clusters is four, with the best silhouette score of 0.478.
+Additionally, we recorded the silhouette score for each number of clusters to validate our choice. Table \ref{table:silhouetteScoresForBaseOpeningsClusteredByGameResults} shows the silhouette score for each number of clusters from three to ten -- it confirms that the optimal number of clusters is four, with the best silhouette score of 0.478.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
     \caption{Silhouette Scores for K-Means Clustering of Base Openings by Game Results}
-    \label{fig:silhouetteScoresForBaseOpeningsClusteredByGameResults}
+    \label{table:silhouetteScoresForBaseOpeningsClusteredByGameResults}
     \begin{tabular}{| l | l |} 
         \hline
         \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
@@ -408,7 +408,7 @@ Additionally, we recorded the silhouette score for each number of clusters to va
         10 & 0.426 \\
         \hline
     \end{tabular}
-\end{figure}
+\end{table}
 
 \subsubsection{Evaluation of Clusters}
 Figure \ref{fig:baseOpeningsClusteredByGameResultsWhiteVersusBlack} shows how our method clustered the base openings relative to the win rate for White and Black. It has a silhouette score of 0.479 and a within-cluster sum of squares of 50.827. Note that the axes for the win rates of either side are different, yet this is appropriate because White generally wins more games than Black due to their first-mover advantage. We can see that the four clusters are fairly distinct, with the middle two clusters being the most distinct. Cluster 1 contains openings that were highly successful for Black -- they result in a win rate similar to White's win rate. Conversely, Cluster 2 contains the openings highly successful for White, with a much greater delta between White's win rate and Black's win rate than expected. Cluster 3 and Cluster 0 are less distinct, but we can see that Cluster 3 shows openings with a slight advantage for Black, while Cluster 0 shows openings with a slight advantage for White.
@@ -490,12 +490,12 @@ We implemented k-means clustering to see if we could find meaningful clusters ba
     \includegraphics[width=0.8\textwidth]{Elbow Method for Clustering of Base Opening by Difference in Variations.png}
 \end{figure}
 
-Furthermore, we used the silhouette method to evaluate the quality of our clusters. Figure \ref{fig:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations} shows that using two clusters achieves the best silhouette score of 0.810. However, using three clusters achieves a similar silhouette score of 0.712 and both scores are significantly higher than the others. Hence, considering the elbow method and the silhouette scores holistically, we decided to use three clusters, as this would provide us with more information than two clusters.
+Furthermore, we used the silhouette method to evaluate the quality of our clusters. Table \ref{table:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations} shows that using two clusters achieves the best silhouette score of 0.810. However, using three clusters achieves a similar silhouette score of 0.712 and both scores are significantly higher than the others. Hence, considering the elbow method and the silhouette scores holistically, we decided to use three clusters, as this would provide us with more information than two clusters.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
     \caption{Silhouette Scores for K-Means Clustering of Base Openings by the Mean Difference of Results in Variations}
-    \label{fig:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations}
+    \label{table:silhouetteScoresForBaseOpeningsClusteredByDifferenceInVariations}
     \begin{tabular}{| l | l |} 
         \hline
         \bf{Number of Clusters} & \bf{Silhouette Score} \\ [0.5ex] 
@@ -519,7 +519,7 @@ Furthermore, we used the silhouette method to evaluate the quality of our cluste
         10 & 0.639 \\
         \hline
     \end{tabular}
-\end{figure}
+\end{table}
 
 \subsubsection{Evaluation of Clusters}
 Figure \ref{fig:baseOpeningsClusteredByDifferenceOfResultsInVariations} shows our base openings clustered by the difference of results in variations. As shown in the previous sub-subsection, this configuration with three clusters has a within-cluster sum of squares of 61.263 and a silhouette score of 0.712, which indicates that the clusters are compact and well-separated. The quality of our clusters is visually evident, as there are three distinct clusters. Cluster 2 contains openings with a large difference between the results of variations, whereas Cluster 3 contains openings with a medium difference, and Cluster 1 contains openings with a small difference.
@@ -579,7 +579,7 @@ Future work could involve expanding the data pipeline to include more data sourc
     \centering
     \caption{Effect of Higher Rating on White Win Rate on Lichess in 2022}
     \label{fig:effectOfHigherRatingOnWhiteWinRate}
-    \includegraphics[width=0.5\textwidth]{Effect of Higher Rating on White Win Rate.png}
+    \includegraphics[width=0.55\textwidth]{Effect of Higher Rating on White Win Rate.png}
 \end{figure}
 
 \section{Additional Plots}
@@ -587,42 +587,42 @@ Future work could involve expanding the data pipeline to include more data sourc
     \centering
     \caption{Distribution of Absolute Rating Difference on Lichess in 2022}
     \label{fig:distributionOfAbsoluteRatingDifference}
-    \includegraphics[width=0.8\textwidth]{Distribution of Absolute Rating Difference.png}
+    \includegraphics[width=\textwidth]{Distribution of Absolute Rating Difference.png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Distribution of Relative Rating Difference on Lichess in 2022}
     \label{fig:distributionOfRelativeRatingDifference}
-    \includegraphics[width=0.8\textwidth]{Distribution of Relative Rating Difference.png}
+    \includegraphics[width=\textwidth]{Distribution of Relative Rating Difference.png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Mean White Win Rate for Each EloDiff Bin}
     \label{fig:meanWhiteWinRateForEachEloDiffBin}
-    \includegraphics[width=0.8\textwidth]{Mean White Win Rate for Each EloDiff Bin.png}
+    \includegraphics[width=\textwidth]{Mean White Win Rate for Each EloDiff Bin.png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Most Popular Openings by Category on Lichess in 2022 (Rated 2000 and Above)}
     \label{fig:mostPopularOpeningsByCategoryRated2000Plus}
-    \includegraphics[width=0.8\textwidth]{Most Popular Openings by Category (Rated 2000+).png}
+    \includegraphics[width=\textwidth]{Most Popular Openings by Category (Rated 2000+).png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Most Popular Base Openings on Lichess in 2022 (Rated 2000 and Above)}
     \label{fig:mostPopularOpeningsRated2000Plus}
-    \includegraphics[width=0.8\textwidth]{Most Popular Base Openings (Rated 2000+).png}
+    \includegraphics[width=\textwidth]{Most Popular Base Openings (Rated 2000+).png}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \caption{Most Popular Base Openings on Lichess in 2022 (Rated 1200 and Below)}
     \label{fig:mostPopularOpeningsRated1200Minus}
-    \includegraphics[width=0.8\textwidth]{Most Popular Base Openings (Rated 1200-).png}
+    \includegraphics[width=\textwidth]{Most Popular Base Openings (Rated 1200-).png}
 \end{figure}
 
 \section{Examples}
