@@ -8,6 +8,8 @@ Supervisor: Chico Camargo
 
 ## Project Description
 
+[Demonstration Video](https://www.youtube.com/watch?v=Vh1dLE22Oy8)
+
 Chess, one of the oldest and most popular board games, has recently seen
 large-scale exploration driven by online platforms like Lichess and Chess.com.
 This study uses data mining and machine learning techniques to analyse millions
