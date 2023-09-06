@@ -28,6 +28,10 @@ understanding how people play chess, we can develop better tools, strategies,
 and educational resources, enhancing fairness and enjoyment for players
 worldwide.
 
+## Data Pipeline
+
+![Data Pipeline](https://github.com/IsaacCheng9/machine-learning-in-chess/assets/47993930/42717fd5-a921-424c-ad46-05fc99d73c48)
+
 ## Installation
 
 ### Python Versions
