@@ -4,6 +4,8 @@ A final year project for the University of Exeter, using data mining and machine
 learning to understand patterns in chess games over the scale of millions of
 games.
 
+Ranked 1st in the cohort for undergraduate projects, with a final grade of 85%.
+
 Supervisor: Chico Camargo
 
 ## Project Description
