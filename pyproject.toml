@@ -19,6 +19,7 @@ seaborn = "0.12.2"
 stockfish = "3.28.0"
 tqdm = "4.65.0"
 ipykernel = "^6.29.4"
+pyarrow = "^15.0.2"
 
 [[tool.poetry.packages]]
 include = "machine_learning_in_chess"
