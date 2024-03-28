@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "machine-learning-in-chess"
+version = "0.1.0"
+description = "A final year project for the University of Exeter, using data mining and machine learning to understand patterns in chess games over the scale of millions of games (~350 GB). Ranked 1st in the cohort for overall grade (85%)."
+authors = ["Isaac Cheng <47993930+IsaacCheng9@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.11.0"
+chess = "1.9.4"
+dask = "2023.2.0"
+matplotlib = "3.7.0"
+numpy = "1.24.2"
+pandas = "1.5.3"
+pexpect = "4.8.0"
+scikit-learn = "1.2.1"
+scipy = "1.10.1"
+seaborn = "0.12.2"
+stockfish = "3.28.0"
+tqdm = "4.65.0"
+ipykernel = "^6.29.4"
+pyarrow = "^15.0.2"
+
+[[tool.poetry.packages]]
+include = "machine_learning_in_chess"
+from = "src"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -2,7 +2,7 @@
 
 A final year project for the University of Exeter, using data mining and machine
 learning to understand patterns in chess games over the scale of millions of
-games.
+games (~350 GB).
 
 Ranked 1st in the cohort for undergraduate projects, with a final grade of 85%.
 
@@ -36,17 +36,12 @@ worldwide.
 
 ## Installation
 
-### Python Versions
+We use Poetry for package management. Run the following the project root,
+[machine-learning-in-chess](/) directory:
 
-This project has been developed and tested to work on Python 3.11, but it should
-work for Python 3.8 onwards. We recommend that you run this project on
-Python 3.11, as it is
-[25% faster than Python 3.10 on average](https://docs.python.org/3/whatsnew/3.11.html#whatsnew311-faster-cpython).
-
-### Installing Dependencies
-
-1. Ensure that you're in the root directory: `machine-learning-in-chess`
-2. Install the Python dependencies: `pip install -r requirements.txt`
+```shell
+poetry install
+```
 
 ## External Libraries
 
@@ -110,7 +105,7 @@ directory. This is also the default data set used in the Jupyter Notebook where
 we perform the analysis.
 
 To run the analysis on the provided data set, run the code in
-[analyse_chess_data.ipynb](/src/analyse_chess_data.ipynb).
+[analyse_chess_data.ipynb](/src/machine_learning_in_chess/analyse_chess_data.ipynb).
 
 ### Analysis of Different Data Sets
 
@@ -126,7 +121,8 @@ you can follow these steps to reproduce the results:
    - See the section above for detailed instructions:
      [Splitting a PGN File with pgn-extract](#splitting-a-pgn-file-with-pgn-extract)
 4. Extract the game metadata from PGN files to a CSV file and a folder of
-   Parquet files by running [convert_pgn_to_parquet.py](/src/convert_pgn_to_parquet.py)
+   Parquet files by running
+   [convert_pgn_to_parquet.py](/src/machine_learning_in_chess/convert_pgn_to_parquet.py)
    and providing the name of the original PGN file (before it was split, e.g.
    `lichess_db_standard_rated_2022-01.pgn`).
    - This will output a folder of Parquet files, as well as a CSV file that
@@ -135,11 +131,12 @@ you can follow these steps to reproduce the results:
 5. (Optional) If you want to use data sets from multiple months (like in our
    study), merge the CSV files from the previous step into a single CSV file and
    a folder of Parquet files by running
-   [merge_csv_files.py](/src/merge_csv_files.py) and providing the paths of the
-   CSV files to merge.
+   [merge_csv_files.py](/src/machine_learning_in_chess/merge_csv_files.py) and
+   providing the paths of the CSV files to merge.
 6. Change the `DATA_PATH` variable to the path of the directory containing the
-   Parquet files in [analyse_csv_data.ipynb](/src/analyse_chess_data.ipynb), and
-   then run the notebook.
+   Parquet files in
+   [analyse_csv_data.ipynb](/src/machine_learning_in_chess/analyse_chess_data.ipynb),
+   and then run the notebook.
 
 ### Manual Data Exploration
 
@@ -147,7 +144,7 @@ If you want to manually explore the data, we have provided a program to convert
 the CSV output to an SQLite3 file (`.db`). This makes it easy to perform queries
 and sorting, as the CSV file outputs may be too large to view directly.
 
-1. Run [convert_csv_to_sqlite3.py](/src/convert_csv_to_sqlite3.py).
+1. Run [convert_csv_to_sqlite3.py](/src/machine_learning_in_chess/convert_csv_to_sqlite3.py).
 2. Enter the path to the CSV file to convert
    (e.g. `lichess_db_standard_rated_2022-01.csv`).
 3. View the output SQLite3 file (e.g. `lichess_db_standard_rated_2022-01.db`) in
